@@ -1,319 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zak Whatmough — Investment Research</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ── Reset & base ───────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: #F8F9FA;
-      color: #1C2833;
-      line-height: 1.6;
-    }
-    a { color: inherit; text-decoration: none; }
-
-    /* ── Layout ─────────────────────────────────────────────────────── */
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
-
-    /* ── Header ─────────────────────────────────────────────────────── */
-    header {
-      background: #0D1B2A;
-      padding: 52px 0 44px;
-      border-bottom: 3px solid #2E86AB;
-    }
-    header .container { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; }
-    .header-left h1 {
-      font-size: 1.85rem; font-weight: 700; color: #fff;
-      letter-spacing: -0.02em;
-    }
-    .header-left .subtitle {
-      margin-top: 6px; color: #95A5A6; font-size: 0.9rem; font-weight: 400;
-    }
-    .header-right { text-align: right; }
-    .header-right .badge {
-      display: inline-block; background: #1B4F72; color: #F9E79F;
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em;
-      padding: 4px 12px; border-radius: 3px; text-transform: uppercase;
-    }
-    .header-right .links {
-      margin-top: 12px; display: flex; gap: 16px; justify-content: flex-end;
-    }
-    .header-right .links a {
-      color: #95A5A6; font-size: 0.82rem; font-weight: 500;
-      transition: color 0.2s;
-    }
-    .header-right .links a:hover { color: #2E86AB; }
-
-    /* ── About strip ────────────────────────────────────────────────── */
-    .about-strip {
-      background: #1B4F72; padding: 20px 0;
-    }
-    .about-strip .container {
-      display: flex; gap: 40px; align-items: center; flex-wrap: wrap;
-    }
-    .about-strip p { color: #D6EAF8; font-size: 0.875rem; flex: 1; min-width: 260px; }
-    .about-strip .tags { display: flex; gap: 8px; flex-wrap: wrap; }
-    .about-strip .tag {
-      background: rgba(255,255,255,0.12); color: #D6EAF8;
-      font-size: 0.72rem; padding: 3px 10px; border-radius: 12px;
-      font-weight: 500;
-    }
-
-    /* ── Section titles ─────────────────────────────────────────────── */
-    .section-title {
-      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #2E86AB;
-      margin-bottom: 20px; padding-bottom: 8px;
-      border-bottom: 2px solid #2E86AB;
-    }
-
-    /* ── Memo grid ──────────────────────────────────────────────────── */
-    .memos-section { padding: 48px 0 64px; }
-    .memos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 20px;
-    }
-    .memo-card {
-      background: #fff;
-      border: 1px solid #E8EAEC;
-      border-radius: 6px;
-      padding: 24px;
-      transition: box-shadow 0.2s, border-color 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-    .memo-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.09); border-color: #2E86AB; }
-    .memo-card::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
-      width: 3px; background: #2E86AB;
-    }
-    .memo-meta {
-      display: flex; gap: 10px; align-items: center; margin-bottom: 12px;
-    }
-    .memo-num {
-      background: #0D1B2A; color: #fff; font-size: 0.68rem;
-      font-weight: 700; padding: 2px 8px; border-radius: 3px;
-    }
-    .memo-date { color: #95A5A6; font-size: 0.78rem; }
-    .memo-sector {
-      margin-left: auto; background: #EAF4FB; color: #1B4F72;
-      font-size: 0.68rem; font-weight: 600; padding: 2px 8px; border-radius: 10px;
-    }
-    .memo-card h3 {
-      font-size: 1.0rem; font-weight: 600; color: #0D1B2A;
-      margin-bottom: 8px; line-height: 1.35;
-    }
-    .memo-card .thesis {
-      font-size: 0.825rem; color: #555; margin-bottom: 14px; line-height: 1.5;
-    }
-    .memo-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-    .memo-tags span {
-      background: #F4F6F8; color: #444; font-size: 0.7rem;
-      padding: 2px 9px; border-radius: 10px;
-    }
-    .memo-call {
-      display: inline-block; font-size: 0.73rem; font-weight: 700;
-      padding: 4px 12px; border-radius: 3px; margin-bottom: 14px;
-    }
-    .memo-call.favourable { background: #D5F5E3; color: #1E8449; }
-    .memo-call.watchlist  { background: #FEF9E7; color: #9A7D0A; }
-    .memo-call.caution    { background: #FADBD8; color: #922B21; }
-    .memo-links { display: flex; gap: 12px; }
-    .memo-links a {
-      font-size: 0.78rem; font-weight: 600; color: #2E86AB;
-      border: 1px solid #AED6F1; padding: 5px 14px; border-radius: 4px;
-      transition: background 0.15s;
-    }
-    .memo-links a:hover { background: #EAF4FB; }
-    .memo-links a.primary {
-      background: #2E86AB; color: #fff; border-color: #2E86AB;
-    }
-    .memo-links a.primary:hover { background: #1B4F72; border-color: #1B4F72; }
-
-    /* ── Coming soon card ───────────────────────────────────────────── */
-    .memo-card.coming-soon {
-      background: #FAFBFC; border-style: dashed; opacity: 0.7;
-    }
-    .memo-card.coming-soon::before { background: #BDC3C7; }
-    .coming-label {
-      font-size: 0.72rem; font-weight: 600; color: #95A5A6;
-      text-transform: uppercase; letter-spacing: 0.08em;
-    }
-
-    /* ── About section ──────────────────────────────────────────────── */
-    .about-section { background: #fff; border-top: 1px solid #E8EAEC; padding: 44px 0; }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-    .about-grid h2 { font-size: 1.0rem; font-weight: 600; margin-bottom: 10px; color: #0D1B2A; }
-    .about-grid p, .about-grid li {
-      font-size: 0.85rem; color: #555; line-height: 1.65;
-    }
-    .about-grid ul { padding-left: 18px; }
-    .about-grid ul li { margin-bottom: 4px; }
-
-    /* ── Footer ─────────────────────────────────────────────────────── */
-    footer {
-      background: #0D1B2A; padding: 24px 0;
-      border-top: 2px solid #1B4F72;
-    }
-    footer .container {
-      display: flex; justify-content: space-between; align-items: center;
-      flex-wrap: wrap; gap: 10px;
-    }
-    footer p { color: #7F8C8D; font-size: 0.78rem; }
-    footer .disclaimer {
-      font-size: 0.7rem; color: #555; max-width: 500px; text-align: right;
-    }
-
-    /* ── Responsive ─────────────────────────────────────────────────── */
-    @media (max-width: 640px) {
-      header .container { flex-direction: column; align-items: flex-start; }
-      .header-right { text-align: left; }
-      .header-right .links { justify-content: flex-start; }
-      .about-grid { grid-template-columns: 1fr; }
-      footer .container { flex-direction: column; }
-      footer .disclaimer { text-align: left; }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    body {background-color: #f6f7f9}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #839495; -webkit-text-stroke: #839495}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 8.6px 'Helvetica Neue'; color: #f7e38e; -webkit-text-stroke: #f7e38e}
+    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 9.8px 'Helvetica Neue'; color: #839495; -webkit-text-stroke: #839495}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.5px 'Helvetica Neue'; color: #cde5f6; -webkit-text-stroke: #cde5f6}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #cde5f6; -webkit-text-stroke: #cde5f6; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.12)}
+    p.p7 {margin: 0.0px 0.0px 20.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #26739b; -webkit-text-stroke: #26739b}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.2px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #0c141f}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #839495; -webkit-text-stroke: #839495}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.2px 'Helvetica Neue'; color: #163d5f; -webkit-text-stroke: #163d5f; background-color: #e5f1fa}
+    p.p12 {margin: 0.0px 0.0px 14.0px 0.0px; font: 9.9px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #343434; -webkit-text-stroke: #343434; background-color: #f1f4f6}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.8px 'Helvetica Neue'; color: #1c7439; -webkit-text-stroke: #1c7439; background-color: #ccf4dc}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #26739b}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #26739b; -webkit-text-stroke: #26739b}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #839495; -webkit-text-stroke: #839495}
+    p.p19 {margin: 0.0px 0.0px 14.0px 0.0px; font: 9.9px 'Helvetica Neue'; color: #afb6bb; -webkit-text-stroke: #afb6bb}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Helvetica Neue'; color: #646464; -webkit-text-stroke: #646464}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #6c797a; -webkit-text-stroke: #6c797a}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: right; font: 8.4px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    li.li22 {margin: 0.0px 0.0px 4.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #434343; -webkit-text-stroke: #434343}
+    span.s1 {font-kerning: none; background-color: #0c141f}
+    span.s2 {font: 10.8px 'Helvetica Neue'; font-kerning: none; background-color: #0c141f; -webkit-text-stroke: 0px #000000}
+    span.s3 {font-kerning: none; background-color: #163d5f}
+    span.s4 {font: 9.8px 'Helvetica Neue'; font-kerning: none; color: #839495; -webkit-text-stroke: 0px #839495}
+    span.s5 {font-kerning: none}
+    span.s6 {font-kerning: none; background-color: #ffffff}
+    span.s7 {font: 9.4px 'Helvetica Neue'; font-kerning: none; color: #ffffff; background-color: #26739b; -webkit-text-stroke: 0px #ffffff}
+    span.s8 {font-kerning: none; color: #26739b; -webkit-text-stroke: 0px #26739b}
+    span.s9 {font-kerning: none; color: #6c797a; background-color: #ffffff; -webkit-text-stroke: 0px #6c797a}
+    span.s10 {font-kerning: none; background-color: #f9fafb}
+    span.s11 {background-color: #ffffff; -webkit-text-stroke: 0px #000000}
+    ul.ul1 {list-style-type: disc}
   </style>
 </head>
 <body>
-
-  <!-- HEADER -->
-  <header>
-    <div class="container">
-      <div class="header-left">
-        <h1>Zak Whatmough</h1>
-        <p class="subtitle">Investment Research &nbsp;·&nbsp; One-Page Memo Series &nbsp;·&nbsp; Economics, University of [Your University]</p>
-      </div>
-      <div class="header-right">
-        <span class="badge">Independent Research</span>
-        <div class="links">
-          <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
-          <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn ↗</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ABOUT STRIP -->
-  <div class="about-strip">
-    <div class="container">
-      <p>A series of one-page investment memos produced to develop institutional-grade research skills.
-         Each memo covers a sector, macro theme, or structural trend — written to the standard of
-         buy-side morning notes and investment committee briefs.</p>
-      <div class="tags">
-        <span class="tag">Buy-side style</span>
-        <span class="tag">Investment thesis</span>
-        <span class="tag">Macro & markets</span>
-        <span class="tag">Valuation analysis</span>
-        <span class="tag">Risk assessment</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- MEMOS -->
-  <section class="memos-section">
-    <div class="container">
-      <p class="section-title">Published Memos</p>
-      <div class="memos-grid">
-
-        <!-- MEMO 1 -->
-        <div class="memo-card">
-          <div class="memo-meta">
-            <span class="memo-num">MEMO 01</span>
-            <span class="memo-date">March 2026</span>
-            <span class="memo-sector">Technology / Infrastructure</span>
-          </div>
-          <h3>AI Infrastructure: The Picks-and-Shovels Play Beyond the Model Race</h3>
-          <p class="thesis">As hyperscaler capex accelerates toward $600bn in 2026, the structural
-            beneficiaries are not the model makers — but the enablers: power, cooling, and networking
-            infrastructure, which trade at a material discount to their end-demand.</p>
-          <div class="memo-tags">
-            <span>AI Capex Cycle</span>
-            <span>Power Infrastructure</span>
-            <span>Valuation Mispricing</span>
-            <span>VRT · GEV · PWR · ANET</span>
-          </div>
-          <div class="memo-call favourable">Risk-reward increasingly favourable</div>
-          <div class="memo-links">
-            <a class="primary" href="memos/memo-01-ai-infrastructure.pdf" target="_blank">View PDF</a>
-            <a href="memos/memo-01-ai-infrastructure.docx" title="Editable Word document">Word (.docx)</a>
-            <a href="memos/memo-01-supporting-data.xlsx" title="Supporting data: valuation comparison, power demand, and capex tables with charts">Data (.xlsx)</a>
-          </div>
-          <p style="margin-top:10px; font-size:0.72rem; color:#95A5A6; line-height:1.5;">
-            <strong style="color:#7F8C8D;">Downloads:</strong>
-            PDF = final memo &nbsp;·&nbsp;
-            Word = editable source &nbsp;·&nbsp;
-            Excel = supporting data &amp; charts (valuation comparison, power demand, CapEx tables)
-          </p>
-        </div>
-
-        <!-- PLACEHOLDER — MEMO 2 -->
-        <div class="memo-card coming-soon">
-          <div class="memo-meta">
-            <span class="memo-num">MEMO 02</span>
-            <span class="memo-date">Coming soon</span>
-          </div>
-          <p class="coming-label">Next memo</p>
-          <h3 style="color:#95A5A6; margin-top:8px;">Topic to be published</h3>
-          <p class="thesis" style="color:#BDC3C7;">
-            The series continues. Upcoming themes include: Europe vs US equity valuation gap,
-            UK housebuilders post-rate cuts, or copper super-cycle thesis.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about-section">
-    <div class="container">
-      <p class="section-title">About This Series</p>
-      <div class="about-grid">
-        <div>
-          <h2>Why one-pagers?</h2>
-          <p>Professional investment research demands extreme concision. Each memo must
-            communicate a complete investment thesis — data, risks, and a clear stance —
-            on a single page. This mirrors the format used in asset management morning notes,
-            investment committee briefs, and private equity screening memos.</p>
-        </div>
-        <div>
-          <h2>Methodology</h2>
-          <ul>
-            <li>Identify a sector, macro theme, or structural trend</li>
-            <li>Form a falsifiable thesis with data anchors</li>
-            <li>Identify the key constraint or transmission mechanism</li>
-            <li>Quantify the mispricing or opportunity</li>
-            <li>Articulate the catalyst and exit condition</li>
-            <li>Risk-weight the case honestly</li>
-          </ul>
-          <p style="margin-top:14px; font-size:0.8rem; color:#777; line-height:1.6;">
-            Each memo is accompanied by a supporting Excel workbook containing the
-            underlying data tables and charts used in the analysis — available as a
-            secondary download for those who want to examine the data directly.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <p>Zak Whatmough &nbsp;·&nbsp; Investment Research Series &nbsp;·&nbsp; 2026</p>
-      <p class="disclaimer">
-        For educational purposes only. Not investment advice. All views are personal and
-        do not represent any institution. Sources cited within each memo.
-      </p>
-    </div>
-  </footer>
-
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 22.2px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1">Zak Whatmough</span></h1>
+<p class="p2"><span class="s1">Investment Research  ·  One-Page Memo Series  ·  BSc Economics, Manchester Metrop</span><span class="s2">oli</span><span class="s1">tan University</span></p>
+<p class="p3"><span class="s3">INDEPENDENT RESEARCH</span></p>
+<p class="p4"><span class="s1"><a href="mailto:z.whatmough@hotmail.co.uk">Email<span class="s4"></span></a></span></p>
+<p class="p4"><span class="s1"><a href="http://www.linkedin.com/in/zak-whatmough">LinkedIn ↗<span class="s4"></span></a></span></p>
+<p class="p5"><span class="s3">A series of one-page investment memos produced to develop institutional-grade research skills. Each memo covers a sector, macro theme, or structural trend — written to the standard of buy-side morning notes and investment committee briefs.</span></p>
+<p class="p6"><span class="s5">Buy-side style</span></p>
+<p class="p6"><span class="s5">Investment thesis</span></p>
+<p class="p6"><span class="s5">Macro &amp; markets</span></p>
+<p class="p6"><span class="s5">Valuation analysis</span></p>
+<p class="p6"><span class="s5">Risk assessment</span></p>
+<p class="p7"><span class="s5">PUBLISHED MEMOS</span></p>
+<p class="p8"><span class="s5">MEMO 01</span></p>
+<p class="p9"><span class="s6">March 2026</span></p>
+<p class="p10"><span class="s5">Technology / Infrastructure</span></p>
+<h3 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0c141f; -webkit-text-stroke: #0c141f"><span class="s6">AI Infrastructure: The Picks-and-Shovels Play Beyond the Model Race</span></h3>
+<p class="p12"><span class="s6">As hyperscaler capex accelerates toward $600bn in 2026, the structural beneficiaries are not the model makers — but the enablers: power, cooling, and networking infrastructure, which trade at a material discount to their end-demand.</span></p>
+<p class="p13"><span class="s5">AI Capex Cycle</span></p>
+<p class="p13"><span class="s5">Power Infrastructure</span></p>
+<p class="p13"><span class="s5">Valuation Mispricing</span></p>
+<p class="p13"><span class="s5">VRT · GEV · PWR · ANET</span></p>
+<p class="p14"><span class="s5">Risk-reward increasingly favourable</span></p>
+<p class="p15"><span class="s5"><a href="file:///Users/zwhatmough/Downloads/investment-research-site/memos/memo-01-ai-infrastructure.pdf">View PDF<span class="s7"></span></a></span></p>
+<p class="p16"><span class="s6"><a href="file:///Users/zwhatmough/Downloads/investment-research-site/memos/memo-01-ai-infrastructure.docx">Word (.docx)<span class="s8"></span></a></span></p>
+<p class="p16"><span class="s6"><a href="file:///Users/zwhatmough/Downloads/investment-research-site/memos/memo-01-supporting-data.xlsx">Data (.xlsx)<span class="s8"></span></a></span></p>
+<p class="p17"><span class="s9">Downloads:</span><span class="s6"> PDF = final memo  ·  Word = editable source  ·  Excel = supporting data &amp; charts (valuation comparison, power demand, CapEx tables)</span></p>
+<p class="p8"><span class="s5">MEMO 02</span></p>
+<p class="p9"><span class="s10">Coming soon</span></p>
+<p class="p17"><span class="s10">NEXT MEMO</span></p>
+<h3 style="margin: 0.0px 0.0px 8.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #839495; -webkit-text-stroke: #839495"><span class="s10">Topic to be published</span></h3>
+<p class="p19"><span class="s10">The series continues. Upcoming themes include: Europe vs US equity valuation gap, UK housebuilders post-rate cuts, or copper super-cycle thesis.</span></p>
+<p class="p7"><span class="s6">ABOUT THIS SERIES</span></p>
+<h2 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0c141f; -webkit-text-stroke: #0c141f"><span class="s6">Why one-pagers?</span></h2>
+<p class="p21"><span class="s6">Professional investment research demands extreme concision. Each memo must communicate a complete investment thesis — data, risks, and a clear stance — on a single page. This mirrors the format used in asset management morning notes, investment committee briefs, and private equity screening memos.</span></p>
+<h2 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #0c141f; -webkit-text-stroke: #0c141f"><span class="s6">Methodology</span></h2>
+<ul class="ul1">
+  <li class="li22"><span class="s11"></span><span class="s6">Identify a sector, macro theme, or structural trend</span></li>
+  <li class="li22"><span class="s11"></span><span class="s6">Form a falsifiable thesis with data anchors</span></li>
+  <li class="li22"><span class="s11"></span><span class="s6">Identify the key constraint or transmission mechanism</span></li>
+  <li class="li22"><span class="s11"></span><span class="s6">Quantify the mispricing or opportunity</span></li>
+  <li class="li22"><span class="s11"></span><span class="s6">Articulate the catalyst and exit condition</span></li>
+  <li class="li22"><span class="s11"></span><span class="s6">Risk-weight the case honestly</span></li>
+</ul>
+<p class="p23"><span class="s6">Each memo is accompanied by a supporting Excel workbook containing the underlying data tables and charts used in the analysis — available as a secondary download for those who want to examine the data directly.</span></p>
+<p class="p24"><span class="s1">Zak Whatmough  ·  Investment Research Series  ·  2026</span></p>
+<p class="p25"><span class="s1">For educational purposes only. Not investment advice. All views are personal and do not represent any institution. Sources cited within each memo.</span></p>
 </body>
 </html>
