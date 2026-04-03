@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>easyJet Audit Risk Review | Zak Whatmough</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #F4F6F8;
+      color: #1C2833;
+      line-height: 1.6;
+    }
+
+    .site-header {
+      background: #0D1B2A;
+      padding: 48px 0 40px;
+    }
+    .header-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .header-inner h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+    .header-sub {
+      font-size: 14px;
+      color: #ADB5BD;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .header-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .header-links a {
+      font-size: 13px;
+      color: #ADB5BD;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .header-links a:hover {
+      color: #FFFFFF;
+      border-color: rgba(255,255,255,0.4);
+    }
+
+    .about-strip {
+      background: #1B4F72;
+      padding: 20px 0;
+    }
+    .about-strip-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .about-strip p {
+      font-size: 13.5px;
+      color: #D6EAF8;
+      max-width: 560px;
+      line-height: 1.65;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: flex-start;
+      padding-top: 2px;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 500;
+      color: #AED6F1;
+      border: 1px solid rgba(174,214,241,0.35);
+      border-radius: 3px;
+      padding: 3px 8px;
+      white-space: nowrap;
+    }
+
+    .main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2E86AB;
+      margin-bottom: 20px;
+    }
+    .memo-card,
+    .about-section {
+      background: #FFFFFF;
+      border-radius: 6px;
+      border: 1px solid #E0E6EA;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      margin-bottom: 24px;
+    }
+    .memo-card-header {
+      background: #0D1B2A;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .memo-number {
+      font-size: 11px;
+      font-weight: 600;
+      color: #ADB5BD;
+      letter-spacing: 0.1em;
+    }
+    .memo-date {
+      font-size: 11px;
+      color: #6C7A7D;
+    }
+    .memo-card-body {
+      padding: 16px 20px 0;
+    }
+    .memo-sector {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      color: #1B4F72;
+      background: #E8F4FB;
+      border-radius: 3px;
+      padding: 2px 8px;
+      margin-bottom: 10px;
+    }
+    .memo-card-body h2 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #0D1B2A;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      letter-spacing: -0.2px;
+    }
+    .memo-thesis {
+      font-size: 13px;
+      color: #4A5568;
+      line-height: 1.65;
+      margin-bottom: 14px;
+    }
+    .memo-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 12px;
+    }
+    .memo-tag {
+      font-size: 11px;
+      color: #5D6D7E;
+      background: #F4F6F8;
+      border: 1px solid #DDE2E6;
+      border-radius: 3px;
+      padding: 2px 8px;
+    }
+    .memo-call {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #1A7A40;
+      background: #D5F5E3;
+      border-radius: 3px;
+      padding: 3px 10px;
+      margin-bottom: 14px;
+    }
+    .memo-card-footer {
+      border-top: 1px solid #EDF0F2;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .memo-link-primary {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: #1B4F72;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 4px;
+    }
+    .memo-link-secondary {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: #2E86AB;
+      text-decoration: none;
+      padding: 6px 12px;
+      border: 1px solid #BDD5E5;
+      border-radius: 4px;
+    }
+    .download-note {
+      width: 100%;
+      font-size: 11px;
+      color: #95A5A6;
+      padding-top: 4px;
+    }
+    .about-section {
+      padding: 28px 28px;
+    }
+    .about-section h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0D1B2A;
+      margin-bottom: 10px;
+    }
+    .about-section p {
+      font-size: 13px;
+      color: #4A5568;
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+    .method-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 24px;
+    }
+    .method-list li {
+      font-size: 12.5px;
+      color: #5D6D7E;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .method-list li::before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      color: #2E86AB;
+      font-weight: 600;
+    }
+    .site-footer {
+      background: #0D1B2A;
+      padding: 22px 0;
+    }
+    .footer-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .footer-inner p {
+      font-size: 11.5px;
+      color: #6C7A7D;
+    }
+    @media (max-width: 600px) {
+      .header-inner h1 { font-size: 22px; }
+      .about-strip-inner { flex-direction: column; }
+      .method-list { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1>Zak Whatmough</h1>
+      <p class="header-sub">Portfolio Project · Audit Risk Review · easyJet plc FY2025</p>
+      <div class="header-links">
+        <a href="../index.html">Back to Main Portfolio</a>
+        <a href="mailto:z.whatmough@hotmail.co.uk">Contact</a>
+        <a href="https://github.com/zwhatmough/investment-research/tree/main/easyjet-audit-risk-review" target="_blank">GitHub Folder</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="about-strip">
+    <div class="about-strip-inner">
+      <p>An audit-style review of easyJet plc FY2025 built to demonstrate practical financial statement analysis, audit planning judgement, IFRS-aware commentary, and clear professional communication for graduate roles in audit, accounting advisory, and transaction services.</p>
+      <div class="tags">
+        <span class="tag">Audit planning</span>
+        <span class="tag">IFRS 15</span>
+        <span class="tag">Lease analysis</span>
+        <span class="tag">Deferred revenue</span>
+        <span class="tag">Excel and Python</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="main">
+    <p class="section-label">Portfolio Project</p>
+
+    <div class="memo-card">
+      <div class="memo-card-header">
+        <span class="memo-number">AUDIT PROJECT 01</span>
+        <span class="memo-date">April 2026</span>
+      </div>
+      <div class="memo-card-body">
+        <span class="memo-sector">Audit / Financial Reporting / Transaction Services</span>
+        <h2>easyJet plc FY2025: Audit Risk Review</h2>
+        <p class="memo-thesis">A financial reporting and audit-planning review built around easyJet's published FY2025 statements. The project focuses on revenue cut-off, deferred revenue, lease-heavy capital structure, maintenance provisions, liquidity, and evidence-led analytical review, supported by an Excel workbook and Python-generated workings.</p>
+        <div class="memo-tags">
+          <span class="memo-tag">Revenue recognition timing</span>
+          <span class="memo-tag">Deferred revenue</span>
+          <span class="memo-tag">Lease liabilities</span>
+          <span class="memo-tag">Maintenance provision</span>
+          <span class="memo-tag">Analytical review</span>
+        </div>
+        <span class="memo-call">Built to show practical audit judgement, not academic theory</span>
+      </div>
+      <div class="memo-card-footer">
+        <a class="memo-link-primary" href="./docs/easyjet-audit-risk-review.pdf" target="_blank">View PDF</a>
+        <a class="memo-link-secondary" href="./docs/easyjet-audit-risk-review.docx">Word (.docx)</a>
+        <a class="memo-link-secondary" href="./data/easyjet-audit-risk-review.xlsx">Workbook (.xlsx)</a>
+        <a class="memo-link-secondary" href="./scripts/generate_easyjet_analysis.py">Analysis Script (.py)</a>
+        <a class="memo-link-secondary" href="./scripts/build_audit_report.py">Build Script (.py)</a>
+        <a class="memo-link-secondary" href="https://github.com/zwhatmough/investment-research/tree/main/easyjet-audit-risk-review" target="_blank">README / Folder</a>
+        <span class="download-note">PDF = final report · Word = editable memo · Excel = raw financials, ratio calculations, audit flags and workings · Python = build support</span>
+      </div>
+    </div>
+
+    <p class="section-label">Project Notes</p>
+
+    <div class="about-section">
+      <h3>What this demonstrates</h3>
+      <p>This project was designed as recruiter-facing evidence of financial statement analysis, audit risk assessment, IFRS judgement awareness, and practical written communication. It is intentionally structured more like an audit planning memo than a university essay.</p>
+
+      <h3>What is included</h3>
+      <ul class="method-list">
+        <li>Word report with audit-style commentary</li>
+        <li>PDF version for final presentation</li>
+        <li>Excel workbook with raw data and ratios</li>
+        <li>Audit flags and support schedules</li>
+        <li>Python scripts used to structure the workings</li>
+        <li>Direct file access for recruiter review</li>
+      </ul>
+      <br>
+      <p style="margin-bottom:0;">The analysis is built around airline-specific realities rather than generic ratio templates, including customer prepayments, revenue recognition timing, lease liabilities, maintenance obligations, and liquidity sensitivity.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>Zak Whatmough · Portfolio Project · 2026</p>
+      <p>For portfolio and application use only. Views are personal and for educational purposes.</p>
+    </div>
+  </footer>
+</body>
+</html>
