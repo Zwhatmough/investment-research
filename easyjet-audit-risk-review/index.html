@@ -201,7 +201,9 @@
       text-decoration: none;
       padding: 6px 14px;
       border-radius: 4px;
+      transition: background 0.15s;
     }
+    .memo-link-primary:hover { background: #154360; }
     .memo-link-secondary {
       font-size: 12.5px;
       font-weight: 500;
@@ -210,6 +212,11 @@
       padding: 6px 12px;
       border: 1px solid #BDD5E5;
       border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .memo-link-secondary:hover {
+      background: #EAF4FA;
+      border-color: #2E86AB;
     }
     .download-note {
       width: 100%;
@@ -282,10 +289,11 @@
   <header class="site-header">
     <div class="header-inner">
       <h1>Zak Whatmough</h1>
-      <p class="header-sub">Portfolio Project · Audit Risk Review · easyJet plc FY2025</p>
+      <p class="header-sub">Portfolio Project &middot; Audit Risk Review &middot; easyJet plc FY2025</p>
       <div class="header-links">
         <a href="../index.html">Back to Main Portfolio</a>
         <a href="mailto:z.whatmough@hotmail.co.uk">Contact</a>
+        <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
         <a href="https://github.com/zwhatmough/investment-research/tree/main/easyjet-audit-risk-review" target="_blank">GitHub Folder</a>
       </div>
     </div>
@@ -332,7 +340,7 @@
         <a class="memo-link-secondary" href="./scripts/generate_easyjet_analysis.py">Analysis Script (.py)</a>
         <a class="memo-link-secondary" href="./scripts/build_audit_report.py">Build Script (.py)</a>
         <a class="memo-link-secondary" href="https://github.com/zwhatmough/investment-research/tree/main/easyjet-audit-risk-review" target="_blank">README / Folder</a>
-        <span class="download-note">PDF = final report · Word = editable memo · Excel = raw financials, ratio calculations, audit flags and workings · Python = build support</span>
+        <span class="download-note">PDF = final report &middot; Word = editable memo &middot; Excel = raw financials, ratio calculations, audit flags and workings &middot; Python = build support</span>
       </div>
     </div>
 
@@ -358,7 +366,7 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>Zak Whatmough · Portfolio Project · 2026</p>
+      <p>Zak Whatmough &middot; Portfolio Project &middot; 2026</p>
       <p>For portfolio and application use only. Views are personal and for educational purposes.</p>
     </div>
   </footer>
