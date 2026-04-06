@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zak Whatmough - Portfolio &middot; Investment Memo Series</title>
+    <title>Investment Memos | Zak Whatmough Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -13,280 +13,249 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F4F6F8;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F4F6F8;
             color: #333;
             line-height: 1.6;
         }
 
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        .content-wrapper {
-            flex: 1;
-        }
-
-        /* Header */
         header {
-            background-color: #0D1B2A;
-            color: white;
-            padding: 2.5rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: #0D1B2A;
+            padding: 32px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
-        header .container {
+        .header-content {
             max-width: 860px;
             margin: 0 auto;
-        }
-
-        header h1 {
-            font-size: 1.75rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        header .subtitle {
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #aaa;
-            margin-bottom: 1.5rem;
-        }
-
-        header .links {
+            padding: 0 20px;
             display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            align-items: center;
-            font-size: 0.9rem;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
         }
 
-        header a {
+        .header-text h1 {
+            font-size: 28px;
+            font-weight: 600;
             color: white;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: all 0.2s;
+            margin-bottom: 6px;
         }
 
-        header a:hover {
-            border-color: rgba(255, 255, 255, 0.6);
-            color: #e0e0e0;
-        }
-
-        /* Container */
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* About Strip */
-        .about-strip {
-            background-color: #1B4F72;
-            color: white;
-            padding: 2.5rem 2rem;
-            margin: 2rem 0;
-        }
-
-        .about-strip .container {
-            max-width: 860px;
-            margin: 0 auto;
-        }
-
-        .about-strip p {
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-strip .tags {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background-color: rgba(255, 255, 255, 0.15);
-            color: white;
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
+        .header-text p {
+            font-size: 14px;
+            color: rgba(255,255,255,0.7);
             font-weight: 500;
         }
 
-        /* Main Content */
-        .main-content {
-            padding: 3rem 2rem;
+        .header-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            align-items: center;
         }
 
-        .section-header {
-            font-size: 1.1rem;
+        .header-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .header-links a:hover {
+            color: white;
+        }
+
+        .header-links a.back {
+            margin-right: 12px;
+            padding-right: 12px;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .about-strip {
+            background: #1B4F72;
+            color: white;
+            padding: 28px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .about-strip p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .about-strip p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+        .tag {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        h2 {
+            font-size: 18px;
             font-weight: 600;
+            margin: 32px 0 20px 0;
             color: #0D1B2A;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        /* Memo Cards */
-        .memos-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 2rem;
-            margin-bottom: 3rem;
         }
 
         .memo-card {
-            background-color: white;
-            border-radius: 6px;
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 24px;
+            border: 1px solid #E8EBF0;
             overflow: hidden;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s;
-        }
-
-        .memo-card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
         }
 
         .memo-header {
-            background-color: #2E4053;
+            background: #0D1B2A;
             color: white;
-            padding: 1rem 1.5rem;
+            padding: 16px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .memo-number {
-            font-size: 0.9rem;
+            font-size: 13px;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
         }
 
         .memo-date {
-            font-size: 0.85rem;
-            color: #aaa;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
         }
 
         .memo-body {
-            padding: 1.5rem;
+            padding: 20px;
         }
 
         .memo-sector {
             display: inline-block;
-            background-color: #E8F4F8;
+            background: #E8F4F8;
             color: #1B4F72;
-            padding: 0.3rem 0.7rem;
-            border-radius: 3px;
-            font-size: 0.8rem;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
         }
 
         .memo-title {
-            font-size: 1.1rem;
+            font-size: 16px;
             font-weight: 600;
             color: #0D1B2A;
-            margin-bottom: 0.75rem;
+            margin-bottom: 12px;
             line-height: 1.4;
         }
 
         .memo-thesis {
-            font-size: 0.9rem;
+            font-size: 14px;
             color: #555;
             line-height: 1.7;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
         }
 
         .memo-tags {
             display: flex;
-            gap: 0.5rem;
+            gap: 8px;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
         }
 
         .memo-tag {
-            background-color: #F4F6F8;
-            color: #2E86AB;
-            padding: 0.3rem 0.6rem;
-            border-radius: 3px;
-            font-size: 0.8rem;
+            background: #F4F6F8;
+            color: #1B4F72;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
             font-weight: 500;
         }
 
         .memo-call {
-            background-color: #FFF9E6;
+            background: #FFF9E6;
             border-left: 3px solid #D4A574;
-            padding: 0.75rem 1rem;
-            border-radius: 3px;
-            font-size: 0.9rem;
+            padding: 12px 16px;
+            border-radius: 4px;
+            font-size: 13px;
             color: #6D5B3E;
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: 12px;
         }
 
         .memo-footer {
             display: flex;
-            gap: 1rem;
+            gap: 12px;
             flex-wrap: wrap;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 1rem;
-            margin-top: 1rem;
+            border-top: 1px solid #E8EBF0;
+            padding-top: 12px;
+            align-items: center;
         }
 
         .memo-footer a {
-            color: #2E86AB;
+            color: white;
+            background: #1B4F72;
             text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid #2E86AB;
-            padding: 0.4rem 0.8rem;
-            border-radius: 3px;
-            transition: all 0.2s;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
         }
 
         .memo-footer a:hover {
-            background-color: #2E86AB;
-            color: white;
+            background: #154360;
         }
 
         .memo-footer-note {
-            font-size: 0.8rem;
-            color: #999;
-            align-self: center;
+            font-size: 12px;
+            color: #666;
             margin-left: auto;
         }
 
-        /* Info Cards */
         .info-card {
-            background-color: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            background: white;
+            padding: 28px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+            border: 1px solid #E8EBF0;
         }
 
         .info-card h3 {
-            font-size: 1rem;
+            font-size: 16px;
             font-weight: 600;
             color: #0D1B2A;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            margin-bottom: 16px;
         }
 
         .info-card p {
-            font-size: 0.9rem;
+            font-size: 14px;
             line-height: 1.7;
             color: #555;
-            margin-bottom: 1.5rem;
+            margin-bottom: 16px;
         }
 
         .info-card p:last-child {
@@ -295,315 +264,287 @@
 
         .methodology-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
         }
 
         .methodology-item {
-            padding: 0.75rem;
-            background-color: #F4F6F8;
+            padding: 12px;
+            background: #F4F6F8;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 13px;
             color: #555;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         .skills-row {
             display: flex;
-            gap: 0.75rem;
+            gap: 8px;
             flex-wrap: wrap;
         }
 
         .skill-tag {
-            background-color: #F4F6F8;
-            color: #2E86AB;
-            padding: 0.4rem 0.8rem;
+            background: #E8F4F8;
+            color: #1B4F72;
+            padding: 6px 12px;
             border-radius: 4px;
-            font-size: 0.85rem;
+            font-size: 13px;
             font-weight: 500;
         }
 
         .sources-list {
-            font-size: 0.9rem;
-            line-height: 1.7;
-            color: #555;
+            margin-left: 20px;
+            margin-bottom: 16px;
         }
 
         .sources-list li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
-        /* Footer */
         footer {
-            background-color: #0D1B2A;
-            color: #aaa;
+            background: #0D1B2A;
+            color: rgba(255,255,255,0.6);
+            padding: 24px 0;
             text-align: center;
-            padding: 2rem;
-            font-size: 0.85rem;
-            margin-top: 3rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 13px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 60px;
         }
 
         footer p {
-            margin-bottom: 0.5rem;
+            margin: 4px 0;
         }
 
-        footer p:last-child {
-            margin-bottom: 0;
-            color: #999;
-            font-size: 0.8rem;
+        section {
+            margin-bottom: 40px;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.4rem;
-            }
-
-            header .links {
-                gap: 1rem;
-            }
-
-            header a {
-                padding: 0.4rem 0.7rem;
-                font-size: 0.8rem;
-            }
-
-            .memo-header {
+        @media (max-width: 640px) {
+            .header-content {
                 flex-direction: column;
-                align-items: flex-start;
-                gap: 0.5rem;
+            }
+
+            .header-links {
+                justify-content: flex-start;
             }
 
             .methodology-grid {
                 grid-template-columns: 1fr;
             }
+
+            .memo-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="page-wrapper">
-        <!-- Header -->
-        <header>
-            <div class="container">
+    <header>
+        <div class="header-content">
+            <div class="header-text">
                 <h1>Zak Whatmough</h1>
-                <p class="subtitle">Portfolio &middot; Investment Memo Series</p>
-                <div class="links">
-                    <a href="../">&#8592; All Projects</a>
-                    <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
-                    <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-                    <a href="../Zak_Whatmough_CV.pdf" target="_blank">CV</a>
-                </div>
+                <p>Portfolio · Investment Memos</p>
             </div>
-        </header>
-
-        <!-- About Strip -->
-        <div class="about-strip">
-            <div class="container">
-                <p>A series of five short investment memos written to develop institutional-grade research skills. Each memo covers a sector, macro theme, or market trend, written to the standard of buy-side morning notes and investment committee briefs. Each is backed by quantitative analysis, OLS regression, and an auditable data workbook.</p>
-                <div class="tags">
-                    <span class="tag">Buy-side style</span>
-                    <span class="tag">Investment thesis</span>
-                    <span class="tag">Macro & markets</span>
-                    <span class="tag">Valuation analysis</span>
-                    <span class="tag">OLS Regression</span>
-                </div>
-            </div>
+            <nav class="header-links">
+                <a href="../" class="back">← All Projects</a>
+                <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
+                <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
+                <a href="../Zak_Whatmough_CV.pdf" target="_blank">CV</a>
+            </nav>
         </div>
+    </header>
 
-        <!-- Main Content -->
-        <div class="content-wrapper">
-            <div class="main-content">
-                <div class="container">
-                    <!-- Published Memos Section -->
-                    <h2 class="section-header">Published memos</h2>
+    <div class="container">
+        <section class="about-strip">
+            <p>A series of five short investment memos written to develop institutional-grade research skills. Each memo covers a sector, macro theme, or market trend, written to the standard of buy-side morning notes and investment committee briefs. Each is backed by quantitative analysis, OLS regression, and an auditable data workbook.</p>
+            <div class="tags">
+                <span class="tag">Buy-side style</span>
+                <span class="tag">Investment thesis</span>
+                <span class="tag">Macro & markets</span>
+                <span class="tag">Valuation analysis</span>
+                <span class="tag">OLS Regression</span>
+            </div>
+        </section>
 
-                    <div class="memos-grid">
-                        <!-- Memo 01 -->
-                        <div class="memo-card">
-                            <div class="memo-header">
-                                <span class="memo-number">Memo 01 &middot; Technology / Infrastructure</span>
-                                <span class="memo-date">March 2026</span>
-                            </div>
-                            <div class="memo-body">
-                                <span class="memo-sector">AI Capex Cycle</span>
-                                <h3 class="memo-title">AI Infrastructure: The Picks-and-Shovels Play Beyond the Model Race</h3>
-                                <p class="memo-thesis">As hyperscaler capex accelerates toward $600bn in 2026, the beneficiaries are not the model makers but the enablers: power, cooling, and networking infrastructure. These names trade at a significant discount to their end-demand and are priced as industrials despite revenue that is directly tied to AI spend.</p>
-                                <div class="memo-tags">
-                                    <span class="memo-tag">AI Capex Cycle</span>
-                                    <span class="memo-tag">Power Infrastructure</span>
-                                    <span class="memo-tag">Valuation Mispricing</span>
-                                    <span class="memo-tag">VRT &middot; GEV &middot; PWR &middot; ANET</span>
-                                </div>
-                                <div class="memo-call">Risk-reward increasingly favourable</div>
-                                <div class="memo-footer">
-                                    <a href="memo-01-ai-infrastructure.pdf" target="_blank">PDF</a>
-                                    <a href="memo-01-ai-infrastructure.docx" target="_blank">Word</a>
-                                    <a href="memo-01-ai-infrastructure-data.xlsx" target="_blank">Data</a>
-                                    <span class="memo-footer-note">PDF and Excel workbook included</span>
-                                </div>
-                            </div>
-                        </div>
+        <h2>Published memos</h2>
 
-                        <!-- Memo 02 -->
-                        <div class="memo-card">
-                            <div class="memo-header">
-                                <span class="memo-number">Memo 02 &middot; European Equities / Global Allocation</span>
-                                <span class="memo-date">March 2026</span>
-                            </div>
-                            <div class="memo-body">
-                                <span class="memo-sector">Valuation Discount</span>
-                                <h3 class="memo-title">European Equities: Structural Discount or Opportunity Before Capital Rotation?</h3>
-                                <p class="memo-thesis">MSCI Europe trades at a 38% forward P/E discount to the S&P 500, near historic extremes. Around 60% of that gap is explained by index composition: the US carries 30% technology weight versus 8% for Europe. The rest is cyclical. With fiscal regime shift and ECB easing underway, the backdrop is turning at exactly the moment positioning is at record lows.</p>
-                                <div class="memo-tags">
-                                    <span class="memo-tag">Valuation Discount</span>
-                                    <span class="memo-tag">Sector Composition</span>
-                                    <span class="memo-tag">Capital Rotation</span>
-                                    <span class="memo-tag">EZU &middot; ASML &middot; SIE &middot; AIR &middot; DBK</span>
-                                </div>
-                                <div class="memo-call">Re-rating catalyst building</div>
-                                <div class="memo-footer">
-                                    <a href="memo-02-european-equities.pdf" target="_blank">PDF</a>
-                                    <a href="memo-02-european-equities.docx" target="_blank">Word</a>
-                                    <a href="memo-02-european-equities-data.xlsx" target="_blank">Data</a>
-                                    <span class="memo-footer-note">PDF and Excel workbook included</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Memo 03 -->
-                        <div class="memo-card">
-                            <div class="memo-header">
-                                <span class="memo-number">Memo 03 &middot; Commodities / Energy Transition / Macro</span>
-                                <span class="memo-date">March 2026</span>
-                            </div>
-                            <div class="memo-body">
-                                <span class="memo-sector">Energy Transition</span>
-                                <h3 class="memo-title">Copper: Structural Deficit Meets the Dollar Cycle and Rate Tailwind</h3>
-                                <p class="memo-thesis">Copper benefits from energy transition demand, a supply pipeline that cannot close the gap, a turning dollar, and rate cuts: four tailwinds pointing the same way. At $4.70/lb, the market is pricing near-term equilibrium, not the supply shortfall that Wood Mackenzie, the ICSG, and BloombergNEF all project from 2025.</p>
-                                <div class="memo-tags">
-                                    <span class="memo-tag">Energy Transition</span>
-                                    <span class="memo-tag">Supply Constraint</span>
-                                    <span class="memo-tag">DXY Correlation</span>
-                                    <span class="memo-tag">FCX &middot; SCCO &middot; BHP &middot; RIO &middot; COPX</span>
-                                </div>
-                                <div class="memo-call">Long copper, macro setup aligning</div>
-                                <div class="memo-footer">
-                                    <a href="memo-03-copper-energy-transition.pdf" target="_blank">PDF</a>
-                                    <a href="memo-03-copper-energy-transition.docx" target="_blank">Word</a>
-                                    <a href="memo-03-copper-data.xlsx" target="_blank">Data</a>
-                                    <span class="memo-footer-note">PDF and Excel workbook included</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Memo 04 -->
-                        <div class="memo-card">
-                            <div class="memo-header">
-                                <span class="memo-number">Memo 04 &middot; EM Equities / Global Allocation</span>
-                                <span class="memo-date">March 2026</span>
-                            </div>
-                            <div class="memo-body">
-                                <span class="memo-sector">Valuation Discount</span>
-                                <h3 class="memo-title">Emerging Markets: Dollar Peak + Valuation Floor = Re-rating Case</h3>
-                                <p class="memo-thesis">MSCI EM trades at an 11.2x forward P/E, a 38% discount to developed markets and near a 20-year extreme, while the DXY appears to be peaking after a secular 30% bull run. History shows EM outperforms by 18-25% in the 12 months following a DXY cycle peak.</p>
-                                <div class="memo-tags">
-                                    <span class="memo-tag">DXY Peak Thesis</span>
-                                    <span class="memo-tag">Valuation Discount</span>
-                                    <span class="memo-tag">China PMI Recovery</span>
-                                    <span class="memo-tag">EEM &middot; VWO &middot; FXI &middot; EWZ &middot; INDA &middot; GXC</span>
-                                </div>
-                                <div class="memo-call">DXY peak thesis building, discount near 20yr extreme</div>
-                                <div class="memo-footer">
-                                    <a href="memo-04-emerging-markets.pdf" target="_blank">PDF</a>
-                                    <a href="memo-04-emerging-markets.docx" target="_blank">Word</a>
-                                    <a href="memo-04-emerging-markets-data.xlsx" target="_blank">Data</a>
-                                    <span class="memo-footer-note">PDF and Excel workbook included</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Memo 05 -->
-                        <div class="memo-card">
-                            <div class="memo-header">
-                                <span class="memo-number">Memo 05 &middot; Healthcare / Biotech</span>
-                                <span class="memo-date">March 2026</span>
-                            </div>
-                            <div class="memo-body">
-                                <span class="memo-sector">Rate Cycle Tailwind</span>
-                                <h3 class="memo-title">Biotech & Life Sciences: Valuation Reset Meets the Rate Cycle</h3>
-                                <p class="memo-thesis">The XBI trades 27% below its 10-year mean EV/Sales after a 66% drawdown from 2021 to 2022. Rising real yields caused the de-rating. That mechanism is now running in reverse. With the Fed cutting, patent expiries pushing pharma M&A, and the FDA pipeline at a 10-year high, conditions are in place for a re-rating.</p>
-                                <div class="memo-tags">
-                                    <span class="memo-tag">Rate Cycle Tailwind</span>
-                                    <span class="memo-tag">Patent Cliff & M&A</span>
-                                    <span class="memo-tag">FDA Pipeline</span>
-                                    <span class="memo-tag">XBI &middot; BGNE &middot; PTCT &middot; EXEL &middot; RCKT &middot; MDGL</span>
-                                </div>
-                                <div class="memo-call">Rate cycle turning, sector discount near extreme</div>
-                                <div class="memo-footer">
-                                    <a href="memo-05-biotech.pdf" target="_blank">PDF</a>
-                                    <a href="memo-05-biotech.docx" target="_blank">Word</a>
-                                    <a href="memo-05-biotech-data.xlsx" target="_blank">Data</a>
-                                    <span class="memo-footer-note">PDF and Excel workbook included</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- About This Series -->
-                    <div class="info-card">
-                        <h3>Why short memos?</h3>
-                        <p>Professional investment research demands concision without sacrificing rigour. Each memo communicates a complete investment thesis in the format used for buy-side morning notes, investment committee briefs, and PE screening memos. Short enough to read in five minutes. Substantive enough to stand behind.</p>
-
-                        <h3 style="margin-top: 1.5rem;">Methodology</h3>
-                        <div class="methodology-grid">
-                            <div class="methodology-item">Identify a sector/macro theme/market trend</div>
-                            <div class="methodology-item">Articulate the catalyst and exit condition</div>
-                            <div class="methodology-item">Form a falsifiable thesis with data anchors</div>
-                            <div class="methodology-item">Risk-weight the case honestly</div>
-                            <div class="methodology-item">Identify the key constraint or transmission mechanism</div>
-                            <div class="methodology-item">Quantify the mispricing or opportunity</div>
-                        </div>
-                    </div>
-
-                    <!-- Skills and Tools -->
-                    <div class="info-card">
-                        <h3>Skills and tools</h3>
-                        <div class="skills-row">
-                            <span class="skill-tag">Excel</span>
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">pandas</span>
-                            <span class="skill-tag">statsmodels</span>
-                            <span class="skill-tag">OLS Regression</span>
-                            <span class="skill-tag">matplotlib</span>
-                            <span class="skill-tag">Scenario Modelling</span>
-                            <span class="skill-tag">Word (docx-js)</span>
-                        </div>
-                    </div>
-
-                    <!-- Sources and References -->
-                    <div class="info-card">
-                        <h3>Sources and references</h3>
-                        <ul class="sources-list">
-                            <li><strong>Bloomberg</strong> &mdash; Real-time market data, equity and sector indices, consensus estimates</li>
-                            <li><strong>LSEG Datastream</strong> &mdash; Historical pricing, fundamentals, and macroeconomic time series</li>
-                            <li><strong>Federal Reserve FRED</strong> &mdash; US macroeconomic indicators and yield curves</li>
-                            <li><strong>World Bank</strong> &mdash; Global economic data and forecasts</li>
-                            <li><strong>ICSG (International Copper Study Group)</strong> &mdash; Supply and demand balance sheets</li>
-                            <li><strong>Wood Mackenzie</strong> &mdash; Commodity market research and forecasts</li>
-                            <li><strong>FDA.gov</strong> &mdash; Drug pipeline and approval data</li>
-                            <li><strong>Company Annual Reports</strong> &mdash; Audited financial statements and management guidance</li>
-                        </ul>
-                    </div>
+        <article class="memo-card">
+            <div class="memo-header">
+                <span class="memo-number">Memo 01 · Technology / Infrastructure</span>
+                <span class="memo-date">March 2026</span>
+            </div>
+            <div class="memo-body">
+                <span class="memo-sector">AI Capex Cycle</span>
+                <h3 class="memo-title">AI Infrastructure: The Picks-and-Shovels Play Beyond the Model Race</h3>
+                <p class="memo-thesis">As hyperscaler capex accelerates toward $600bn in 2026, the beneficiaries are not the model makers but the enablers: power, cooling, and networking infrastructure. These names trade at a significant discount to their end-demand and are priced as industrials despite revenue that is directly tied to AI spend.</p>
+                <div class="memo-tags">
+                    <span class="memo-tag">AI Capex Cycle</span>
+                    <span class="memo-tag">Power Infrastructure</span>
+                    <span class="memo-tag">Valuation Mispricing</span>
+                    <span class="memo-tag">VRT · GEV · PWR · ANET</span>
+                </div>
+                <div class="memo-call">Risk-reward increasingly favourable</div>
+                <div class="memo-footer">
+                    <a href="memo-01-ai-infrastructure.pdf" target="_blank">PDF</a>
+                    <a href="memo-01-ai-infrastructure.docx" target="_blank">Word</a>
+                    <a href="memo-01-ai-infrastructure-data.xlsx" target="_blank">Data</a>
+                    <span class="memo-footer-note">PDF and Excel workbook included</span>
                 </div>
             </div>
-        </div>
+        </article>
 
-        <!-- Footer -->
-        <footer>
-            <p>Zak Whatmough &middot; Portfolio &middot; 2026</p>
-            <p>For educational purposes only. Not investment advice. All views are personal and do not represent any institution.</p>
-        </footer>
+        <article class="memo-card">
+            <div class="memo-header">
+                <span class="memo-number">Memo 02 · European Equities / Global Allocation</span>
+                <span class="memo-date">March 2026</span>
+            </div>
+            <div class="memo-body">
+                <span class="memo-sector">Valuation Discount</span>
+                <h3 class="memo-title">European Equities: Structural Discount or Opportunity Before Capital Rotation?</h3>
+                <p class="memo-thesis">MSCI Europe trades at a 38% forward P/E discount to the S&P 500, near historic extremes. Around 60% of that gap is explained by index composition: the US carries 30% technology weight versus 8% for Europe. The rest is cyclical. With fiscal regime shift and ECB easing underway, the backdrop is turning at exactly the moment positioning is at record lows.</p>
+                <div class="memo-tags">
+                    <span class="memo-tag">Valuation Discount</span>
+                    <span class="memo-tag">Sector Composition</span>
+                    <span class="memo-tag">Capital Rotation</span>
+                    <span class="memo-tag">EZU · ASML · SIE · AIR · DBK</span>
+                </div>
+                <div class="memo-call">Re-rating catalyst building</div>
+                <div class="memo-footer">
+                    <a href="memo-02-european-equities.pdf" target="_blank">PDF</a>
+                    <a href="memo-02-european-equities.docx" target="_blank">Word</a>
+                    <a href="memo-02-european-equities-data.xlsx" target="_blank">Data</a>
+                    <span class="memo-footer-note">PDF and Excel workbook included</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="memo-card">
+            <div class="memo-header">
+                <span class="memo-number">Memo 03 · Commodities / Energy Transition / Macro</span>
+                <span class="memo-date">March 2026</span>
+            </div>
+            <div class="memo-body">
+                <span class="memo-sector">Energy Transition</span>
+                <h3 class="memo-title">Copper: Structural Deficit Meets the Dollar Cycle and Rate Tailwind</h3>
+                <p class="memo-thesis">Copper benefits from energy transition demand, a supply pipeline that cannot close the gap, a turning dollar, and rate cuts: four tailwinds pointing the same way. At $4.70/lb, the market is pricing near-term equilibrium, not the supply shortfall that Wood Mackenzie, the ICSG, and BloombergNEF all project from 2025.</p>
+                <div class="memo-tags">
+                    <span class="memo-tag">Energy Transition</span>
+                    <span class="memo-tag">Supply Constraint</span>
+                    <span class="memo-tag">DXY Correlation</span>
+                    <span class="memo-tag">FCX · SCCO · BHP · RIO · COPX</span>
+                </div>
+                <div class="memo-call">Long copper, macro setup aligning</div>
+                <div class="memo-footer">
+                    <a href="memo-03-copper-energy-transition.pdf" target="_blank">PDF</a>
+                    <a href="memo-03-copper-energy-transition.docx" target="_blank">Word</a>
+                    <a href="memo-03-copper-data.xlsx" target="_blank">Data</a>
+                    <span class="memo-footer-note">PDF and Excel workbook included</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="memo-card">
+            <div class="memo-header">
+                <span class="memo-number">Memo 04 · EM Equities / Global Allocation</span>
+                <span class="memo-date">March 2026</span>
+            </div>
+            <div class="memo-body">
+                <span class="memo-sector">Valuation Discount</span>
+                <h3 class="memo-title">Emerging Markets: Dollar Peak + Valuation Floor = Re-rating Case</h3>
+                <p class="memo-thesis">MSCI EM trades at an 11.2x forward P/E, a 38% discount to developed markets and near a 20-year extreme, while the DXY appears to be peaking after a secular 30% bull run. History shows EM outperforms by 18-25% in the 12 months following a DXY cycle peak.</p>
+                <div class="memo-tags">
+                    <span class="memo-tag">DXY Peak Thesis</span>
+                    <span class="memo-tag">Valuation Discount</span>
+                    <span class="memo-tag">China PMI Recovery</span>
+                    <span class="memo-tag">EEM · VWO · FXI · EWZ · INDA · GXC</span>
+                </div>
+                <div class="memo-call">DXY peak thesis building, discount near 20yr extreme</div>
+                <div class="memo-footer">
+                    <a href="memo-04-emerging-markets.pdf" target="_blank">PDF</a>
+                    <a href="memo-04-emerging-markets.docx" target="_blank">Word</a>
+                    <a href="memo-04-emerging-markets-data.xlsx" target="_blank">Data</a>
+                    <span class="memo-footer-note">PDF and Excel workbook included</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="memo-card">
+            <div class="memo-header">
+                <span class="memo-number">Memo 05 · Healthcare / Biotech</span>
+                <span class="memo-date">March 2026</span>
+            </div>
+            <div class="memo-body">
+                <span class="memo-sector">Rate Cycle Tailwind</span>
+                <h3 class="memo-title">Biotech & Life Sciences: Valuation Reset Meets the Rate Cycle</h3>
+                <p class="memo-thesis">The XBI trades 27% below its 10-year mean EV/Sales after a 66% drawdown from 2021 to 2022. Rising real yields caused the de-rating. That mechanism is now running in reverse. With the Fed cutting, patent expiries pushing pharma M&A, and the FDA pipeline at a 10-year high, conditions are in place for a re-rating.</p>
+                <div class="memo-tags">
+                    <span class="memo-tag">Rate Cycle Tailwind</span>
+                    <span class="memo-tag">Patent Cliff & M&A</span>
+                    <span class="memo-tag">FDA Pipeline</span>
+                    <span class="memo-tag">XBI · BGNE · PTCT · EXEL · RCKT · MDGL</span>
+                </div>
+                <div class="memo-call">Rate cycle turning, sector discount near extreme</div>
+                <div class="memo-footer">
+                    <a href="memo-05-biotech.pdf" target="_blank">PDF</a>
+                    <a href="memo-05-biotech.docx" target="_blank">Word</a>
+                    <a href="memo-05-biotech-data.xlsx" target="_blank">Data</a>
+                    <span class="memo-footer-note">PDF and Excel workbook included</span>
+                </div>
+            </div>
+        </article>
+
+        <section class="info-card">
+            <h3>Why short memos?</h3>
+            <p>Professional investment research demands concision without sacrificing rigour. Each memo communicates a complete investment thesis in the format used for buy-side morning notes, investment committee briefs, and PE screening memos. Short enough to read in five minutes. Substantive enough to stand behind.</p>
+
+            <h3 style="margin-top: 24px;">Methodology</h3>
+            <div class="methodology-grid">
+                <div class="methodology-item">Identify a sector/macro theme/market trend</div>
+                <div class="methodology-item">Articulate the catalyst and exit condition</div>
+                <div class="methodology-item">Form a falsifiable thesis with data anchors</div>
+                <div class="methodology-item">Risk-weight the case honestly</div>
+                <div class="methodology-item">Identify the key constraint or transmission mechanism</div>
+                <div class="methodology-item">Quantify the mispricing or opportunity</div>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h3>Skills and tools</h3>
+            <div class="skills-row">
+                <span class="skill-tag">Excel</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">pandas</span>
+                <span class="skill-tag">statsmodels</span>
+                <span class="skill-tag">OLS Regression</span>
+                <span class="skill-tag">matplotlib</span>
+                <span class="skill-tag">Scenario Modelling</span>
+                <span class="skill-tag">Word (docx-js)</span>
+            </div>
+        </section>
+
+        <section class="info-card">
+            <h3>Sources and references</h3>
+            <ul class="sources-list">
+                <li><strong>Bloomberg</strong> — Real-time market data, equity and sector indices, consensus estimates</li>
+                <li><strong>LSEG Datastream</strong> — Historical pricing, fundamentals, and macroeconomic time series</li>
+                <li><strong>Federal Reserve FRED</strong> — US macroeconomic indicators and yield curves</li>
+                <li><strong>World Bank</strong> — Global economic data and forecasts</li>
+                <li><strong>ICSG (International Copper Study Group)</strong> — Supply and demand balance sheets</li>
+                <li><strong>Wood Mackenzie</strong> — Commodity market research and forecasts</li>
+                <li><strong>FDA.gov</strong> — Drug pipeline and approval data</li>
+                <li><strong>Company Annual Reports</strong> — Audited financial statements and management guidance</li>
+            </ul>
+        </section>
     </div>
+
+    <footer>
+        <p>Zak Whatmough · Portfolio · 2026</p>
+        <p>For educational purposes only. Not investment advice.</p>
+    </footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morrisons LBO Model & Transaction Case Study | Zak Whatmough</title>
+    <title>Morrisons LBO Model | Zak Whatmough Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -14,17 +14,15 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background-color: #F4F6F8;
+            background: #F4F6F8;
             color: #333;
             line-height: 1.6;
         }
 
-        /* Header */
         header {
-            background-color: #0D1B2A;
-            color: white;
+            background: #0D1B2A;
             padding: 32px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
         }
 
         .header-content {
@@ -40,12 +38,13 @@
         .header-text h1 {
             font-size: 28px;
             font-weight: 600;
-            margin-bottom: 4px;
+            color: white;
+            margin-bottom: 6px;
         }
 
         .header-text p {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255,255,255,0.7);
             font-weight: 500;
         }
 
@@ -58,7 +57,7 @@
         }
 
         .header-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
@@ -72,19 +71,17 @@
         .header-links a.back {
             margin-right: 12px;
             padding-right: 12px;
-            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            border-right: 1px solid rgba(255,255,255,0.2);
         }
 
-        /* Main container */
         .container {
             max-width: 860px;
             margin: 0 auto;
             padding: 40px 20px;
         }
 
-        /* About strip */
         .about-strip {
-            background-color: #1B4F72;
+            background: #1B4F72;
             color: white;
             padding: 28px;
             border-radius: 8px;
@@ -97,14 +94,19 @@
             margin-bottom: 16px;
         }
 
+        .about-strip p:last-child {
+            margin-bottom: 0;
+        }
+
         .tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
+            margin-top: 16px;
         }
 
         .tag {
-            background-color: rgba(255, 255, 255, 0.2);
+            background: rgba(255,255,255,0.2);
             color: white;
             padding: 4px 10px;
             border-radius: 4px;
@@ -112,7 +114,6 @@
             font-weight: 500;
         }
 
-        /* Section titles */
         h2 {
             font-size: 18px;
             font-weight: 600;
@@ -120,16 +121,14 @@
             color: #0D1B2A;
         }
 
-        /* Card */
         .card {
-            background-color: white;
+            background: white;
             padding: 28px;
             border-radius: 8px;
             margin-bottom: 24px;
             border: 1px solid #E8EBF0;
         }
 
-        /* Table styling */
         .metrics-table {
             width: 100%;
             border-collapse: collapse;
@@ -137,7 +136,7 @@
         }
 
         .metrics-table thead {
-            background-color: #F9FAFB;
+            background: #F9FAFB;
         }
 
         .metrics-table th {
@@ -156,7 +155,7 @@
         }
 
         .metrics-table tbody tr:nth-child(even) {
-            background-color: #F9FAFB;
+            background: #F9FAFB;
         }
 
         .metrics-table td:nth-child(2) {
@@ -165,7 +164,6 @@
             color: #1B4F72;
         }
 
-        /* List styling */
         ul {
             margin-left: 20px;
             margin-bottom: 16px;
@@ -177,7 +175,6 @@
             line-height: 1.6;
         }
 
-        /* Download grid */
         .download-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -189,7 +186,7 @@
             border: 1px solid #E8EBF0;
             padding: 20px;
             border-radius: 8px;
-            background-color: white;
+            background: white;
             text-decoration: none;
             transition: all 0.2s;
             display: flex;
@@ -199,7 +196,7 @@
 
         .download-card:hover {
             border-color: #1B4F72;
-            background-color: #F9FAFB;
+            background: #F9FAFB;
         }
 
         .download-card-title {
@@ -214,7 +211,6 @@
             line-height: 1.5;
         }
 
-        /* Skills tags */
         .skills-tags {
             display: flex;
             flex-wrap: wrap;
@@ -222,7 +218,7 @@
         }
 
         .skill-tag {
-            background-color: #E8F4F8;
+            background: #E8F4F8;
             color: #1B4F72;
             padding: 6px 12px;
             border-radius: 4px;
@@ -230,7 +226,6 @@
             font-weight: 500;
         }
 
-        /* References list */
         .references {
             margin-left: 20px;
         }
@@ -239,14 +234,13 @@
             margin-bottom: 10px;
         }
 
-        /* Footer */
         footer {
-            background-color: #0D1B2A;
-            color: rgba(255, 255, 255, 0.6);
+            background: #0D1B2A;
+            color: rgba(255,255,255,0.6);
             padding: 24px 0;
             text-align: center;
             font-size: 13px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid rgba(255,255,255,0.1);
             margin-top: 60px;
         }
 
@@ -254,7 +248,17 @@
             margin: 4px 0;
         }
 
-        /* Responsive */
+        section {
+            margin-bottom: 40px;
+        }
+
+        .section-intro {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
         @media (max-width: 640px) {
             .header-content {
                 flex-direction: column;
@@ -277,17 +281,6 @@
                 padding: 10px 8px;
             }
         }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .section-intro {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
     </style>
 </head>
 <body>
@@ -295,10 +288,10 @@
         <div class="header-content">
             <div class="header-text">
                 <h1>Zak Whatmough</h1>
-                <p>Portfolio &middot; LBO Model &amp; Transaction Case Study</p>
+                <p>Portfolio · LBO Model & Transaction Case Study</p>
             </div>
             <nav class="header-links">
-                <a href="../" class="back">&#8592; All Projects</a>
+                <a href="../" class="back">← All Projects</a>
                 <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
                 <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
                 <a href="../Zak_Whatmough_CV.pdf" target="_blank">CV</a>
@@ -307,9 +300,8 @@
     </header>
 
     <div class="container">
-        <!-- About section -->
         <section class="about-strip">
-            <p>A fully formula-driven LBO model and professional transaction case study analysing CD&amp;R's take-private acquisition of Wm Morrison Supermarkets for 287p per share, implying an enterprise value of approximately £9.9 billion. The project covers the full investment thesis, value creation plan, risk assessment, and returns analysis across three scenarios.</p>
+            <p>A fully formula-driven LBO model and professional transaction case study analysing CD&R's take-private acquisition of Wm Morrison Supermarkets for 287p per share, implying an enterprise value of approximately £9.9 billion. The project covers the full investment thesis, value creation plan, risk assessment, and returns analysis across three scenarios.</p>
             <div class="tags">
                 <span class="tag">LBO Modelling</span>
                 <span class="tag">Take-Private</span>
@@ -321,7 +313,6 @@
             </div>
         </section>
 
-        <!-- Key model outputs -->
         <section>
             <h2>Key model outputs</h2>
             <div class="card">
@@ -370,14 +361,13 @@
             </div>
         </section>
 
-        <!-- Model structure -->
         <section>
             <h2>Model structure</h2>
             <div class="card">
                 <p class="section-intro">7 tabs, 422 formulas, zero errors</p>
                 <ul>
                     <li><strong>Assumptions:</strong> deal overview, entry valuation, LTM financials, operating and exit assumptions</li>
-                    <li><strong>Sources &amp; Uses:</strong> financing structure with leverage metrics</li>
+                    <li><strong>Sources & Uses:</strong> financing structure with leverage metrics</li>
                     <li><strong>Operating Model:</strong> 5-year revenue, EBITDA margin ramp (6.1% to 7.2%), EBIT, tax, UFCF</li>
                     <li><strong>Debt Schedule:</strong> 4 tranches (TLB, Secured Notes, Unsecured Notes, PIK Pref Shares), mandatory amort, cash sweep at 50%, credit metrics (ICR, FCCR, DSCR)</li>
                     <li><strong>Returns:</strong> downside/base/upside scenarios, MoM, IRR via =IRR(), reconciling value creation bridge</li>
@@ -387,7 +377,6 @@
             </div>
         </section>
 
-        <!-- Transaction note -->
         <section>
             <h2>Transaction note</h2>
             <div class="card">
@@ -404,7 +393,6 @@
             </div>
         </section>
 
-        <!-- Download files -->
         <section>
             <h2>Download files</h2>
             <div class="download-grid">
@@ -427,7 +415,6 @@
             </div>
         </section>
 
-        <!-- Skills and tools -->
         <section>
             <h2>Skills and tools</h2>
             <div class="card">
@@ -445,13 +432,12 @@
             </div>
         </section>
 
-        <!-- Sources and references -->
         <section>
             <h2>Sources and references</h2>
             <div class="card">
                 <ul class="references">
                     <li>Morrisons Annual Report FY2021</li>
-                    <li>CD&amp;R transaction announcement (August 2021)</li>
+                    <li>CD&R transaction announcement (August 2021)</li>
                     <li>Takeover Panel / Competition and Markets Authority filings</li>
                     <li>Bloomberg, Reuters deal coverage</li>
                     <li>Asda/TDR Capital deal comparables (2021)</li>
@@ -462,7 +448,7 @@
     </div>
 
     <footer>
-        <p>Zak Whatmough &middot; Portfolio &middot; 2026</p>
+        <p>Zak Whatmough · Portfolio · 2026</p>
         <p>For educational purposes only. Not investment advice.</p>
     </footer>
 </body>
