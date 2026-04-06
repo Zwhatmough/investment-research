@@ -215,6 +215,49 @@
             border-radius: 4px;
             font-size: 12px;
             font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        a.file-item:hover {
+            background: #1B4F72;
+            color: white;
+        }
+
+        .download-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .download-card {
+            border: 1px solid #E8EBF0;
+            padding: 20px;
+            border-radius: 8px;
+            background: white;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .download-card:hover {
+            border-color: #1B4F72;
+            background: #F9FAFB;
+        }
+
+        .download-card-title {
+            font-weight: 600;
+            color: #0D1B2A;
+            font-size: 14px;
+        }
+
+        .download-card-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
         }
 
         .valuation-grid {
@@ -344,6 +387,10 @@
             .architecture-grid {
                 grid-template-columns: 1fr;
             }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -358,7 +405,8 @@
                 <a href="../" class="back">← All Projects</a>
                 <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
                 <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-                <a href="../Zak_Whatmough_CV.pdf" target="_blank">CV</a>
+                <a href="../Zak_Whatmough_CV.pdf" target="_blank">CV (PE/AM)</a>
+                <a href="../Zak_Whatmough_CV_IB.pdf" target="_blank">CV (IB)</a>
             </nav>
         </div>
     </header>
@@ -394,10 +442,10 @@
             <div class="company-files">
                 <p class="files-label">Files:</p>
                 <div class="file-list">
-                    <span class="file-item">Tesco_Equity_Research_Note_v2.docx</span>
-                    <span class="file-item">Tesco_Equity_Research_Note_v2.pdf</span>
-                    <span class="file-item">Tesco_Equity_Research_Model_v2.xlsx</span>
-                    <span class="file-item">tesco_data_validation.py</span>
+                    <a href="Tesco_Equity_Research_Note_v2.pdf" class="file-item" target="_blank">PDF Note</a>
+                    <a href="Tesco_Equity_Research_Note_v2.docx" class="file-item" target="_blank">Word Note</a>
+                    <a href="Tesco_Equity_Research_Model_v2.xlsx" class="file-item" target="_blank">Excel Model</a>
+                    <a href="tesco_data_validation.py" class="file-item" target="_blank">Validation Script</a>
                 </div>
             </div>
         </article>
@@ -418,10 +466,10 @@
             <div class="company-files">
                 <p class="files-label">Files:</p>
                 <div class="file-list">
-                    <span class="file-item">Diageo_Equity_Research_Note_v2.docx</span>
-                    <span class="file-item">Diageo_Equity_Research_Note_v2.pdf</span>
-                    <span class="file-item">Diageo_Equity_Research_Model_v2.xlsx</span>
-                    <span class="file-item">diageo_data_validation.py</span>
+                    <a href="Diageo_Equity_Research_Note_v2.pdf" class="file-item" target="_blank">PDF Note</a>
+                    <a href="Diageo_Equity_Research_Note_v2.docx" class="file-item" target="_blank">Word Note</a>
+                    <a href="Diageo_Equity_Research_Model_v2.xlsx" class="file-item" target="_blank">Excel Model</a>
+                    <a href="diageo_data_validation.py" class="file-item" target="_blank">Validation Script</a>
                 </div>
             </div>
         </article>
@@ -469,6 +517,28 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Download files</h2>
+            <div class="download-grid">
+                <a href="Tesco_Equity_Research_Model_v2.xlsx" class="download-card">
+                    <div class="download-card-title">Tesco_Equity_Research_Model_v2.xlsx</div>
+                    <div class="download-card-desc">Integrated Model (.xlsx) — 12 tabs, 933 formulas, fully formula-driven</div>
+                </a>
+                <a href="Tesco_Equity_Research_Note_v2.pdf" class="download-card">
+                    <div class="download-card-title">Tesco_Equity_Research_Note_v2.pdf</div>
+                    <div class="download-card-desc">Equity Research Note (.pdf) — Full write-up with valuation and recommendation</div>
+                </a>
+                <a href="Diageo_Equity_Research_Model_v2.xlsx" class="download-card">
+                    <div class="download-card-title">Diageo_Equity_Research_Model_v2.xlsx</div>
+                    <div class="download-card-desc">Integrated Model (.xlsx) — 12 tabs, 933 formulas, fully formula-driven</div>
+                </a>
+                <a href="Diageo_Equity_Research_Note_v2.pdf" class="download-card">
+                    <div class="download-card-title">Diageo_Equity_Research_Note_v2.pdf</div>
+                    <div class="download-card-desc">Equity Research Note (.pdf) — Full write-up with valuation and recommendation</div>
+                </a>
             </div>
         </section>
 
