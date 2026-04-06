@@ -1,474 +1,620 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equity Research Models | Zak Whatmough</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equity Research Models · Zak Whatmough</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F4F6F8;
-      color: #1C2833;
-      line-height: 1.6;
-    }
+        :root {
+            --dark: #0D1B2A;
+            --primary: #1B4F72;
+            --light: #F4F6F8;
+            --white: #FFF;
+            --secondary: #2E86AB;
+        }
 
-    .site-header {
-      background: #0D1B2A;
-      padding: 48px 0 40px;
-    }
-    .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .header-inner h1 {
-      font-size: 28px;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: -0.3px;
-      margin-bottom: 6px;
-    }
-    .header-sub {
-      font-size: 14px;
-      color: #ADB5BD;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-    .header-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .header-links a {
-      font-size: 13px;
-      color: #ADB5BD;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 5px 12px;
-      border-radius: 4px;
-      transition: all 0.15s;
-    }
-    .header-links a:hover {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.4);
-    }
+        html {
+            font-size: 16px;
+        }
 
-    .about-strip {
-      background: #1B4F72;
-      padding: 20px 0;
-    }
-    .about-strip-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .about-strip p {
-      font-size: 13.5px;
-      color: #D6EAF8;
-      max-width: 560px;
-      line-height: 1.65;
-    }
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      align-items: flex-start;
-      padding-top: 2px;
-    }
-    .tag {
-      font-size: 11px;
-      font-weight: 500;
-      color: #AED6F1;
-      border: 1px solid rgba(174,214,241,0.35);
-      border-radius: 3px;
-      padding: 3px 8px;
-      white-space: nowrap;
-    }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--dark);
+            color: var(--dark);
+            line-height: 1.6;
+        }
 
-    .main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 32px;
-    }
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #2E86AB;
-      margin-bottom: 20px;
-    }
-    .memos-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-    .memo-card,
-    .about-section {
-      background: #FFFFFF;
-      border-radius: 6px;
-      border: 1px solid #E0E6EA;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    }
-    .memo-card-header {
-      background: #0D1B2A;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .memo-number {
-      font-size: 11px;
-      font-weight: 600;
-      color: #ADB5BD;
-      letter-spacing: 0.1em;
-    }
-    .memo-date {
-      font-size: 11px;
-      color: #6C7A7D;
-    }
-    .memo-card-body {
-      padding: 16px 20px 0;
-    }
-    .memo-sector {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      color: #1B4F72;
-      background: #E8F4FB;
-      border-radius: 3px;
-      padding: 2px 8px;
-      margin-bottom: 10px;
-    }
-    .memo-card-body h2 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0D1B2A;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      letter-spacing: -0.2px;
-    }
-    .memo-thesis {
-      font-size: 13px;
-      color: #4A5568;
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-    .memo-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 12px;
-    }
-    .memo-tag {
-      font-size: 11px;
-      color: #5D6D7E;
-      background: #F4F6F8;
-      border: 1px solid #DDE2E6;
-      border-radius: 3px;
-      padding: 2px 8px;
-    }
-    .memo-call {
-      display: inline-block;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #1A7A40;
-      background: #D5F5E3;
-      border-radius: 3px;
-      padding: 3px 10px;
-      margin-bottom: 14px;
-    }
-    .memo-card-footer {
-      border-top: 1px solid #EDF0F2;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .memo-link-primary {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #FFFFFF;
-      background: #1B4F72;
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 4px;
-      transition: background 0.15s;
-    }
-    .memo-link-primary:hover { background: #154360; }
-    .memo-link-secondary {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #2E86AB;
-      text-decoration: none;
-      padding: 6px 12px;
-      border: 1px solid #BDD5E5;
-      border-radius: 4px;
-      transition: all 0.15s;
-    }
-    .memo-link-secondary:hover {
-      background: #EAF4FA;
-      border-color: #2E86AB;
-    }
-    .download-note {
-      width: 100%;
-      font-size: 11px;
-      color: #95A5A6;
-      padding-top: 4px;
-    }
-    .about-section {
-      padding: 28px 28px;
-      margin-bottom: 24px;
-    }
-    .about-section h3 {
-      font-size: 14px;
-      font-weight: 600;
-      color: #0D1B2A;
-      margin-bottom: 10px;
-    }
-    .about-section p {
-      font-size: 13px;
-      color: #4A5568;
-      line-height: 1.7;
-      margin-bottom: 14px;
-    }
-    .method-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6px 24px;
-    }
-    .method-list li {
-      font-size: 12.5px;
-      color: #5D6D7E;
-      padding-left: 14px;
-      position: relative;
-      line-height: 1.5;
-    }
-    .method-list li::before {
-      content: '-';
-      position: absolute;
-      left: 0;
-      color: #2E86AB;
-      font-weight: 600;
-    }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
 
-    .val-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 12px 0 14px;
-      font-size: 12.5px;
-    }
-    .val-table th {
-      text-align: left;
-      font-weight: 600;
-      color: #0D1B2A;
-      padding: 6px 12px;
-      border-bottom: 2px solid #1B4F72;
-      background: #F4F6F8;
-    }
-    .val-table td {
-      padding: 5px 12px;
-      border-bottom: 1px solid #EDF0F2;
-      color: #4A5568;
-    }
-    .val-table .highlight {
-      font-weight: 600;
-      color: #1A7A40;
-    }
+        /* Header */
+        header {
+            margin-bottom: 60px;
+        }
 
-    .site-footer {
-      background: #0D1B2A;
-      padding: 22px 0;
-    }
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .footer-inner p {
-      font-size: 11.5px;
-      color: #6C7A7D;
-    }
-    @media (max-width: 600px) {
-      .header-inner h1 { font-size: 22px; }
-      .about-strip-inner { flex-direction: column; }
-      .method-list { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-  </style>
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            margin: 0;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+        }
+
+        .header-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .header-links a:hover {
+            color: var(--primary);
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--secondary);
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* About Strip */
+        .about-strip {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 32px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .about-strip p {
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Company Cards */
+        .cards-container {
+            display: grid;
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+            border: 1px solid rgba(13, 27, 42, 0.1);
+        }
+
+        .card-header {
+            margin-bottom: 20px;
+        }
+
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .card-meta {
+            font-size: 13px;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        .card-sector {
+            font-size: 14px;
+            color: var(--secondary);
+            margin: 12px 0;
+        }
+
+        .card-thesis {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--dark);
+            margin: 16px 0;
+        }
+
+        .card-call {
+            background-color: var(--light);
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin: 16px 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .card-files {
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(13, 27, 42, 0.1);
+        }
+
+        .file-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .file-item {
+            color: var(--secondary);
+            background-color: var(--light);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Valuation Summary */
+        .valuation-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+            border: 1px solid rgba(13, 27, 42, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+        }
+
+        .valuation-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .valuation-item {
+            border-bottom: 1px solid rgba(13, 27, 42, 0.1);
+            padding-bottom: 20px;
+        }
+
+        .valuation-item:last-child {
+            border-bottom: none;
+        }
+
+        .valuation-company {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .valuation-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        .valuation-label {
+            color: var(--secondary);
+        }
+
+        .valuation-value {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        /* Model Architecture */
+        .architecture-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+            border: 1px solid rgba(13, 27, 42, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .architecture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        @media (max-width: 600px) {
+            .architecture-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .architecture-list {
+            list-style: none;
+        }
+
+        .architecture-list li {
+            font-size: 14px;
+            color: var(--dark);
+            padding: 6px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .architecture-list li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        .skills-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+            border: 1px solid rgba(13, 27, 42, 0.1);
+            margin-bottom: 40px;
+        }
+
+        /* Sources Section */
+        .sources-section {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 32px;
+            box-shadow: 0 2px 8px rgba(13, 27, 42, 0.08);
+            border: 1px solid rgba(13, 27, 42, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .sources-list {
+            list-style: none;
+        }
+
+        .sources-list li {
+            font-size: 14px;
+            color: var(--dark);
+            padding: 8px 0;
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .sources-list li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-weight: 500;
+        }
+
+        /* Buttons */
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .btn {
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #153d57;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--secondary);
+            border: 1.5px solid var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(46, 134, 171, 0.05);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 13px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 4px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 24px 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .header-links {
+                gap: 12px;
+                flex-wrap: wrap;
+            }
+
+            .card {
+                padding: 24px;
+            }
+
+            .about-strip {
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1>Zak Whatmough</h1>
-      <p class="header-sub">Portfolio Project &middot; Equity Research Models &middot; Integrated 3-Statement Modelling</p>
-      <div class="header-links">
-        <a href="../index.html">Back to Main Portfolio</a>
-        <a href="mailto:z.whatmough@hotmail.co.uk">Contact</a>
-        <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-        <a href="https://github.com/zwhatmough/investment-research/tree/main/equity-research-models" target="_blank">GitHub Folder</a>
-      </div>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-top">
+                <h1>Zak Whatmough</h1>
+                <nav class="header-links">
+                    <a href="../" title="Back to all projects">&#8592; All Projects</a>
+                    <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
+                    <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
+                    <a href="../Zak_Whatmough_CV.pdf">CV</a>
+                </nav>
+            </div>
+            <p class="subtitle">Portfolio &middot; Equity Research Models</p>
+        </header>
+
+        <!-- About Strip -->
+        <section class="about-strip">
+            <p>Integrated financial models and equity research notes built from scratch using public filings. Each company gets the same treatment: a 12-tab Excel model with live formulas, a professional equity research note, and a Python validation script that cross-checks every input. Designed to replicate the work of a junior analyst at an investment bank or Big 4 advisory firm.</p>
+            <div class="tag-group">
+                <span class="tag">3-statement model</span>
+                <span class="tag">DCF valuation</span>
+                <span class="tag">Trading comps</span>
+                <span class="tag">IFRS 16</span>
+                <span class="tag">Scenario analysis</span>
+                <span class="tag">Python + openpyxl</span>
+            </div>
+        </section>
+
+        <!-- Company Cards -->
+        <section class="cards-container">
+            <!-- Tesco Card -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Tesco PLC (TSCO LN)</h2>
+                    <p class="card-meta">EQUITY RESEARCH 01 · April 2026</p>
+                </div>
+                <p class="card-sector"><strong>Sector:</strong> UK Grocery / Consumer Staples</p>
+                <p class="card-thesis"><strong>Thesis:</strong> Tesco is the UK's largest grocer with roughly 27% market share. The 12-tab integrated model covers revenue (UK & ROI + Central Europe), EBITDA, full PP&E and ROU asset rollforwards, IFRS 16 lease liability schedules, a debt rollforward, dividend and buyback modelling, a DCF with mid-year convention and Gordon Growth terminal value, and a 6-peer trading comps table.</p>
+                <div class="tag-group">
+                    <span class="tag">TSCO LN</span>
+                    <span class="tag">UK & ROI + CE revenue</span>
+                    <span class="tag">IFRS 16 leases</span>
+                    <span class="tag">WACC 5.6%</span>
+                    <span class="tag">933 formulas 0 errors</span>
+                </div>
+                <div class="card-call">
+                    <strong>BUY</strong> · Target <strong>310p</strong> (19% upside from 260p)
+                </div>
+                <div class="card-files">
+                    <p style="margin-bottom: 8px; font-size: 13px; color: var(--secondary); font-weight: 500;">Files:</p>
+                    <div class="file-list">
+                        <span class="file-item">Tesco_Equity_Research_Note_v2.docx</span>
+                        <span class="file-item">Tesco_Equity_Research_Note_v2.pdf</span>
+                        <span class="file-item">Tesco_Equity_Research_Model_v2.xlsx</span>
+                        <span class="file-item">tesco_data_validation.py</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Diageo Card -->
+            <article class="card">
+                <div class="card-header">
+                    <h2 class="card-title">Diageo PLC (DGE LN)</h2>
+                    <p class="card-meta">EQUITY RESEARCH 02 · April 2026</p>
+                </div>
+                <p class="card-sector"><strong>Sector:</strong> Global Spirits / Consumer Staples</p>
+                <p class="card-thesis"><strong>Thesis:</strong> Diageo is the world's largest spirits company, with brands including Johnnie Walker, Tanqueray, Guinness, and Don Julio. The model uses the same 12-tab architecture but adapted for spirits: revenue segmented into North America and International, much higher EBITDA margins (~35% vs ~9.5%), a large intangible asset base, and inventory where DIO runs at 160–170 days because spirits must age in barrels.</p>
+                <div class="tag-group">
+                    <span class="tag">DGE LN</span>
+                    <span class="tag">NA + International revenue</span>
+                    <span class="tag">Goodwill & brands</span>
+                    <span class="tag">WACC 6.2%</span>
+                    <span class="tag">933 formulas 0 errors</span>
+                </div>
+                <div class="card-call">
+                    <strong>BUY</strong> · Target <strong>2,800p</strong> (12% upside from 2,500p)
+                </div>
+                <div class="card-files">
+                    <p style="margin-bottom: 8px; font-size: 13px; color: var(--secondary); font-weight: 500;">Files:</p>
+                    <div class="file-list">
+                        <span class="file-item">Diageo_Equity_Research_Note_v2.docx</span>
+                        <span class="file-item">Diageo_Equity_Research_Note_v2.pdf</span>
+                        <span class="file-item">Diageo_Equity_Research_Model_v2.xlsx</span>
+                        <span class="file-item">diageo_data_validation.py</span>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <!-- Valuation Summary -->
+        <section class="valuation-section">
+            <h3 class="section-title">Valuation Summary</h3>
+            <div class="valuation-grid">
+                <div class="valuation-item">
+                    <div class="valuation-company">Tesco PLC (TSCO LN)</div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">DCF Valuation</span>
+                        <span class="valuation-value">~280p (WACC 5.6%, TGR 2.0%)</span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Trading Comps</span>
+                        <span class="valuation-value">280–310p (6 peers)</span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Target Price</span>
+                        <span class="valuation-value"><strong>310p</strong> · <strong>BUY</strong></span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Implied Upside</span>
+                        <span class="valuation-value">~19% (from 260p)</span>
+                    </div>
+                </div>
+                <div class="valuation-item">
+                    <div class="valuation-company">Diageo PLC (DGE LN)</div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">DCF Valuation</span>
+                        <span class="valuation-value">~2,800p (WACC 6.2%, TGR 2.5%)</span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Trading Comps</span>
+                        <span class="valuation-value">2,600–2,900p (5 peers)</span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Target Price</span>
+                        <span class="valuation-value"><strong>2,800p</strong> · <strong>BUY</strong></span>
+                    </div>
+                    <div class="valuation-row">
+                        <span class="valuation-label">Implied Upside</span>
+                        <span class="valuation-value">~12% (from 2,500p)</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Model Architecture -->
+        <section class="architecture-section">
+            <h3 class="section-title">Model Architecture</h3>
+            <div class="architecture-grid">
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 12px;">12-Tab Structure</h4>
+                    <ul class="architecture-list">
+                        <li>Cover page</li>
+                        <li>Assumptions</li>
+                        <li>Income Statement</li>
+                        <li>Working Capital</li>
+                        <li>Capex & D&A</li>
+                        <li>Debt & Interest</li>
+                        <li>Dividend & Buyback</li>
+                        <li>Balance Sheet</li>
+                        <li>Cash Flow</li>
+                        <li>DCF Valuation</li>
+                        <li>Trading Comps</li>
+                        <li>Charts</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="font-size: 14px; font-weight: 600; color: var(--primary); margin-bottom: 12px;">Key Features</h4>
+                    <ul class="architecture-list">
+                        <li>Live formulas (not hardcoded)</li>
+                        <li>Base/Bull/Bear CHOOSE() toggle</li>
+                        <li>WACC from CAPM</li>
+                        <li>Mid-year discounting convention</li>
+                        <li>Source notes citing annual reports</li>
+                        <li>Python validation scripts</li>
+                        <li>Cross-formula error checks</li>
+                        <li>Sensitivity tables</li>
+                        <li>Peer trading comparables</li>
+                        <li>Detailed assumptions layer</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills and Tools -->
+        <section class="skills-section">
+            <h3 class="section-title">Skills and Tools</h3>
+            <div class="tag-group">
+                <span class="tag">Excel</span>
+                <span class="tag">Python</span>
+                <span class="tag">openpyxl</span>
+                <span class="tag">pandas</span>
+                <span class="tag">numpy</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">docx-js</span>
+                <span class="tag">CAPM/WACC</span>
+                <span class="tag">DCF Valuation</span>
+                <span class="tag">IFRS 16</span>
+                <span class="tag">Financial Modelling</span>
+            </div>
+        </section>
+
+        <!-- Sources and References -->
+        <section class="sources-section">
+            <h3 class="section-title">Sources and References</h3>
+            <ul class="sources-list">
+                <li>Tesco PLC Annual Reports FY2020–FY2024</li>
+                <li>Diageo PLC Annual Reports FY2020–FY2024</li>
+                <li>Bloomberg Terminal (beta, peer multiples, market data)</li>
+                <li>Damodaran Online (equity risk premium, country risk premiums)</li>
+                <li>Bank of England 10-year gilt yield data</li>
+            </ul>
+        </section>
     </div>
-  </header>
 
-  <div class="about-strip">
-    <div class="about-strip-inner">
-      <p>Integrated financial models and equity research notes built from scratch using public filings. Each company gets the same treatment: a 12-tab Excel model with live formulas (not hardcoded numbers), a professional equity research note, and a Python validation script that cross-checks every input. Designed to replicate the work of a junior analyst at an investment bank or Big 4 advisory firm.</p>
-      <div class="tags">
-        <span class="tag">3-statement model</span>
-        <span class="tag">DCF valuation</span>
-        <span class="tag">Trading comps</span>
-        <span class="tag">IFRS 16</span>
-        <span class="tag">Scenario analysis</span>
-        <span class="tag">Python + openpyxl</span>
-      </div>
-    </div>
-  </div>
-
-  <main class="main">
-    <p class="section-label">Company Models</p>
-
-    <div class="memos-grid">
-
-      <!-- TESCO -->
-      <div class="memo-card">
-        <div class="memo-card-header">
-          <span class="memo-number">EQUITY RESEARCH 01</span>
-          <span class="memo-date">April 2026</span>
-        </div>
-        <div class="memo-card-body">
-          <span class="memo-sector">UK Grocery / Consumer Staples</span>
-          <h2>Tesco PLC (TSCO LN): Integrated Model &amp; Equity Research Note</h2>
-          <p class="memo-thesis">Tesco is the UK's largest grocer with roughly 27% market share. The 12-tab integrated model covers revenue (UK &amp; ROI + Central Europe), EBITDA, full PP&amp;E and ROU asset rollforwards, IFRS 16 lease liability schedules, a debt rollforward, dividend and buyback modelling, a DCF with mid-year convention and Gordon Growth terminal value, and a 6-peer trading comps table. All inputs are sourced from Tesco Annual Reports FY2020-FY2024.</p>
-          <div class="memo-tags">
-            <span class="memo-tag">TSCO LN</span>
-            <span class="memo-tag">UK &amp; ROI + CE revenue</span>
-            <span class="memo-tag">IFRS 16 leases</span>
-            <span class="memo-tag">WACC 5.6%</span>
-            <span class="memo-tag">933 formulas, 0 errors</span>
-          </div>
-          <span class="memo-call">BUY &mdash; Target 310p (19% upside from 260p)</span>
-        </div>
-        <div class="memo-card-footer">
-          <a class="memo-link-primary" href="./Tesco_Equity_Research_Note_v2.docx">Research Note (.docx)</a>
-          <a class="memo-link-secondary" href="./Tesco_Equity_Research_Note_v2.pdf">Research Note (.pdf)</a>
-          <a class="memo-link-secondary" href="./Tesco_Equity_Research_Model_v2.xlsx">Excel Model (.xlsx)</a>
-          <a class="memo-link-secondary" href="./tesco_data_validation.py">Validation Script (.py)</a>
-          <span class="download-note">Word = 3-page equity research note with BUY recommendation &middot; Excel = 12-tab integrated model &middot; Python = 79 data validation checks (all pass)</span>
-        </div>
-      </div>
-
-      <!-- DIAGEO -->
-      <div class="memo-card">
-        <div class="memo-card-header">
-          <span class="memo-number">EQUITY RESEARCH 02</span>
-          <span class="memo-date">April 2026</span>
-        </div>
-        <div class="memo-card-body">
-          <span class="memo-sector">Global Spirits / Consumer Staples</span>
-          <h2>Diageo PLC (DGE LN): Integrated Model &amp; Equity Research Note</h2>
-          <p class="memo-thesis">Diageo is the world's largest spirits company, with brands including Johnnie Walker, Tanqueray, Guinness, and Don Julio. The model uses the same 12-tab architecture as Tesco but adapted for spirits: revenue segmented into North America and International, much higher EBITDA margins (~35% vs ~9.5%), a large intangible asset base, and an inventory profile where DIO runs at 160-170 days because spirits must age in barrels for years before sale.</p>
-          <div class="memo-tags">
-            <span class="memo-tag">DGE LN</span>
-            <span class="memo-tag">NA + International revenue</span>
-            <span class="memo-tag">Goodwill &amp; brands</span>
-            <span class="memo-tag">WACC 6.2%</span>
-            <span class="memo-tag">933 formulas, 0 errors</span>
-          </div>
-          <span class="memo-call">BUY &mdash; Target 2,800p (12% upside from 2,500p)</span>
-        </div>
-        <div class="memo-card-footer">
-          <a class="memo-link-primary" href="./Diageo_Equity_Research_Note_v2.docx">Research Note (.docx)</a>
-          <a class="memo-link-secondary" href="./Diageo_Equity_Research_Note_v2.pdf">Research Note (.pdf)</a>
-          <a class="memo-link-secondary" href="./Diageo_Equity_Research_Model_v2.xlsx">Excel Model (.xlsx)</a>
-          <a class="memo-link-secondary" href="./diageo_data_validation.py">Validation Script (.py)</a>
-          <span class="download-note">Word = 3-page equity research note with BUY recommendation &middot; Excel = 12-tab integrated model &middot; Python = 84 data validation checks (all pass)</span>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- VALUATION SUMMARY -->
-    <p class="section-label">Valuation Summary</p>
-
-    <div class="about-section">
-      <h3>Tesco PLC (TSCO LN)</h3>
-      <table class="val-table">
-        <tr><th>Methodology</th><th>Implied Value</th><th>Key Assumptions</th></tr>
-        <tr><td>DCF (mid-year, Gordon Growth)</td><td>~280p</td><td>WACC 5.6%, TGR 2.0%</td></tr>
-        <tr><td>Trading Comps (peer median)</td><td>280-310p</td><td>6 European grocery peers</td></tr>
-        <tr><td class="highlight">Target Price</td><td class="highlight">310p (BUY)</td><td class="highlight">~19% upside from 260p</td></tr>
-      </table>
-
-      <h3>Diageo PLC (DGE LN)</h3>
-      <table class="val-table">
-        <tr><th>Methodology</th><th>Implied Value</th><th>Key Assumptions</th></tr>
-        <tr><td>DCF (mid-year, Gordon Growth)</td><td>~2,800p</td><td>WACC 6.2%, TGR 2.5%</td></tr>
-        <tr><td>Trading Comps (peer median)</td><td>2,600-2,900p</td><td>5 global spirits peers</td></tr>
-        <tr><td class="highlight">Target Price</td><td class="highlight">2,800p (BUY)</td><td class="highlight">~12% upside from 2,500p</td></tr>
-      </table>
-    </div>
-
-    <!-- MODEL ARCHITECTURE -->
-    <p class="section-label">Model Architecture</p>
-
-    <div class="about-section">
-      <h3>12-tab structure (both models)</h3>
-      <ul class="method-list">
-        <li>Cover page with company overview</li>
-        <li>Assumptions tab (blue inputs, black formulas, green links)</li>
-        <li>Income Statement (segmental revenue build)</li>
-        <li>Working Capital schedule (DIO / DSO / DPO)</li>
-        <li>Capex &amp; D&amp;A (PP&amp;E and ROU rollforwards)</li>
-        <li>Debt &amp; Interest (bond + IFRS 16 lease rollforward)</li>
-        <li>Dividend &amp; Buyback (share count roll)</li>
-        <li>Balance Sheet with audit check</li>
-        <li>Cash Flow Statement</li>
-        <li>DCF Valuation (WACC/TGR sensitivity table)</li>
-        <li>Trading Comps (sector peers)</li>
-        <li>Charts tab</li>
-      </ul>
-      <br>
-      <h3>Key features</h3>
-      <ul class="method-list">
-        <li>Every cell contains a live Excel formula, not hardcoded values</li>
-        <li>Base / Bull / Bear scenario toggle via CHOOSE() function</li>
-        <li>WACC from CAPM (10yr gilt, Bloomberg beta, Damodaran ERP)</li>
-        <li>Mid-year discounting convention</li>
-        <li>Source notes citing specific pages from annual reports</li>
-        <li>Python validation scripts verify all historical inputs</li>
-      </ul>
-      <br>
-      <h3>Technical stack</h3>
-      <p style="margin-bottom:0;">Excel models built with Python (openpyxl). Word documents generated with Node.js (docx-js). Data validation scripts use Python (pandas, numpy). All code is available in the GitHub repository.</p>
-    </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>Zak Whatmough &middot; Equity Research Models &middot; 2026</p>
-      <p>For educational purposes only. Not investment advice. All views are personal and do not represent any institution.</p>
-    </div>
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <p>Zak Whatmough · Portfolio · 2026</p>
+        <p>For educational purposes only. Not investment advice.</p>
+    </footer>
 </body>
 </html>

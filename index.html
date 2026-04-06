@@ -3,249 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zak Whatmough | Investment Research Portfolio</title>
+  <title>Zak Whatmough | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F6F8; color: #1C2833; line-height: 1.6; }
 
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #F4F6F8;
-      color: #1C2833;
-      line-height: 1.6;
-    }
+    .site-header { background: #0D1B2A; padding: 48px 0 40px; }
+    .header-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+    .header-inner h1 { font-size: 28px; font-weight: 700; color: #FFF; letter-spacing: -0.3px; margin-bottom: 6px; }
+    .header-sub { font-size: 14px; color: #ADB5BD; font-weight: 400; margin-bottom: 20px; }
+    .header-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .header-links a { font-size: 13px; color: #ADB5BD; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 4px; transition: all 0.15s; }
+    .header-links a:hover { color: #FFF; border-color: rgba(255,255,255,0.4); }
 
-    .site-header {
-      background: #0D1B2A;
-      padding: 48px 0 40px;
-    }
-    .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .header-inner h1 {
-      font-size: 28px;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: -0.3px;
-      margin-bottom: 6px;
-    }
-    .header-sub {
-      font-size: 14px;
-      color: #ADB5BD;
-      font-weight: 400;
-      margin-bottom: 20px;
-    }
-    .header-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .header-links a {
-      font-size: 13px;
-      color: #ADB5BD;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 5px 12px;
-      border-radius: 4px;
-      transition: all 0.15s;
-    }
-    .header-links a:hover {
-      color: #FFFFFF;
-      border-color: rgba(255,255,255,0.4);
-    }
-
-    .about-strip {
-      background: #1B4F72;
-      padding: 24px 0;
-    }
-    .about-strip-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .about-strip p {
-      font-size: 13.5px;
-      color: #D6EAF8;
-      max-width: 720px;
-      line-height: 1.7;
-      margin-bottom: 12px;
-    }
+    .about-strip { background: #1B4F72; padding: 24px 0; }
+    .about-strip-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+    .about-strip p { font-size: 13.5px; color: #D6EAF8; max-width: 720px; line-height: 1.7; margin-bottom: 12px; }
     .about-strip p:last-child { margin-bottom: 0; }
 
-    .main {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 40px 32px;
-    }
+    .main { max-width: 860px; margin: 0 auto; padding: 40px 32px; }
+    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #2E86AB; margin-bottom: 20px; }
 
-    .section-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #2E86AB;
-      margin-bottom: 20px;
-    }
-
-    .projects-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 48px;
-    }
-
-    .project-card {
-      background: #FFFFFF;
-      border-radius: 6px;
-      border: 1px solid #E0E6EA;
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-      transition: border-color 0.15s;
-    }
-    .project-card:hover {
-      border-color: #BDD5E5;
-    }
-
-    .project-card-header {
-      background: #0D1B2A;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .project-label {
-      font-size: 11px;
-      font-weight: 600;
-      color: #ADB5BD;
-      letter-spacing: 0.1em;
-    }
-    .project-date {
-      font-size: 11px;
-      color: #6C7A7D;
-    }
-
-    .project-card-body {
-      padding: 16px 20px 0;
-    }
-
-    .project-sector {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      color: #1B4F72;
-      background: #E8F4FB;
-      border-radius: 3px;
-      padding: 2px 8px;
-      margin-bottom: 10px;
-    }
-
-    .project-card-body h2 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #0D1B2A;
-      line-height: 1.4;
-      margin-bottom: 10px;
-      letter-spacing: -0.2px;
-    }
-
-    .project-desc {
-      font-size: 13px;
-      color: #4A5568;
-      line-height: 1.65;
-      margin-bottom: 14px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 12px;
-    }
-    .project-tag {
-      font-size: 11px;
-      color: #5D6D7E;
-      background: #F4F6F8;
-      border: 1px solid #DDE2E6;
-      border-radius: 3px;
-      padding: 2px 8px;
-    }
-
-    .project-stat {
-      display: inline-block;
-      font-size: 11.5px;
-      font-weight: 600;
-      color: #1A7A40;
-      background: #D5F5E3;
-      border-radius: 3px;
-      padding: 3px 10px;
-      margin-bottom: 14px;
-    }
-
-    .project-card-footer {
-      border-top: 1px solid #EDF0F2;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #FFFFFF;
-      background: #1B4F72;
-      text-decoration: none;
-      padding: 6px 14px;
-      border-radius: 4px;
-      transition: background 0.15s;
-    }
+    .projects-grid { display: flex; flex-direction: column; gap: 20px; margin-bottom: 48px; }
+    .project-card { background: #FFF; border-radius: 6px; border: 1px solid #E0E6EA; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+    .project-card-header { background: #0D1B2A; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; }
+    .project-label { font-size: 11px; font-weight: 600; color: #ADB5BD; letter-spacing: 0.1em; }
+    .project-date { font-size: 11px; color: #6C7A7D; }
+    .project-card-body { padding: 16px 20px 0; }
+    .project-sector { display: inline-block; font-size: 11px; font-weight: 500; color: #1B4F72; background: #E8F4FB; border-radius: 3px; padding: 2px 8px; margin-bottom: 10px; }
+    .project-card-body h2 { font-size: 16px; font-weight: 600; color: #0D1B2A; line-height: 1.4; margin-bottom: 10px; letter-spacing: -0.2px; }
+    .project-desc { font-size: 13px; color: #4A5568; line-height: 1.65; margin-bottom: 14px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .project-tag { font-size: 11px; color: #5D6D7E; background: #F4F6F8; border: 1px solid #DDE2E6; border-radius: 3px; padding: 2px 8px; }
+    .project-stat { display: inline-block; font-size: 11.5px; font-weight: 600; color: #1A7A40; background: #D5F5E3; border-radius: 3px; padding: 3px 10px; margin-bottom: 14px; }
+    .project-card-footer { border-top: 1px solid #EDF0F2; padding: 12px 20px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .btn-primary { font-size: 12.5px; font-weight: 600; color: #FFF; background: #1B4F72; text-decoration: none; padding: 6px 14px; border-radius: 4px; transition: background 0.15s; }
     .btn-primary:hover { background: #154360; }
+    .footer-note { width: 100%; font-size: 11px; color: #95A5A6; padding-top: 4px; }
 
-    .btn-secondary {
-      font-size: 12.5px;
-      font-weight: 500;
-      color: #2E86AB;
-      text-decoration: none;
-      padding: 6px 12px;
-      border: 1px solid #BDD5E5;
-      border-radius: 4px;
-      transition: all 0.15s;
-    }
-    .btn-secondary:hover {
-      background: #EAF4FA;
-      border-color: #2E86AB;
-    }
-
-    .footer-note {
-      width: 100%;
-      font-size: 11px;
-      color: #95A5A6;
-      padding-top: 4px;
-    }
-
-    .site-footer {
-      background: #0D1B2A;
-      padding: 22px 0;
-    }
-    .footer-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .footer-inner p {
-      font-size: 11.5px;
-      color: #6C7A7D;
-    }
+    .site-footer { background: #0D1B2A; padding: 22px 0; }
+    .footer-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .footer-inner p { font-size: 11.5px; color: #6C7A7D; }
 
     @media (max-width: 600px) {
       .header-inner h1 { font-size: 22px; }
@@ -255,27 +55,25 @@
 </head>
 <body>
 
-  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
       <h1>Zak Whatmough</h1>
-      <p class="header-sub">Investment Research Portfolio &nbsp;&middot;&nbsp; BSc Economics, Manchester Metropolitan University</p>
+      <p class="header-sub">Portfolio &nbsp;&middot;&nbsp; BSc Economics, Manchester Metropolitan University</p>
       <div class="header-links">
         <a href="mailto:z.whatmough@hotmail.co.uk">&#9993; z.whatmough@hotmail.co.uk</a>
         <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn &#8599;</a>
+        <a href="Zak_Whatmough_CV.pdf" target="_blank">CV (PDF) &#8599;</a>
       </div>
     </div>
   </header>
 
-  <!-- ABOUT -->
   <div class="about-strip">
     <div class="about-strip-inner">
-      <p>A collection of investment research, financial modelling, and transaction analysis projects built to develop and demonstrate institutional-grade analytical skills. Each project is self-contained with full workings, auditable data, and professional documentation.</p>
-      <p>The work covers buy-side investment memos, integrated equity research models, LBO modelling, transaction case studies, and audit risk reviews. Everything is downloadable, and every number is traceable back to its source.</p>
+      <p>A collection of investment research, financial modelling, transaction analysis, and audit projects. Each one is self-contained with full workings, auditable data, and professional documentation. The work covers the range of analytical skills used in investment banking, private equity, equity research, and Big 4 transaction services.</p>
+      <p>Everything is downloadable. Every number is traceable back to its source.</p>
     </div>
   </div>
 
-  <!-- MAIN -->
   <main class="main">
 
     <p class="section-label">Projects</p>
@@ -291,7 +89,7 @@
         <div class="project-card-body">
           <span class="project-sector">Macro / Equities / Commodities / Healthcare</span>
           <h2>Investment Memos: 5 Buy-Side Style Short Memos</h2>
-          <p class="project-desc">A series of five short investment memos covering AI infrastructure capex, European equity re-rating, copper supply deficit, emerging market rotation, and biotech valuation reset. Written in the format of buy-side morning notes and investment committee briefs, each backed by OLS regression, scenario models, and auditable Excel workbooks.</p>
+          <p class="project-desc">Five short investment memos covering AI infrastructure capex, European equity re-rating, copper supply deficit, emerging market rotation, and biotech valuation reset. Written in the format of buy-side morning notes and IC briefs, each backed by OLS regression, scenario models, and auditable Excel workbooks.</p>
           <div class="project-tags">
             <span class="project-tag">AI Capex</span>
             <span class="project-tag">European Equities</span>
@@ -317,13 +115,12 @@
         <div class="project-card-body">
           <span class="project-sector">Equity Research / Financial Modelling / Valuation</span>
           <h2>Integrated 3-Statement Models: Tesco PLC &amp; Diageo PLC</h2>
-          <p class="project-desc">Full 12-tab integrated financial models built from scratch using public filings. Each model includes segmental revenue builds, IFRS 16 lease rollforwards, PP&amp;E schedules, debt rollforwards, DCF valuation with WACC/TGR sensitivity, trading comps, and Base/Bull/Bear scenario toggle. Every cell contains a live formula. Python scripts validate all historical inputs.</p>
+          <p class="project-desc">Full 12-tab integrated financial models built from scratch using public filings. Segmental revenue builds, IFRS 16 lease rollforwards, PP&amp;E schedules, debt rollforwards, DCF valuation with WACC/TGR sensitivity, trading comps, and Base/Bull/Bear scenario toggle. Every cell is a live formula. Python scripts validate all historical inputs.</p>
           <div class="project-tags">
             <span class="project-tag">3-Statement Model</span>
             <span class="project-tag">DCF Valuation</span>
             <span class="project-tag">Trading Comps</span>
             <span class="project-tag">IFRS 16</span>
-            <span class="project-tag">Scenario Analysis</span>
             <span class="project-tag">TSCO LN &middot; DGE LN</span>
           </div>
           <span class="project-stat">BUY: Tesco 310p (19% upside) &middot; Diageo 2,800p (12% upside)</span>
@@ -343,7 +140,7 @@
         <div class="project-card-body">
           <span class="project-sector">Consumer / Retail / Private Equity</span>
           <h2>Morrisons LBO Model: CD&amp;R Take-Private (2021)</h2>
-          <p class="project-desc">Fully formula-driven LBO model and professional transaction note analysing CD&amp;R's acquisition of Wm Morrison Supermarkets for 287p/share (~&pound;9.9bn EV). 7 tabs covering assumptions, sources and uses, operating model, 4-tranche debt schedule with cash sweep, returns with reconciling value bridge, and two-way sensitivity tables. Accompanied by a full transaction case study and critical review.</p>
+          <p class="project-desc">Fully formula-driven LBO model and transaction case study analysing CD&amp;R's acquisition of Wm Morrison Supermarkets for 287p/share (~&pound;9.9bn EV). 7 tabs covering assumptions, sources and uses, operating model, 4-tranche debt schedule with cash sweep, returns with reconciling value bridge, and two-way sensitivity tables.</p>
           <div class="project-tags">
             <span class="project-tag">LBO Modelling</span>
             <span class="project-tag">Take-Private</span>
@@ -369,7 +166,7 @@
         <div class="project-card-body">
           <span class="project-sector">Audit / Financial Reporting / Transaction Services</span>
           <h2>easyJet plc FY2025: Audit Risk Review</h2>
-          <p class="project-desc">Audit-style financial reporting and risk assessment project covering revenue cut-off, deferred revenue, lease liabilities, maintenance provisions, and liquidity analysis. Built around practical audit judgement and defendable analysis, with supporting Excel workings and Python analytical procedures.</p>
+          <p class="project-desc">Audit-style financial reporting and risk assessment covering revenue cut-off, deferred revenue, lease liabilities, maintenance provisions, and liquidity analysis. Built around practical audit judgement and defendable analysis, with supporting Excel workings and Python analytical procedures.</p>
           <div class="project-tags">
             <span class="project-tag">IFRS 15</span>
             <span class="project-tag">Deferred Revenue</span>
@@ -389,10 +186,9 @@
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>Zak Whatmough &middot; Investment Research Portfolio &middot; 2026</p>
+      <p>Zak Whatmough &middot; Portfolio &middot; 2026</p>
       <p>For educational purposes only. Not investment advice. All views are personal and do not represent any institution.</p>
     </div>
   </footer>
