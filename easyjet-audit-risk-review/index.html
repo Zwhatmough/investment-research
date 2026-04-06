@@ -217,40 +217,31 @@
             display: block;
         }
 
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .download-card {
-            border: 1px solid #E8EBF0;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            text-decoration: none;
-            transition: all 0.2s;
+        .file-row {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .download-card:hover {
-            border-color: #1B4F72;
-            background: #F9FAFB;
-        }
-
-        .download-card-title {
-            font-weight: 600;
-            color: #0D1B2A;
-            font-size: 14px;
-        }
-
-        .download-card-desc {
+        .file-btn {
+            color: white;
+            background: #1B4F72;
+            text-decoration: none;
             font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .file-btn:hover {
+            background: #154360;
+        }
+
+        .file-note {
+            font-size: 12px;
             color: #666;
-            line-height: 1.5;
         }
 
         .github-link {
@@ -377,9 +368,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .download-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -441,23 +429,17 @@
 
                 <div class="files-section">
                     <span class="files-label">Deliverables</span>
-                    <div class="download-grid">
-                        <a href="docs/easyjet-audit-risk-review.pdf" class="download-card">
-                            <div class="download-card-title">easyjet-audit-risk-review.pdf</div>
-                            <div class="download-card-desc">Audit Report (.pdf) — Final formatted review</div>
-                        </a>
-                        <a href="docs/easyjet-audit-risk-review.docx" class="download-card">
-                            <div class="download-card-title">easyjet-audit-risk-review.docx</div>
-                            <div class="download-card-desc">Audit Report (.docx) — Editable Word version</div>
-                        </a>
-                        <a href="data/easyjet-audit-risk-review.xlsx" class="download-card">
-                            <div class="download-card-title">easyjet-audit-risk-review.xlsx</div>
-                            <div class="download-card-desc">Workbook (.xlsx) — Raw data, ratios, and analytical review</div>
-                        </a>
-                        <a href="scripts/generate_easyjet_analysis.py" class="download-card">
-                            <div class="download-card-title">generate_easyjet_analysis.py</div>
-                            <div class="download-card-desc">Python Script — Data processing and analysis</div>
-                        </a>
+                    <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Audit Report</p>
+                    <div class="file-row" style="margin-bottom:16px;">
+                        <a href="docs/easyjet-audit-risk-review.pdf" class="file-btn" target="_blank">PDF</a>
+                        <a href="docs/easyjet-audit-risk-review.docx" class="file-btn" target="_blank">Word</a>
+                        <span class="file-note">Full audit risk review with IFRS commentary</span>
+                    </div>
+                    <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Workbook &amp; Scripts</p>
+                    <div class="file-row" style="margin-bottom:16px;">
+                        <a href="data/easyjet-audit-risk-review.xlsx" class="file-btn" target="_blank">Excel</a>
+                        <a href="scripts/generate_easyjet_analysis.py" class="file-btn" target="_blank">Python Script</a>
+                        <span class="file-note">Raw data, ratios, analytical review, and generation code</span>
                     </div>
                     <div class="github-link">
                         <a href="https://github.com/zwhatmough/investment-research/tree/main/easyjet-audit-risk-review" target="_blank">View on GitHub</a>

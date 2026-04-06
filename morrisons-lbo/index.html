@@ -175,40 +175,31 @@
             line-height: 1.6;
         }
 
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .download-card {
-            border: 1px solid #E8EBF0;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            text-decoration: none;
-            transition: all 0.2s;
+        .file-row {
             display: flex;
-            flex-direction: column;
-            gap: 8px;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
-        .download-card:hover {
-            border-color: #1B4F72;
-            background: #F9FAFB;
-        }
-
-        .download-card-title {
-            font-weight: 600;
-            color: #0D1B2A;
-            font-size: 14px;
-        }
-
-        .download-card-desc {
+        .file-btn {
+            color: white;
+            background: #1B4F72;
+            text-decoration: none;
             font-size: 13px;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .file-btn:hover {
+            background: #154360;
+        }
+
+        .file-note {
+            font-size: 12px;
             color: #666;
-            line-height: 1.5;
         }
 
         .skills-tags {
@@ -266,10 +257,6 @@
 
             .header-links {
                 justify-content: flex-start;
-            }
-
-            .download-grid {
-                grid-template-columns: 1fr;
             }
 
             .metrics-table {
@@ -395,23 +382,23 @@
 
         <section>
             <h2>Download files</h2>
-            <div class="download-grid">
-                <a href="Morrisons_LBO_Model_2021.xlsx" class="download-card">
-                    <div class="download-card-title">Morrisons_LBO_Model_2021.xlsx</div>
-                    <div class="download-card-desc">LBO Model (.xlsx) — 7 tabs, 422 formulas, fully formula-driven</div>
-                </a>
-                <a href="Morrisons_Transaction_Note_2021.pdf" class="download-card">
-                    <div class="download-card-title">Morrisons_Transaction_Note_2021.pdf</div>
-                    <div class="download-card-desc">Transaction Note (.pdf) — Full case study with tables and scenario analysis</div>
-                </a>
-                <a href="Morrisons_Transaction_Note_2021.docx" class="download-card">
-                    <div class="download-card-title">Morrisons_Transaction_Note_2021.docx</div>
-                    <div class="download-card-desc">Transaction Note (.docx) — Editable Word version</div>
-                </a>
-                <a href="Morrisons_Project_Review.docx" class="download-card">
-                    <div class="download-card-title">Morrisons_Project_Review.docx</div>
-                    <div class="download-card-desc">Critical Review (.docx) — 8-page PE/IB-standard review</div>
-                </a>
+            <div class="card">
+                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">LBO Model</p>
+                <div class="file-row" style="margin-bottom:16px;">
+                    <a href="Morrisons_LBO_Model_2021.xlsx" class="file-btn" target="_blank">Excel Model</a>
+                    <span class="file-note">7 tabs, 422 formulas, fully formula-driven</span>
+                </div>
+                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Transaction Note</p>
+                <div class="file-row" style="margin-bottom:16px;">
+                    <a href="Morrisons_Transaction_Note_2021.pdf" class="file-btn" target="_blank">PDF</a>
+                    <a href="Morrisons_Transaction_Note_2021.docx" class="file-btn" target="_blank">Word</a>
+                    <span class="file-note">Full case study with tables and scenario analysis</span>
+                </div>
+                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Critical Review</p>
+                <div class="file-row">
+                    <a href="Morrisons_Project_Review.docx" class="file-btn" target="_blank">Word</a>
+                    <span class="file-note">8-page PE/IB-standard review</span>
+                </div>
             </div>
         </section>
 
