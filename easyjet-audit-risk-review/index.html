@@ -1,521 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>easyJet Audit Risk Review | Zak Whatmough Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F4F6F8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #0D1B2A;
-            padding: 32px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .header-content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-        }
-
-        .header-text h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-
-        .header-text p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .header-links a:hover {
-            color: white;
-        }
-
-        .header-links a.back {
-            margin-right: 12px;
-            padding-right: 12px;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .about-strip {
-            background: #1B4F72;
-            color: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-        }
-
-        .about-strip p {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .about-strip p:last-child {
-            margin-bottom: 0;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .tag {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 32px 0 20px 0;
-            color: #0D1B2A;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            border: 1px solid #E8EBF0;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 20px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .meta-label {
-            font-weight: 600;
-            color: #1B4F72;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-bottom: 4px;
-        }
-
-        .meta-value {
-            color: #333;
-            font-size: 14px;
-        }
-
-        .project-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #0D1B2A;
-            margin-bottom: 16px;
-        }
-
-        .thesis-label {
-            font-weight: 600;
-            color: #1B4F72;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        .project-thesis {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .project-tag {
-            background: rgba(27, 79, 114, 0.1);
-            color: #1B4F72;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .project-call {
-            background: #F9FAFB;
-            border-left: 3px solid #1B4F72;
-            padding: 12px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            color: #555;
-            font-weight: 600;
-            margin-bottom: 16px;
-        }
-
-        .files-section {
-            margin: 16px 0;
-        }
-
-        .files-label {
-            font-weight: 600;
-            color: #1B4F72;
-            font-size: 12px;
-            text-transform: uppercase;
-            margin-bottom: 12px;
-            display: block;
-        }
-
-        .file-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .file-btn {
-            color: white;
-            background: #1B4F72;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        .file-btn:hover {
-            background: #154360;
-        }
-
-        .file-note {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .github-link {
-            display: inline-block;
-            margin-top: 8px;
-        }
-
-        .github-link a {
-            color: white;
-            background: #1B4F72;
-            padding: 8px 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .github-link a:hover {
-            background: #154360;
-        }
-
-        .coverage-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            margin-top: 16px;
-        }
-
-        .grid-item {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .grid-item-title {
-            font-weight: 600;
-            color: #1B4F72;
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .grid-item-desc {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .skills-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: #E8F4F8;
-            color: #1B4F72;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .references {
-            margin-left: 20px;
-        }
-
-        .references li {
-            margin-bottom: 10px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #0D1B2A;
-            color: rgba(255,255,255,0.6);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 13px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin: 4px 0;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .section-intro {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 16px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 640px) {
-            .header-content {
-                flex-direction: column;
-            }
-
-            .header-links {
-                justify-content: flex-start;
-            }
-
-            .project-meta {
-                flex-direction: column;
-                gap: 12px;
-            }
-
-            .coverage-grid {
-                grid-template-columns: 1fr;
-            }
-
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>easyJet FY2025 Audit Risk Review | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Zak Whatmough</h1>
-                <p>Portfolio · Audit Risk Review</p>
-            </div>
-            <nav class="header-links">
-                <a href="../" class="back">← All Projects</a>
-                <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
-                <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-                <a href="../Zak_Whatmough_CV_Audit.pdf" target="_blank">CV (Audit)</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="container">
-        <section class="about-strip">
-            <p>An audit-style review of easyJet plc FY2025 built to demonstrate practical financial statement analysis, audit planning judgement, IFRS-aware commentary, and clear professional communication for graduate roles in audit, accounting advisory, and transaction services.</p>
-            <div class="tags">
-                <span class="tag">Audit planning</span>
-                <span class="tag">IFRS 15</span>
-                <span class="tag">Lease analysis</span>
-                <span class="tag">Deferred revenue</span>
-                <span class="tag">Excel and Python</span>
-            </div>
-        </section>
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
 
-        <section>
-            <div class="card">
-                <div class="project-meta">
-                    <div class="meta-item">
-                        <span class="meta-label">Project</span>
-                        <span class="meta-value">AUDIT PROJECT 01 · April 2026</span>
-                    </div>
-                    <div class="meta-item">
-                        <span class="meta-label">Sector</span>
-                        <span class="meta-value">Audit / Financial Reporting / Transaction Services</span>
-                    </div>
-                </div>
-
-                <h2 style="margin-top: 0;">easyJet plc FY2025: Audit Risk Review</h2>
-
-                <span class="thesis-label">Thesis</span>
-                <p class="project-thesis">A financial reporting and audit-planning review built around easyJet's published FY2025 statements. The project focuses on revenue cut-off, deferred revenue, lease-heavy capital structure, maintenance provisions, liquidity, and evidence-led analytical review, supported by an Excel workbook and Python-generated workings.</p>
-
-                <div class="project-tags">
-                    <span class="project-tag">Revenue recognition timing</span>
-                    <span class="project-tag">Deferred revenue</span>
-                    <span class="project-tag">Lease liabilities</span>
-                    <span class="project-tag">Maintenance provision</span>
-                    <span class="project-tag">Analytical review</span>
-                </div>
-
-                <div class="project-call">Approach: Built to show practical audit judgement, not academic theory.</div>
-
-                <div class="files-section">
-                    <span class="files-label">Deliverables</span>
-                    <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Audit Report</p>
-                    <div class="file-row" style="margin-bottom:16px;">
-                        <a href="docs/easyjet-audit-risk-review.pdf" class="file-btn" target="_blank">PDF</a>
-                        <a href="docs/easyjet-audit-risk-review.docx" class="file-btn" target="_blank">Word</a>
-                        <span class="file-note">Full audit risk review with IFRS commentary</span>
-                    </div>
-                    <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Workbook &amp; Scripts</p>
-                    <div class="file-row" style="margin-bottom:16px;">
-                        <a href="data/easyjet-audit-risk-review.xlsx" class="file-btn" target="_blank">Excel</a>
-                        <a href="scripts/generate_easyjet_analysis.py" class="file-btn" target="_blank">Python Script</a>
-                        <span class="file-note">Raw data, ratios, analytical review, and generation code</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>What this covers</h2>
-            <div class="card">
-                <p class="section-intro">This project was designed as recruiter-facing evidence of financial statement analysis, audit risk assessment, IFRS judgement awareness, and practical written communication. It is structured like an audit planning memo rather than a university essay.</p>
-
-                <div class="coverage-grid">
-                    <div class="grid-item">
-                        <span class="grid-item-title">Word report with audit-style commentary</span>
-                        <span class="grid-item-desc">Professional write-up focused on audit risk, control considerations, and IFRS-aware observations.</span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="grid-item-title">PDF version for final presentation</span>
-                        <span class="grid-item-desc">Formatted for recruiter review and easy sharing.</span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="grid-item-title">Excel workbook with raw data and ratios</span>
-                        <span class="grid-item-desc">Underlying schedules, calculations, and analytical review workings.</span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="grid-item-title">Audit flags and support schedules</span>
-                        <span class="grid-item-desc">Key risk areas, analytical anomalies, and evidence mapping.</span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="grid-item-title">Python scripts used to structure the workings</span>
-                        <span class="grid-item-desc">Data processing and automated report generation code.</span>
-                    </div>
-                    <div class="grid-item">
-                        <span class="grid-item-title">Direct file access for recruiter review</span>
-                        <span class="grid-item-desc">All source documents and working papers accessible in one place.</span>
-                    </div>
-                </div>
-
-                <p style="margin-top: 16px; font-size: 14px; color: #666;">The analysis is built around airline-specific realities rather than generic ratio templates, including customer prepayments, revenue recognition timing, lease liabilities, maintenance obligations, and liquidity sensitivity.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills and tools</h2>
-            <div class="card">
-                <div class="skills-tags">
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">pandas</span>
-                    <span class="skill-tag">reportlab</span>
-                    <span class="skill-tag">IFRS 15</span>
-                    <span class="skill-tag">IFRS 16</span>
-                    <span class="skill-tag">Audit Planning</span>
-                    <span class="skill-tag">Analytical Review</span>
-                    <span class="skill-tag">Financial Statement Analysis</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Sources and references</h2>
-            <div class="card">
-                <ul class="references">
-                    <li>easyJet plc Annual Report and Accounts FY2025</li>
-                    <li>easyJet plc Interim Report H1 2025</li>
-                    <li>IFRS 15 Revenue from Contracts with Customers</li>
-                    <li>IFRS 16 Leases</li>
-                    <li>ISA 315 Identifying and Assessing the Risks of Material Misstatement</li>
-                    <li>CAA (Civil Aviation Authority) UK airline statistics</li>
-                </ul>
-            </div>
-        </section>
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">Audit · Financial reporting · IFRS</p>
+    <h1>easyJet FY2025: Audit Risk Review</h1>
+    <p class="lead">An audit-planning review of easyJet's published FY2025 accounts, focused on where a real audit team would spend its time: revenue and deferred income, lease and maintenance provisions, asset carrying values, and liquidity. Written like a planning memo, not a university essay.</p>
+    <div class="links">
+      <a class="primary" href="docs/easyjet-audit-risk-review.pdf" target="_blank">Read the report (PDF)</a>
+      <a href="docs/easyjet-audit-risk-review.docx">Word</a>
+      <a href="data/easyjet-audit-risk-review.xlsx">Workbook (.xlsx)</a>
     </div>
+  </div>
+</header>
 
-    <footer>
-        <p>Zak Whatmough · Portfolio · 2026</p>
-        <p>For educational purposes only. Not investment advice.</p>
-    </footer>
+<main class="wrap prose">
+
+  <div class="keynums">
+    <div class="keynum"><div class="n">£1.97bn</div><div class="l">customer contract liabilities, 19.5% of revenue</div></div>
+    <div class="keynum"><div class="n">£939m</div><div class="l">leased aircraft maintenance provision</div></div>
+    <div class="keynum"><div class="n">£602m</div><div class="l">adjusted net cash, up from £181m</div></div>
+  </div>
+
+  <h2>Overview</h2>
+  <p>easyJet runs a cash-before-service model: customers pay well before they fly, so at 30 September 2025 customer contract liabilities stood at £1.969bn, about 19.5% of annual revenue. That makes revenue recognition both an income statement and a balance sheet question, which is where an audit would start. I pulled the figures straight from the FY2025 and FY2024 annual reports, calculated the year-on-year movements in Excel, and tied every planning point back to a specific number and assertion.</p>
+
+  <figure class="figrow">
+    <img src="../images/audit/easyjet-p1.png" alt="Audit risk review, executive summary and key risks table">
+    <img src="../images/audit/easyjet-p2.png" alt="Audit risk review, analytical review section">
+  </figure>
+  <figcaption style="margin-top:-14px">The executive summary and key-risk table, and the analytical review that ties each point back to a movement in the statutory accounts.</figcaption>
+
+  <h2>The key audit risks</h2>
+  <p><b>Revenue and customer liabilities.</b> Unearned revenue rose from £1.741bn to £1.950bn and total customer contract liabilities from £1.776bn to £1.969bn. IFRS 15 is applied across several triggers, so the risk sits in cut-off, breakage, and refunds and vouchers around the year-end. The planning response front-loads walkthroughs over booking, flown and cancellation flows and rolls the contract liability forward.</p>
+  <p><b>Leased aircraft maintenance provision.</b> A large judgemental balance that rose from £894m to £939m, about 9.3% of revenue. It can be understated if assumptions on utilisation, restoration scope, escalation or discounting are optimistic, so the work tests hours and cycles against engineering data and challenges the discounting.</p>
+  <p><b>Claims, cancellations and ETS accruals.</b> Operational disruption drives compensation, refund liabilities and emissions-scheme accruals, with £518m of intangibles also reflecting carbon allowances that settle against accruals over the year.</p>
+  <p><b>Carrying value of airline assets.</b> A material asset base: owned property, plant and equipment of £4.791bn, right-of-use assets of £1.015bn, plus goodwill and other intangibles. Headroom can be overstated if revenue, margin or cost assumptions are too optimistic or the downside cases are too mild.</p>
+  <p><b>Going concern and liquidity.</b> Liquidity improved, with the current ratio rising from 1.02x to 1.11x and adjusted net cash strengthening from £181m to £602m. Because current liabilities are inflated by customer prepayments, airline liquidity is better read alongside the 1.88x cover that excludes customer balances.</p>
+
+  <h2>How I approached it</h2>
+  <p>The review is built around airline-specific realities rather than generic ratio templates: customer prepayments, revenue recognition timing, lease liabilities, maintenance obligations and liquidity sensitivity. Each analytical point ties back to a calculated movement in a statutory line item, so the commentary is evidence-led rather than descriptive. The structure follows an audit planning memo: executive summary, a key-risk table mapping each area to its assertions and a planning response, then the analytical review.</p>
+
+  <h2>What's included</h2>
+  <ul>
+    <li>The audit risk review itself, as a formatted <a href="docs/easyjet-audit-risk-review.pdf" target="_blank">PDF</a> and <a href="docs/easyjet-audit-risk-review.docx">Word</a> report.</li>
+    <li>An <a href="data/easyjet-audit-risk-review.xlsx">Excel workbook</a> with the raw data, ratios and analytical review workings.</li>
+    <li>The <a href="scripts/generate_easyjet_analysis.py" target="_blank">Python script</a> used to structure the workings and generate the report.</li>
+  </ul>
+
+  <h2>Tools and sources</h2>
+  <p>Built in Excel and Python (pandas, reportlab). Sources are easyJet's FY2025 annual report and H1 2025 interim report, IFRS 15 and IFRS 16, ISA 315 on assessing the risks of material misstatement, and CAA UK airline statistics.</p>
+
+  <p style="font-size:13px;color:var(--faint);margin-top:8px">A personal project for educational purposes, based only on publicly available information. Not affiliated with easyJet plc.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

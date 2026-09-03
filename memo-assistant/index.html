@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Investment Memo Assistant | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
+
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">Python · LLM pipeline · Streamlit</p>
+    <h1>AI Investment Memo Assistant</h1>
+    <p class="lead">A pipeline that reads a company's annual report and produces a structured investment memo where every material claim links back to a verified quote from the original PDF. The idea in one line: the AI reads and writes the prose, and code does the counting and checking.</p>
+    <div class="links">
+      <a class="primary" href="https://memo-assistant.streamlit.app" target="_blank" rel="noopener">Try the live demo</a>
+      <a href="https://github.com/zwhatmough/memo-assistant" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap prose">
+
+  <div class="keynums">
+    <div class="keynum"><div class="n">90%</div><div class="l">fact recall vs a 50-item test set</div></div>
+    <div class="keynum"><div class="n">249</div><div class="l">verified facts, each cited to source</div></div>
+    <div class="keynum"><div class="n">7</div><div class="l">pipeline stages, one direction</div></div>
+  </div>
+
+  <h2>The problem</h2>
+  <p>Analysts spend a lot of time reading hundreds of pages of company filings to answer the same handful of questions: what does the business do, how is it performing, what could go wrong, and what needs a closer look. A language model can draft that memo in seconds, but a raw model output is not usable for real work: claims aren't traceable to the source, numbers can be invented or miscalculated, and inference gets presented as fact.</p>
+  <p>This project fixes that. Every material claim in the memo cites a specific entry in an evidence register, and every entry links to a document, a page number, and the verbatim excerpt that was string-matched against the source PDF. It prepares an analyst's first pass. It never gives a buy or sell call, and it never presents inference as fact.</p>
+
+  <figure class="figrow">
+    <img src="../images/memo-assistant/app-memo-evidence.png" alt="Memo and evidence view: cited memo with a source-excerpt panel">
+    <img src="../images/memo-assistant/app-facts-browser.png" alt="Facts browser: filterable verified facts by section and citation status">
+  </figure>
+  <figcaption style="margin-top:-14px">The app. Click any reference in the memo and the exact source quote appears in the evidence panel; the facts browser filters every verified fact by section, relevance and citation status.</figcaption>
+
+  <h2>How it works</h2>
+  <p>Seven stages in a straight line. Each one produces a JSON file that the next stage reads, so every step is inspectable. Only the extraction stage ever touches the raw PDF, and the memo-writing stage never sees the source documents at all: it works only from facts that have already been validated and classified.</p>
+  <ul>
+    <li><b>Ingest and extract.</b> Pull text from the PDF, filter to the memo-relevant sections, and split into page batches.</li>
+    <li><b>Fact extraction.</b> A cheaper model reads each batch and pulls out structured facts with their page references.</li>
+    <li><b>Validation.</b> Code checks every fact's schema and string-matches each quote against the source text. Failures block the pipeline.</li>
+    <li><b>Finance analysis.</b> Code does all the arithmetic: growth rates, margins, ratios, and prior-year cross-checks.</li>
+    <li><b>Classification.</b> A stronger model rates each fact for relevance and tags it to a memo section.</li>
+    <li><b>Memo generation.</b> The model writes the narrative from the validated, classified facts only, with a citation on every claim.</li>
+  </ul>
+
+  <h2>The design principle</h2>
+  <p>The split between the model and the code is deliberate. The model reads and interprets text, classifies facts, and writes prose. Code does everything that has to be exactly right: all arithmetic, schema validation of every model output, citation resolution (does the cited evidence entry actually exist?), and a number-match check between the memo and the source. The model never performs arithmetic, and code validates its citations and numbers after every AI stage.</p>
+
+  <h2>Cost engineering</h2>
+  <p>Token cost was a design constraint from the start, not an afterthought. The extraction stage uses a model about four times cheaper than the one used for judgement, pages are processed in batches to amortise the prompt overhead, and a section filter cuts roughly 70% of the pages before any model call. Runs are resumable, so a failure doesn't mean paying twice, and a pre-run estimator aborts if a job looks like it will cost more than a few dollars. A full run lands at roughly a dollar of API credit.</p>
+
+  <h2>Tested, not just built</h2>
+  <p>The output is measured, not assumed. Against a 50-item hand-built test set on Auto Trader, the pipeline hit 90% fact recall and 80% risk coverage, with 249 facts verified against source. I then ran it on Greggs and Games Workshop to check it held up on companies it wasn't tuned on. The demo runs from pre-committed output, so you can explore a finished memo and its evidence without an API key.</p>
+
+  <div class="tools" style="margin-top:18px">
+    <span class="tool">Python</span><span class="tool">Anthropic API</span><span class="tool">PDF parsing</span><span class="tool">Streamlit</span><span class="tool">JSON pipeline</span><span class="tool">Evaluation / gold set</span>
+  </div>
+  <div class="links" style="margin-top:6px">
+    <a class="primary" href="https://memo-assistant.streamlit.app" target="_blank" rel="noopener">Try the live demo</a>
+    <a href="https://github.com/zwhatmough/memo-assistant" target="_blank" rel="noopener">Read the code on GitHub</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://github.com/zwhatmough" target="_blank" rel="noopener">GitHub</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

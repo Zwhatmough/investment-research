@@ -1,622 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Equity Research Models | Zak Whatmough Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F4F6F8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #0D1B2A;
-            padding: 32px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .header-content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-        }
-
-        .header-text h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-
-        .header-text p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .header-links a:hover {
-            color: white;
-        }
-
-        .header-links a.back {
-            margin-right: 12px;
-            padding-right: 12px;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .about-strip {
-            background: #1B4F72;
-            color: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-        }
-
-        .about-strip p {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .about-strip p:last-child {
-            margin-bottom: 0;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .tag {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 32px 0 20px 0;
-            color: #0D1B2A;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            border: 1px solid #E8EBF0;
-        }
-
-        .company-card {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            border: 1px solid #E8EBF0;
-        }
-
-        .company-meta {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .company-title {
-            font-size: 18px;
-            font-weight: 600;
-            color: #0D1B2A;
-            margin-bottom: 12px;
-        }
-
-        .company-sector {
-            font-size: 14px;
-            color: #555;
-            margin-bottom: 12px;
-        }
-
-        .company-thesis {
-            font-size: 14px;
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 12px;
-        }
-
-        .company-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 12px;
-        }
-
-        .company-tag {
-            background: rgba(27, 79, 114, 0.1);
-            color: #1B4F72;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        .company-call {
-            background: #F9FAFB;
-            padding: 12px 16px;
-            border-radius: 4px;
-            font-size: 13px;
-            color: #0D1B2A;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .company-files {
-            padding-top: 12px;
-            border-top: 1px solid #E8EBF0;
-        }
-
-        .files-label {
-            font-size: 12px;
-            color: #666;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .file-list {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .file-item {
-            background: #F4F6F8;
-            color: #1B4F72;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-            text-decoration: none;
-            transition: all 0.2s;
-        }
-
-        a.file-item:hover {
-            background: #1B4F72;
-            color: white;
-        }
-
-        .download-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .download-card {
-            border: 1px solid #E8EBF0;
-            padding: 20px;
-            border-radius: 8px;
-            background: white;
-            text-decoration: none;
-            transition: all 0.2s;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .download-card:hover {
-            border-color: #1B4F72;
-            background: #F9FAFB;
-        }
-
-        .download-card-title {
-            font-weight: 600;
-            color: #0D1B2A;
-            font-size: 14px;
-        }
-
-        .download-card-desc {
-            font-size: 13px;
-            color: #666;
-            line-height: 1.5;
-        }
-
-        .valuation-grid {
-            display: grid;
-            gap: 20px;
-            margin-top: 16px;
-        }
-
-        .valuation-item {
-            padding-bottom: 20px;
-            border-bottom: 1px solid #E8EBF0;
-        }
-
-        .valuation-item:last-child {
-            border-bottom: none;
-        }
-
-        .valuation-company {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1B4F72;
-            margin-bottom: 12px;
-        }
-
-        .valuation-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .valuation-label {
-            color: #666;
-        }
-
-        .valuation-value {
-            color: #0D1B2A;
-            font-weight: 600;
-        }
-
-        .architecture-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-top: 16px;
-        }
-
-        .architecture-list {
-            list-style: none;
-        }
-
-        .architecture-list li {
-            font-size: 13px;
-            color: #333;
-            padding: 6px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .architecture-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #1B4F72;
-            font-weight: 600;
-        }
-
-        .architecture-heading {
-            font-size: 14px;
-            font-weight: 600;
-            color: #1B4F72;
-            margin-bottom: 12px;
-        }
-
-        .skills-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: #E8F4F8;
-            color: #1B4F72;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .sources-list {
-            margin-left: 20px;
-        }
-
-        .sources-list li {
-            margin-bottom: 10px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        footer {
-            background: #0D1B2A;
-            color: rgba(255,255,255,0.6);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 13px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin: 4px 0;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        @media (max-width: 640px) {
-            .header-content {
-                flex-direction: column;
-            }
-
-            .header-links {
-                justify-content: flex-start;
-            }
-
-            .architecture-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .download-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Equity Research Models: Tesco &amp; Diageo | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Zak Whatmough</h1>
-                <p>Portfolio · Equity Research Models</p>
-            </div>
-            <nav class="header-links">
-                <a href="../" class="back">← All Projects</a>
-                <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
-                <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-                <a href="../Zak_Whatmough_CV_IB.pdf" target="_blank">CV</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="container">
-        <section class="about-strip">
-            <p>Integrated financial models and equity research notes built from scratch using public filings. Each company gets the same treatment: a 12-tab Excel model with live formulas, a professional equity research note, and a Python validation script that cross-checks every input. Designed to replicate the work of a junior analyst at an investment bank or Big 4 advisory firm.</p>
-            <div class="tags">
-                <span class="tag">3-statement model</span>
-                <span class="tag">DCF valuation</span>
-                <span class="tag">Trading comps</span>
-                <span class="tag">IFRS 16</span>
-                <span class="tag">Scenario analysis</span>
-                <span class="tag">Python + openpyxl</span>
-            </div>
-        </section>
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
 
-        <h2>Company models</h2>
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">Equity research · Valuation · Financial modelling</p>
+    <h1>Integrated 3-Statement Models: Tesco &amp; Diageo</h1>
+    <p class="lead">Two full valuation models built from scratch on public filings, each with a DCF, trading comps and a written research note. Every number is a live formula, and a Python script cross-checks every historical input against the accounts.</p>
+    <p class="meta">Two 12-tab Excel models · around 933 formulas each · written April 2026</p>
+  </div>
+</header>
 
-        <article class="company-card">
-            <div class="company-meta">EQUITY RESEARCH 01 · April 2026</div>
-            <h3 class="company-title">Tesco PLC (TSCO LN)</h3>
-            <p class="company-sector"><strong>Sector:</strong> UK Grocery / Consumer Staples</p>
-            <p class="company-thesis"><strong>Thesis:</strong> Tesco is the UK's largest grocer with roughly 27% market share. The 12-tab integrated model covers revenue (UK & ROI + Central Europe), EBITDA, full PP&E and ROU asset rollforwards, IFRS 16 lease liability schedules, a debt rollforward, dividend and buyback modelling, a DCF with mid-year convention and Gordon Growth terminal value, and a 6-peer trading comps table.</p>
-            <div class="company-tags">
-                <span class="company-tag">TSCO LN</span>
-                <span class="company-tag">UK & ROI + CE revenue</span>
-                <span class="company-tag">IFRS 16 leases</span>
-                <span class="company-tag">WACC 5.6%</span>
-                <span class="company-tag">933 formulas 0 errors</span>
-            </div>
-            <div class="company-call">BUY · Target 310p (19% upside from 260p)</div>
-            <div class="company-files">
-                <p class="files-label">Files:</p>
-                <div class="file-list">
-                    <a href="Tesco_Equity_Research_Note_v2.pdf" class="file-item" target="_blank">PDF Note</a>
-                    <a href="Tesco_Equity_Research_Note_v2.docx" class="file-item" target="_blank">Word Note</a>
-                    <a href="Tesco_Equity_Research_Model_v2.xlsx" class="file-item" target="_blank">Excel Model</a>
-                    <a href="tesco_data_validation.py" class="file-item" target="_blank">Validation Script</a>
-                </div>
-            </div>
-        </article>
+<main class="wrap prose">
 
-        <article class="company-card">
-            <div class="company-meta">EQUITY RESEARCH 02 · April 2026</div>
-            <h3 class="company-title">Diageo PLC (DGE LN)</h3>
-            <p class="company-sector"><strong>Sector:</strong> Global Spirits / Consumer Staples</p>
-            <p class="company-thesis"><strong>Thesis:</strong> Diageo is the world's largest spirits company, with brands including Johnnie Walker, Tanqueray, Guinness, and Don Julio. The model uses the same 12-tab architecture but adapted for spirits: revenue segmented into North America and International, much higher EBITDA margins (~35% vs ~9.5%), a large intangible asset base, and inventory where DIO runs at 160–170 days because spirits must age in barrels.</p>
-            <div class="company-tags">
-                <span class="company-tag">DGE LN</span>
-                <span class="company-tag">NA + International revenue</span>
-                <span class="company-tag">Goodwill & brands</span>
-                <span class="company-tag">WACC 6.2%</span>
-                <span class="company-tag">933 formulas 0 errors</span>
-            </div>
-            <div class="company-call">BUY · Target 2,800p (12% upside from 2,500p)</div>
-            <div class="company-files">
-                <p class="files-label">Files:</p>
-                <div class="file-list">
-                    <a href="Diageo_Equity_Research_Note_v2.pdf" class="file-item" target="_blank">PDF Note</a>
-                    <a href="Diageo_Equity_Research_Note_v2.docx" class="file-item" target="_blank">Word Note</a>
-                    <a href="Diageo_Equity_Research_Model_v2.xlsx" class="file-item" target="_blank">Excel Model</a>
-                    <a href="diageo_data_validation.py" class="file-item" target="_blank">Validation Script</a>
-                </div>
-            </div>
-        </article>
+  <h2>Overview</h2>
+  <p>I wanted to build a valuation the way a junior analyst does it at an investment bank or a Big Four advisory team, rather than downloading a template. Each company gets the same treatment: a 12-tab integrated model where the income statement, balance sheet and cash flow all link, a DCF and a trading comps cross-check, and a research note that ends in a rating and a target price. A Python script then reads the model back and checks every historical input against the published annual reports.</p>
 
-        <section>
-            <h2>Valuation Summary</h2>
-            <div class="card">
-                <div class="valuation-grid">
-                    <div class="valuation-item">
-                        <div class="valuation-company">Tesco PLC (TSCO LN)</div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">DCF Valuation</span>
-                            <span class="valuation-value">~280p (WACC 5.6%, TGR 2.0%)</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Trading Comps</span>
-                            <span class="valuation-value">280–310p (6 peers)</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Target Price</span>
-                            <span class="valuation-value">310p · BUY</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Implied Upside</span>
-                            <span class="valuation-value">~19% (from 260p)</span>
-                        </div>
-                    </div>
-                    <div class="valuation-item">
-                        <div class="valuation-company">Diageo PLC (DGE LN)</div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">DCF Valuation</span>
-                            <span class="valuation-value">~2,800p (WACC 6.2%, TGR 2.5%)</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Trading Comps</span>
-                            <span class="valuation-value">2,600–2,900p (5 peers)</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Target Price</span>
-                            <span class="valuation-value">2,800p · BUY</span>
-                        </div>
-                        <div class="valuation-row">
-                            <span class="valuation-label">Implied Upside</span>
-                            <span class="valuation-value">~12% (from 2,500p)</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+  <div class="keynums">
+    <div class="keynum"><div class="n">12</div><div class="l">linked tabs per model</div></div>
+    <div class="keynum"><div class="n">~933</div><div class="l">live formulas each, zero errors</div></div>
+    <div class="keynum"><div class="n">2</div><div class="l">valuation methods, cross-checked</div></div>
+  </div>
 
-        <section>
-            <h2>Download files</h2>
-            <div class="download-grid">
-                <a href="Tesco_Equity_Research_Model_v2.xlsx" class="download-card">
-                    <div class="download-card-title">Tesco_Equity_Research_Model_v2.xlsx</div>
-                    <div class="download-card-desc">Integrated Model (.xlsx) — 12 tabs, 933 formulas, fully formula-driven</div>
-                </a>
-                <a href="Tesco_Equity_Research_Note_v2.pdf" class="download-card">
-                    <div class="download-card-title">Tesco_Equity_Research_Note_v2.pdf</div>
-                    <div class="download-card-desc">Equity Research Note (.pdf) — Full write-up with valuation and recommendation</div>
-                </a>
-                <a href="Diageo_Equity_Research_Model_v2.xlsx" class="download-card">
-                    <div class="download-card-title">Diageo_Equity_Research_Model_v2.xlsx</div>
-                    <div class="download-card-desc">Integrated Model (.xlsx) — 12 tabs, 933 formulas, fully formula-driven</div>
-                </a>
-                <a href="Diageo_Equity_Research_Note_v2.pdf" class="download-card">
-                    <div class="download-card-title">Diageo_Equity_Research_Note_v2.pdf</div>
-                    <div class="download-card-desc">Equity Research Note (.pdf) — Full write-up with valuation and recommendation</div>
-                </a>
-            </div>
-        </section>
+  <h2>The two companies</h2>
 
-        <section>
-            <h2>Model Architecture</h2>
-            <div class="card">
-                <div class="architecture-grid">
-                    <div>
-                        <div class="architecture-heading">12-Tab Structure</div>
-                        <ul class="architecture-list">
-                            <li>Cover page</li>
-                            <li>Assumptions</li>
-                            <li>Income Statement</li>
-                            <li>Working Capital</li>
-                            <li>Capex & D&A</li>
-                            <li>Debt & Interest</li>
-                            <li>Dividend & Buyback</li>
-                            <li>Balance Sheet</li>
-                            <li>Cash Flow</li>
-                            <li>DCF Valuation</li>
-                            <li>Trading Comps</li>
-                            <li>Charts</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <div class="architecture-heading">Key Features</div>
-                        <ul class="architecture-list">
-                            <li>Live formulas (not hardcoded)</li>
-                            <li>Base/Bull/Bear CHOOSE() toggle</li>
-                            <li>WACC from CAPM</li>
-                            <li>Mid-year discounting convention</li>
-                            <li>Source notes citing annual reports</li>
-                            <li>Python validation scripts</li>
-                            <li>Cross-formula error checks</li>
-                            <li>Sensitivity tables</li>
-                            <li>Peer trading comparables</li>
-                            <li>Detailed assumptions layer</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills and Tools</h2>
-            <div class="card">
-                <div class="skills-tags">
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">openpyxl</span>
-                    <span class="skill-tag">pandas</span>
-                    <span class="skill-tag">numpy</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">docx-js</span>
-                    <span class="skill-tag">CAPM/WACC</span>
-                    <span class="skill-tag">DCF Valuation</span>
-                    <span class="skill-tag">IFRS 16</span>
-                    <span class="skill-tag">Financial Modelling</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Sources and References</h2>
-            <div class="card">
-                <ul class="sources-list">
-                    <li>Tesco PLC Annual Reports FY2020–FY2024</li>
-                    <li>Diageo PLC Annual Reports FY2020–FY2024</li>
-                    <li>Bloomberg Terminal (beta, peer multiples, market data)</li>
-                    <li>Damodaran Online (equity risk premium, country risk premiums)</li>
-                    <li>Bank of England 10-year gilt yield data</li>
-                </ul>
-            </div>
-        </section>
+  <div class="doc-item">
+    <a class="doc-thumb" href="Tesco_Equity_Research_Note_v2.pdf" target="_blank"><img src="../images/equity/tesco.png" alt="Tesco equity research note, first page"></a>
+    <div class="doc-body">
+      <div class="kick">Equity research 01 · UK grocery</div>
+      <h3>Tesco PLC (TSCO LN): BUY, target 310p</h3>
+      <p>Tesco is the UK's largest grocer with roughly 27% market share. The model splits revenue into UK &amp; ROI and Central Europe, builds full PP&amp;E and right-of-use rollforwards, IFRS 16 lease schedules, a debt rollforward, and dividend and buyback modelling, then values it with a mid-year DCF and a six-peer comps table. Target 310p against 260p, about 19% upside.</p>
+      <div class="doc-links"><a href="Tesco_Equity_Research_Note_v2.pdf" target="_blank">PDF note</a><a href="Tesco_Equity_Research_Note_v2.docx">Word</a><a href="Tesco_Equity_Research_Model_v2.xlsx">Excel model</a><a href="tesco_data_validation.py" target="_blank">Validation script</a></div>
     </div>
+  </div>
 
-    <footer>
-        <p>Zak Whatmough · Portfolio · 2026</p>
-        <p>For educational purposes only. Not investment advice.</p>
-    </footer>
+  <div class="doc-item">
+    <a class="doc-thumb" href="Diageo_Equity_Research_Note_v2.pdf" target="_blank"><img src="../images/equity/diageo.png" alt="Diageo equity research note, first page"></a>
+    <div class="doc-body">
+      <div class="kick">Equity research 02 · Global spirits</div>
+      <h3>Diageo PLC (DGE LN): BUY, target 2,800p</h3>
+      <p>Diageo is the world's largest spirits company, with brands like Johnnie Walker, Guinness and Don Julio. Same 12-tab architecture, adapted for spirits: revenue split into North America and International, much higher EBITDA margins (around 35% versus Tesco's 9.5%), a large intangible base, and inventory days of 160 to 170 because spirits have to age in barrels. Target 2,800p against 2,500p, about 12% upside.</p>
+      <div class="doc-links"><a href="Diageo_Equity_Research_Note_v2.pdf" target="_blank">PDF note</a><a href="Diageo_Equity_Research_Note_v2.docx">Word</a><a href="Diageo_Equity_Research_Model_v2.xlsx">Excel model</a><a href="diageo_data_validation.py" target="_blank">Validation script</a></div>
+    </div>
+  </div>
+
+  <h2>Valuation summary</h2>
+  <p><b>Tesco.</b> DCF around 280p (WACC 5.6%, terminal growth 2.0%), trading comps of 280 to 310p across six peers, giving a 310p target and roughly 19% upside from 260p. BUY.</p>
+  <p><b>Diageo.</b> DCF around 2,800p (WACC 6.2%, terminal growth 2.5%), trading comps of 2,600 to 2,900p across five peers, giving a 2,800p target and roughly 12% upside from 2,500p. BUY.</p>
+  <p>In both cases the two methods land in the same range, which is the point of running them together. The DCF sets the anchor and the comps sanity-check it against how the market is pricing similar businesses.</p>
+
+  <h2>How the model is built</h2>
+  <p>Each workbook runs across twelve linked tabs: a cover page, assumptions, income statement, working capital, capex and D&amp;A, debt and interest, dividends and buybacks, balance sheet, cash flow, DCF valuation, trading comps, and charts. Nothing downstream is hardcoded, so a change in an assumption flows all the way through to the valuation.</p>
+  <ul>
+    <li>Live formulas throughout, with a Base, Bull and Bear case driven by a single toggle.</li>
+    <li>WACC built up from CAPM, with a mid-year discounting convention in the DCF.</li>
+    <li>Source notes on the assumptions tab citing the specific annual report figures.</li>
+    <li>Cross-formula error checks, sensitivity tables on WACC and terminal growth, and a peer comps table.</li>
+    <li>A Python validation script (openpyxl, pandas) that reads the model back and flags any historical input that doesn't match the filings.</li>
+  </ul>
+
+  <h2>Tools and sources</h2>
+  <p>Built in Excel and Python (openpyxl, pandas, numpy), with the notes generated through Node and docx. Inputs come from Tesco and Diageo annual reports FY2020 to FY2024, Bloomberg for beta, peer multiples and market data, Damodaran Online for the equity risk premium and country risk, and Bank of England data for the 10-year gilt yield.</p>
+
+  <h2>Download the files</h2>
+  <ul>
+    <li><a href="Tesco_Equity_Research_Model_v2.xlsx">Tesco model (.xlsx)</a> and <a href="Tesco_Equity_Research_Note_v2.pdf" target="_blank">research note (PDF)</a></li>
+    <li><a href="Diageo_Equity_Research_Model_v2.xlsx">Diageo model (.xlsx)</a> and <a href="Diageo_Equity_Research_Note_v2.pdf" target="_blank">research note (PDF)</a></li>
+  </ul>
+
+  <p style="font-size:13px;color:var(--faint);margin-top:8px">Personal research for educational purposes. Not investment advice and not the view of any institution.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

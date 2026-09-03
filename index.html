@@ -4,104 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zak Whatmough</title>
-<meta name="description" content="Projects by Zak Whatmough — data and commercial analysis, investing, strategy and building useful software.">
+<meta name="description" content="Projects by Zak Whatmough, data and commercial analysis, investing, strategy and building useful software.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
-<style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  :root{
-    --ink:#1b2a33;--ink-soft:#3d4b54;--muted:#6b7783;--faint:#93a0a9;
-    --accent:#1f6f8b;--accent-dark:#155066;
-    --bg:#faf9f5;--card:#ffffff;--line:#e7e4da;--line-soft:#eeece4;
-  }
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-  .wrap{max-width:1000px;margin:0 auto;padding:0 28px}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{color:var(--accent-dark)}
-
-  .top{padding:60px 0 32px;border-bottom:1px solid var(--line)}
-  .eyebrow{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
-  .top h1{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:43px;line-height:1.06;letter-spacing:-.5px;color:var(--ink);margin-bottom:14px}
-  .lede{font-family:'Newsreader',Georgia,serif;font-size:21px;line-height:1.5;color:var(--ink-soft);max-width:640px;font-weight:400}
-  .meta{margin-top:18px;font-size:14px;color:var(--muted)}
-  .links{margin-top:24px;display:flex;gap:10px;flex-wrap:wrap}
-  .links a{font-size:13.5px;font-weight:500;color:var(--ink-soft);border:1px solid var(--line);background:#fff;border-radius:6px;padding:8px 14px;transition:all .15s}
-  .links a:hover{border-color:var(--accent);color:var(--accent)}
-  .links a.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .links a.primary:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
-
-  .intro{padding:40px 0 4px}
-  .intro p{font-size:16.5px;color:var(--ink-soft);max-width:690px;margin-bottom:16px;line-height:1.72}
-  .intro p:last-child{margin-bottom:0}
-
-  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:52px 0 4px;padding-bottom:14px;border-bottom:1px solid var(--line)}
-  .sec-head h2{font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:24px;color:var(--ink);letter-spacing:-.2px}
-  .sec-head span{font-size:13px;color:var(--faint)}
-
-  .project{padding:36px 0 10px;border-bottom:1px solid var(--line-soft)}
-  .project:last-of-type{border-bottom:none}
-  .proj-top{display:flex;gap:18px;align-items:flex-start;margin-bottom:18px}
-  .proj-num{font-family:'Newsreader',Georgia,serif;font-size:30px;color:var(--faint);line-height:1;font-weight:400;flex:none;width:44px}
-  .proj-head h3{font-family:'Newsreader',Georgia,serif;font-weight:600;font-size:23px;color:var(--ink);letter-spacing:-.2px;line-height:1.25;margin-bottom:6px}
-  .proj-kicker{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:9px}
-  .proj-oneline{font-size:15.5px;color:var(--ink-soft);max-width:660px}
-
-  .shots{display:flex;gap:14px;margin:4px 0 22px}
-  .shots.wide .shot{flex:1;min-width:0}
-  .shots.tall .shot{flex:none;width:186px}
-  .shot{border:1px solid var(--line);border-radius:7px;overflow:hidden;background:#fff;box-shadow:0 2px 10px rgba(27,42,51,.06);display:block}
-  .shot img{width:100%;display:block}
-
-  .wwh{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;margin:2px 0 20px}
-  .wwh .col h4{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:7px}
-  .wwh .col p{font-size:14px;color:var(--ink-soft);line-height:1.62}
-
-  .tools{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
-  .tool{font-size:12px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:5px;padding:3px 9px}
-  .proj-links{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
-  .btn{font-size:13px;font-weight:500;border-radius:6px;padding:7px 14px;transition:all .15s;border:1px solid var(--line);background:#fff;color:var(--ink-soft)}
-  .btn:hover{border-color:var(--accent);color:var(--accent)}
-  .btn.solid{background:var(--accent);border-color:var(--accent);color:#fff}
-  .btn.solid:hover{background:var(--accent-dark);border-color:var(--accent-dark);color:#fff}
-  .findings{margin:0 0 18px;font-size:13.5px;color:var(--muted);line-height:1.7}
-  .findings b{color:var(--ink-soft);font-weight:600}
-
-  .bg-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:6px}
-  .bg-block h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:12px}
-  .bg-item{margin-bottom:14px}
-  .bg-item .r1{font-size:14.5px;color:var(--ink);font-weight:600}
-  .bg-item .r2{font-size:13px;color:var(--muted)}
-  .bg-item .r3{font-size:13px;color:var(--ink-soft);margin-top:3px;line-height:1.55}
-  .skills-line{font-size:14px;color:var(--ink-soft);line-height:1.8}
-  .skills-line b{color:var(--ink);font-weight:600}
-
-  footer{margin-top:52px;border-top:1px solid var(--line);padding:24px 0 46px}
-  .foot-inner{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
-  .foot-inner a{color:var(--muted)}
-  .foot-inner a:hover{color:var(--accent)}
-  .disclaimer{margin-top:12px;font-size:11.5px;color:var(--faint);max-width:720px}
-
-  @media(max-width:760px){
-    .top h1{font-size:33px}
-    .lede{font-size:19px}
-    .wwh{grid-template-columns:1fr;gap:16px}
-    .shots.wide{flex-direction:column}
-    .shots.tall{flex-wrap:wrap}
-    .shots.tall .shot{width:calc(50% - 8px)}
-    .bg-grid{grid-template-columns:1fr;gap:8px}
-    .proj-num{font-size:24px;width:34px}
-  }
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <p class="eyebrow">Zak Whatmough — Portfolio</p>
+    <p class="eyebrow">Zak Whatmough · Portfolio</p>
     <h1>Turning messy, real-world problems<br>into decisions people can act on.</h1>
-    <p class="lede">I'm an Economics graduate who learns by building. This is where I keep the things I've made — with real data, real companies, and finished to a standard I'd be happy to show.</p>
+    <p class="lede">I'm an Economics graduate who likes to build things to understand them. This is where I keep the work I've made, using real data and real companies, finished to a standard I'd be happy to show.</p>
     <p class="meta">Manchester &amp; Scotland, UK &nbsp;·&nbsp; Data &amp; commercial analysis · investing &amp; valuation · strategy · software</p>
     <div class="links">
       <a class="primary" href="cv/Zak-Whatmough-CV.pdf" target="_blank">Download CV (PDF)</a>
@@ -114,9 +29,9 @@
 
 <section class="intro">
   <div class="wrap">
-    <p>Over the past year I've been teaching myself the tools analysts actually use — SQL, Power BI, Python, financial modelling — and I've found the only way they stick is to build real things with them and see each one through to a finished result.</p>
+    <p>Over the past year I've been teaching myself the tools analysts actually use: SQL, Power BI, Python, financial modelling. The only way they stick, I've found, is to build real things with them and see each one through to a finished result.</p>
     <p>Each project below started as a question I wanted to answer. I used genuine datasets and real companies rather than tidy tutorial examples, and stopped only when the work was something I'd put in front of someone. Together they cover the areas I'm drawn to: commercial and data analysis, investing and valuation, strategy, and building useful software.</p>
-    <p>I'm early in my career and still learning — I'm not pretending otherwise. What I care about is being handed something messy and open-ended, working out what actually matters, and turning it into a clear answer.</p>
+    <p>I'm early in my career and still learning, and I'm not pretending otherwise. What I care about is being handed something messy and open ended, working out what actually matters, and turning it into a clear answer.</p>
   </div>
 </section>
 
@@ -134,22 +49,22 @@
         <div class="proj-head">
           <p class="proj-kicker">Strategy &amp; operations · Primary research</p>
           <h3>Morrisons Market Street: Strategy &amp; Operations Review</h3>
-          <p class="proj-oneline">A client-standard review of why Morrisons closed its service counters, then started reopening them — built partly from working behind them.</p>
+          <p class="proj-oneline">A client-standard review of why Morrisons closed its service counters and then started reopening them, built partly from working behind them.</p>
         </div>
       </div>
 
       <div class="shots wide">
-        <span class="shot"><img src="images/market-street/executive-summary.jpg" alt="Executive summary slide — the counter economics problem and four recommendations"></span>
-        <span class="shot"><img src="images/market-street/price-ladder.jpg" alt="Competitor pricing ladder slide — where a Market Street sandwich would sit"></span>
+        <span class="shot"><img src="images/market-street/executive-summary.jpg" alt="Executive summary slide, the counter economics problem and four recommendations"></span>
+        <span class="shot"><img src="images/market-street/price-ladder.jpg" alt="Competitor pricing ladder slide, where a Market Street sandwich would sit"></span>
       </div>
 
       <div class="wwh">
         <div class="col"><h4>What</h4><p>A 19-slide strategy and operations review of Morrisons closing 70 Market Street counters in 2025 as "uneconomic", then reopening them in 2026 as "part of our DNA". Built from first-hand counter experience and 104 tiered public sources.</p></div>
-        <div class="col"><h4>Why</h4><p>The two decisions contradicted each other, and I work on Market Street — so instead of taking either at face value I went and checked what was underneath both. It's exactly the kind of open-ended commercial question I like getting stuck into.</p></div>
-        <div class="col"><h4>How</h4><p>Benchmarked pricing against Greggs, Asda and Subway, mapped the counter economics, and built four recommendations — labelling every claim by evidence type, using no invented figures, and dropping five of my own ideas when the evidence didn't back them.</p></div>
+        <div class="col"><h4>Why</h4><p>The two decisions contradicted each other, and I work on Market Street, so instead of taking either at face value I went and checked what was underneath both. It's the kind of open ended commercial question I like getting stuck into.</p></div>
+        <div class="col"><h4>How</h4><p>Benchmarked pricing against Greggs, Asda and Subway, mapped the counter economics, and built four recommendations. Every claim is labelled by evidence type, there are no invented figures, and I dropped five of my own ideas when the evidence didn't back them.</p></div>
       </div>
 
-      <p class="findings"><b>19 slides · 104 sources · 4 recommendations.</b> The most original piece here — primary research on a live decision, written to the standard of a consulting deck.</p>
+      <p class="findings"><b>19 slides, 104 sources, 4 recommendations.</b> The most original piece here: first-hand research on a live decision, written to the standard of a consulting deck.</p>
 
       <div class="proj-links">
         <a class="btn solid" href="morrisons-market-street/">Open project</a>
@@ -169,23 +84,24 @@
       </div>
 
       <div class="shots wide">
-        <span class="shot"><img src="images/ecommerce/executive-overview.png" alt="Executive overview dashboard — revenue, orders, customers, cancellation rate"></span>
+        <span class="shot"><img src="images/ecommerce/executive-overview.png" alt="Executive overview dashboard, revenue, orders, customers, cancellation rate"></span>
         <span class="shot"><img src="images/ecommerce/product-performance.png" alt="Product and sales performance dashboard page"></span>
       </div>
 
       <div class="wwh">
-        <div class="col"><h4>What</h4><p>An end-to-end analytics build on the UCI Online Retail II dataset — over a million transactions from a UK online retailer. I cleaned and modelled the raw data in SQL, then built a four-page Power BI dashboard covering sales, customers, products, geography and cancellations.</p></div>
-        <div class="col"><h4>Why</h4><p>To show I can take a large, messy, real dataset — not a tutorial file — and turn it into something a manager could actually decide from. The goal wasn't more charts, it was findings someone would act on.</p></div>
+        <div class="col"><h4>What</h4><p>A full analytics build on the UCI Online Retail II dataset, over a million transactions from a UK online retailer. I cleaned and modelled the raw data in SQL, then built a four-page Power BI dashboard covering sales, customers, products, geography and cancellations.</p></div>
+        <div class="col"><h4>Why</h4><p>To show I can take a large, messy, real dataset, not a tutorial file, and turn it into something a manager could actually decide from. I wanted findings someone would act on, not just more charts.</p></div>
         <div class="col"><h4>How</h4><p>Loaded the data into PostgreSQL and wrote cleaning rules for returns, missing customer IDs and bad prices. Built a star schema and analytical views with CTEs, joins and window functions, then layered ~15 DAX measures and an RFM-style customer segmentation on top.</p></div>
       </div>
 
-      <p class="findings"><b>What it surfaced:</b> the UK drives 85% of revenue, sales peak sharply every November, roughly 72% of customers come back to buy again, and cancellations run at about 15% of orders — each with a clear "so what" for the business.</p>
+      <p class="findings"><b>What it surfaced:</b> the UK drives 85% of revenue, sales peak sharply every November, roughly 72% of customers come back to buy again, and cancellations run at about 15% of orders. Each one has a clear "so what" for the business.</p>
 
       <div class="tools">
         <span class="tool">PostgreSQL</span><span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power Query</span><span class="tool">Star schema</span><span class="tool">Window functions</span><span class="tool">RFM segmentation</span>
       </div>
       <div class="proj-links">
-        <a class="btn solid" href="https://github.com/zwhatmough/ecommerce-commercial-intelligence" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn solid" href="ecommerce-commercial-intelligence/">Open project</a>
+        <a class="btn" href="https://github.com/zwhatmough/ecommerce-commercial-intelligence" target="_blank" rel="noopener">View on GitHub</a>
       </div>
     </div>
 
@@ -196,29 +112,30 @@
         <div class="proj-head">
           <p class="proj-kicker">Python · LLM pipeline · Streamlit</p>
           <h3>AI Investment Memo Assistant</h3>
-          <p class="proj-oneline">An annual report goes in; a cited investment memo comes out — every claim traceable to the source.</p>
+          <p class="proj-oneline">An annual report goes in and a cited investment memo comes out, with every claim traceable to the source.</p>
         </div>
       </div>
 
       <div class="shots wide">
-        <span class="shot"><img src="images/memo-assistant/app-memo-evidence.png" alt="Memo and evidence view — cited memo with inline references and a source-excerpt panel"></span>
-        <span class="shot"><img src="images/memo-assistant/app-facts-browser.png" alt="Facts browser — filterable view of verified facts by section and citation status"></span>
+        <span class="shot"><img src="images/memo-assistant/app-memo-evidence.png" alt="Memo and evidence view, cited memo with inline references and a source-excerpt panel"></span>
+        <span class="shot"><img src="images/memo-assistant/app-facts-browser.png" alt="Facts browser, filterable view of verified facts by section and citation status"></span>
       </div>
 
       <div class="wwh">
         <div class="col"><h4>What</h4><p>A pipeline that reads a company's annual report and produces a structured investment memo where every material claim links back to a verified quote from the original PDF. A small web app lets you click any reference and see the exact source text behind it.</p></div>
-        <div class="col"><h4>Why</h4><p>Language models make things up. I wanted to find out whether you could get genuinely useful, analyst-style output from one while keeping it honest — every number and statement checkable against the document it came from.</p></div>
+        <div class="col"><h4>Why</h4><p>Language models make things up. I wanted to find out whether you could get useful, analyst style output from one while keeping it honest, so every number and statement is checkable against the document it came from.</p></div>
         <div class="col"><h4>How</h4><p>The system extracts facts, verifies each against the source text, stores them in a register, then writes the memo from that register with citations. The principle: the AI reads and writes the prose, but code does the counting and checking.</p></div>
       </div>
 
-      <p class="findings"><b>Tested, not just built:</b> scored against a 50-item gold set on Auto Trader — 90% fact recall, 80% risk coverage — then run again on Greggs and Games Workshop to check it generalised beyond the company it was tuned on.</p>
+      <p class="findings"><b>Tested, not just built:</b> scored against a 50-item test set on Auto Trader at 90% fact recall and 80% risk coverage, then run again on Greggs and Games Workshop to check it held up beyond the company it was tuned on.</p>
 
       <div class="tools">
         <span class="tool">Python</span><span class="tool">LLM pipeline</span><span class="tool">PDF parsing</span><span class="tool">Streamlit</span><span class="tool">Evaluation / gold set</span>
       </div>
       <div class="proj-links">
-        <a class="btn solid" href="https://memo-assistant.streamlit.app" target="_blank" rel="noopener">Try the live demo</a>
-        <a class="btn" href="https://github.com/zwhatmough/memo-assistant" target="_blank" rel="noopener">View on GitHub</a>
+        <a class="btn solid" href="memo-assistant/">Open project</a>
+        <a class="btn" href="https://memo-assistant.streamlit.app" target="_blank" rel="noopener">Live demo</a>
+        <a class="btn" href="https://github.com/zwhatmough/memo-assistant" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>
 
@@ -234,17 +151,17 @@
       </div>
 
       <div class="shots tall">
-        <span class="shot"><img src="images/equity/tesco.png" alt="Tesco equity research note — rating, target price and thesis"></span>
-        <span class="shot"><img src="images/equity/diageo.png" alt="Diageo equity research note — rating, target price and thesis"></span>
+        <span class="shot"><img src="images/equity/tesco.png" alt="Tesco equity research note, rating, target price and thesis"></span>
+        <span class="shot"><img src="images/equity/diageo.png" alt="Diageo equity research note, rating, target price and thesis"></span>
       </div>
 
       <div class="wwh">
         <div class="col"><h4>What</h4><p>Two integrated three-statement models on Tesco and Diageo, each with a DCF, trading comps and a Base/Bull/Bear scenario toggle, plus a written equity research note with a rating and target price.</p></div>
-        <div class="col"><h4>Why</h4><p>To prove I can build a valuation the way equity research and IB analysts do — traceable to the filings, driven by assumptions I can defend, not a black box that spits out a number.</p></div>
+        <div class="col"><h4>Why</h4><p>To prove I can build a valuation the way equity research and IB analysts do. It's traceable to the filings and driven by assumptions I can defend, not a black box that spits out a number.</p></div>
         <div class="col"><h4>How</h4><p>Built segmental revenue, IFRS 16 leases, PP&amp;E and debt schedules by hand, drove valuation off WACC and terminal growth with sensitivity tables, and wrote Python scripts to validate every historical input against the published accounts.</p></div>
       </div>
 
-      <p class="findings"><b>BUY — Tesco 310p (+19%), Diageo 2,800p (+12%).</b> Around 933 live formulas per model, zero errors, every historical input machine-checked against the filings.</p>
+      <p class="findings"><b>BUY: Tesco 310p (+19%) and Diageo 2,800p (+12%).</b> Around 933 live formulas per model, zero errors, every historical input machine checked against the filings.</p>
 
       <div class="proj-links">
         <a class="btn solid" href="equity-research-models/">Open project</a>
@@ -263,13 +180,13 @@
       </div>
 
       <div class="shots tall">
-        <span class="shot"><img src="images/lbo/exec-summary.png" alt="LBO transaction note — executive summary and deal snapshot"></span>
-        <span class="shot"><img src="images/lbo/value-bridge.png" alt="LBO value creation bridge — EBITDA growth vs multiple and leverage"></span>
+        <span class="shot"><img src="images/lbo/exec-summary.png" alt="LBO transaction note, executive summary and deal snapshot"></span>
+        <span class="shot"><img src="images/lbo/value-bridge.png" alt="LBO value creation bridge, EBITDA growth vs multiple and leverage"></span>
       </div>
 
       <div class="wwh">
-        <div class="col"><h4>What</h4><p>A fully formula-driven LBO model and transaction case study of CD&amp;R's £9.9bn take-private of Wm Morrison — sources and uses, a four-tranche debt schedule with cash sweep, returns, and two-way sensitivity tables.</p></div>
-        <div class="col"><h4>Why</h4><p>To understand how a real private-equity deal is actually put together and where the returns come from — and to be able to defend the assumptions rather than just report an IRR.</p></div>
+        <div class="col"><h4>What</h4><p>A fully formula-driven LBO model and transaction case study of CD&amp;R's £9.9bn take-private of Wm Morrison. It covers sources and uses, a four-tranche debt schedule with cash sweep, returns, and two-way sensitivity tables.</p></div>
+        <div class="col"><h4>Why</h4><p>To understand how a real private-equity deal is actually put together and where the returns come from, and to be able to defend the assumptions rather than just report an IRR.</p></div>
         <div class="col"><h4>How</h4><p>Built the operating model and debt waterfall from the deal's public terms, ran a returns bridge to separate EBITDA growth from multiple and leverage effects, and stress-tested the case with sensitivity tables.</p></div>
       </div>
 
@@ -292,14 +209,14 @@
       </div>
 
       <div class="shots tall">
-        <span class="shot"><img src="images/memos/memo-01.png" alt="Memo 01 — AI infrastructure, first page"></span>
-        <span class="shot"><img src="images/memos/memo-03.png" alt="Memo 03 — copper, first page"></span>
+        <span class="shot"><img src="images/memos/memo-01.png" alt="Memo 01, AI infrastructure, first page"></span>
+        <span class="shot"><img src="images/memos/memo-03.png" alt="Memo 03, copper, first page"></span>
       </div>
 
       <div class="wwh">
-        <div class="col"><h4>What</h4><p>Five short investment memos covering AI infrastructure, European vs US equities, copper, emerging markets and biotech. Each states a thesis, the catalyst, the risks and a stance — and comes with a supporting Excel workbook.</p></div>
+        <div class="col"><h4>What</h4><p>Five short investment memos covering AI infrastructure, European vs US equities, copper, emerging markets and biotech. Each states a thesis, the catalyst, the risks and a stance, and comes with a supporting Excel workbook.</p></div>
         <div class="col"><h4>Why</h4><p>To practise writing the way the buy-side does: a complete argument in the space of a page, short enough to read in five minutes but with real analysis underneath every claim.</p></div>
-        <div class="col"><h4>How</h4><p>For each theme I built a workbook — valuation comps, OLS regressions, scenario models and charts — with an audit-log tab showing how every figure was derived, then wrote the memo as an investment-committee-style brief.</p></div>
+        <div class="col"><h4>How</h4><p>For each theme I built a workbook (valuation comps, OLS regressions, scenario models and charts) with an audit-log tab showing how every figure was derived, then wrote the memo as an investment committee style brief.</p></div>
       </div>
 
       <div class="proj-links">
@@ -319,13 +236,13 @@
       </div>
 
       <div class="shots tall">
-        <span class="shot"><img src="images/audit/easyjet-p1.png" alt="easyJet audit risk review — executive summary and key risks"></span>
-        <span class="shot"><img src="images/audit/easyjet-p2.png" alt="easyJet audit risk review — analytical review"></span>
+        <span class="shot"><img src="images/audit/easyjet-p1.png" alt="easyJet audit risk review, executive summary and key risks"></span>
+        <span class="shot"><img src="images/audit/easyjet-p2.png" alt="easyJet audit risk review, analytical review"></span>
       </div>
 
       <div class="wwh">
         <div class="col"><h4>What</h4><p>An audit-style risk review of easyJet plc's FY2025 accounts, focused on where a real audit team would spend its time: revenue and deferred income, lease and maintenance provisions, asset carrying values and liquidity.</p></div>
-        <div class="col"><h4>Why</h4><p>To show audit judgement rather than textbook commentary — identifying the balances that actually carry risk, why they matter, and how you'd plan the work around them.</p></div>
+        <div class="col"><h4>Why</h4><p>To show audit judgement rather than textbook commentary. I picked out the balances that actually carry risk, why they matter, and how you'd plan the work around them.</p></div>
         <div class="col"><h4>How</h4><p>Pulled the figures straight from easyJet's FY2025 and FY2024 annual reports, calculated the year-on-year movements in Excel, and tied each planning point back to a specific number and assertion.</p></div>
       </div>
 
@@ -345,7 +262,7 @@
   <div class="wrap">
     <div class="sec-head">
       <h2>Background</h2>
-      <span>The short version — full detail in the CV</span>
+      <span>The short version, with full detail in the CV</span>
     </div>
 
     <div class="bg-grid">
@@ -382,7 +299,7 @@
 
       <div class="bg-block">
         <h4>Certifications</h4>
-        <p class="skills-line">Bloomberg Market Concepts (BMC)<br>Bright Network IEUK — Finance &amp; Consulting</p>
+        <p class="skills-line">Bloomberg Market Concepts (BMC)<br>Bright Network IEUK, Finance &amp; Consulting</p>
       </div>
     </div>
   </div>

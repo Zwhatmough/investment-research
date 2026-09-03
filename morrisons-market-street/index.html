@@ -1,232 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Morrisons Market Street: Strategy &amp; Operations Review | Zak Whatmough</title>
-  <meta name="description" content="Independent strategy and operations review of Morrisons Market Street, built from first-hand experience working the counter and 104 tiered public sources.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Inter', -apple-system, sans-serif; background: #F4F6F8; color: #1C2833; line-height: 1.6; }
-
-    .site-header { background: #0D1B2A; padding: 36px 0 32px; }
-    .header-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; }
-    .back-link { display: inline-block; font-size: 12px; color: #6C7A7D; text-decoration: none; margin-bottom: 14px; transition: color 0.15s; }
-    .back-link:hover { color: #ADB5BD; }
-    .header-inner h1 { font-size: 26px; font-weight: 700; color: #FFF; letter-spacing: -0.3px; margin-bottom: 8px; line-height: 1.3; }
-    .header-sub { font-size: 13.5px; color: #ADB5BD; font-weight: 400; margin-bottom: 18px; }
-    .header-links { display: flex; gap: 12px; flex-wrap: wrap; }
-    .header-links a { font-size: 13px; color: #ADB5BD; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); padding: 5px 12px; border-radius: 4px; transition: all 0.15s; }
-    .header-links a:hover { color: #FFF; border-color: rgba(255,255,255,0.4); }
-
-    .about-strip { background: #1B4F72; padding: 24px 0; }
-    .about-strip-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; }
-    .about-strip p { font-size: 13.5px; color: #D6EAF8; max-width: 720px; line-height: 1.7; margin-bottom: 12px; }
-    .about-strip p:last-child { margin-bottom: 0; }
-
-    .main { max-width: 860px; margin: 0 auto; padding: 40px 32px; }
-    .section-label { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #2E86AB; margin-bottom: 16px; }
-
-    .panel { background: #FFF; border-radius: 6px; border: 1px solid #E0E6EA; box-shadow: 0 1px 4px rgba(0,0,0,0.06); padding: 24px 26px; margin-bottom: 24px; }
-    .panel h2 { font-size: 17px; font-weight: 600; color: #0D1B2A; letter-spacing: -0.2px; margin-bottom: 12px; }
-    .panel h3 { font-size: 14px; font-weight: 600; color: #0D1B2A; margin-bottom: 6px; }
-    .panel p { font-size: 13.5px; color: #4A5568; line-height: 1.7; margin-bottom: 12px; }
-    .panel p:last-child { margin-bottom: 0; }
-    .panel ul { margin: 0 0 12px 18px; }
-    .panel li { font-size: 13.5px; color: #4A5568; line-height: 1.7; margin-bottom: 7px; }
-
-    .pull { font-size: 15px; color: #0D1B2A; line-height: 1.65; border-left: 3px solid #2E86AB; padding-left: 16px; margin: 4px 0 16px; }
-
-    .stat-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
-    .stat { background: #FFF; border: 1px solid #E0E6EA; border-radius: 6px; padding: 12px 16px; flex: 1 1 150px; }
-    .stat .num { font-size: 21px; font-weight: 700; color: #1B4F72; letter-spacing: -0.4px; }
-    .stat .lab { font-size: 11.5px; color: #5D6D7E; line-height: 1.45; margin-top: 2px; }
-
-    .rec { border-top: 1px solid #EDF0F2; padding-top: 14px; margin-top: 14px; }
-    .rec:first-of-type { border-top: 0; padding-top: 0; margin-top: 0; }
-    .rec-num { display: inline-block; font-size: 11px; font-weight: 700; color: #FFF; background: #1B4F72; border-radius: 3px; padding: 2px 7px; margin-right: 8px; }
-    .rec-effect { display: inline-block; font-size: 11px; font-weight: 600; color: #1A7A40; background: #D5F5E3; border-radius: 3px; padding: 2px 8px; margin-left: 6px; vertical-align: 1px; }
-
-    .shot { width: 100%; border: 1px solid #E0E6EA; border-radius: 5px; display: block; margin-bottom: 8px; }
-    .caption { font-size: 11.5px; color: #95A5A6; margin-bottom: 20px; }
-
-    .dl-grid { display: flex; flex-direction: column; gap: 10px; }
-    .dl { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #FFF; border: 1px solid #E0E6EA; border-radius: 5px; padding: 12px 16px; flex-wrap: wrap; }
-    .dl-text { font-size: 13px; color: #1C2833; font-weight: 500; }
-    .dl-sub { font-size: 11.5px; color: #95A5A6; font-weight: 400; display: block; margin-top: 1px; }
-    .btn-primary { font-size: 12.5px; font-weight: 600; color: #FFF; background: #1B4F72; text-decoration: none; padding: 6px 14px; border-radius: 4px; transition: background 0.15s; white-space: nowrap; }
-    .btn-primary:hover { background: #154360; }
-
-    .gap-note { background: #FDF6E3; border: 1px solid #E8DCC0; border-radius: 6px; padding: 20px 24px; margin-bottom: 24px; }
-    .gap-note h2 { font-size: 16px; font-weight: 600; color: #7D6608; margin-bottom: 10px; }
-    .gap-note p, .gap-note li { font-size: 13px; color: #6B5D2F; line-height: 1.7; }
-    .gap-note ul { margin: 0 0 0 18px; }
-    .gap-note li { margin-bottom: 6px; }
-
-    .site-footer { background: #0D1B2A; padding: 22px 0; }
-    .footer-inner { max-width: 860px; margin: 0 auto; padding: 0 32px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
-    .footer-inner p { font-size: 11.5px; color: #6C7A7D; }
-
-    @media (max-width: 600px) {
-      .header-inner h1 { font-size: 20px; }
-      .footer-inner { flex-direction: column; text-align: center; }
-      .stat { flex: 1 1 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morrisons Market Street Review | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="back-link" href="../">&#8592; Back to portfolio</a>
-      <h1>Morrisons Market Street: Independent Strategy &amp; Operations Review</h1>
-      <p class="header-sub">Zak Whatmough &nbsp;&middot;&nbsp; August 2026 &nbsp;&middot;&nbsp; Self-initiated case study</p>
-      <div class="header-links">
-        <a href="morrisons-market-street-strategy-review.pdf" target="_blank">Read the deck (PDF) &#8599;</a>
-        <a href="mailto:z.whatmough@hotmail.co.uk">&#9993; z.whatmough@hotmail.co.uk</a>
-        <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn &#8599;</a>
-      </div>
-    </div>
-  </header>
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
 
-  <div class="about-strip">
-    <div class="about-strip-inner">
-      <p>I work on Morrisons Market Street in Glasgow, on the deli and food-to-go counters, alongside an Economics degree. This is what happened when I got curious about the business behind the counter and went to check whether the things that annoyed me on shift were actually commercial problems.</p>
-      <p>They mostly were. Not always in the way I expected.</p>
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">Strategy &amp; operations · Primary research</p>
+    <h1>Morrisons Market Street: Strategy &amp; Operations Review</h1>
+    <p class="lead">I work on Morrisons Market Street in Glasgow, on the deli and food-to-go counters, alongside an Economics degree. This is what happened when I got curious about the business behind the counter and went to check whether the things that annoyed me on shift were actually commercial problems. They mostly were, though not always in the way I expected.</p>
+    <div class="links">
+      <a class="primary" href="morrisons-market-street-strategy-review.pdf" target="_blank">View the deck (PDF)</a>
+      <a href="morrisons-market-street-strategy-review.pptx">PowerPoint</a>
+      <a href="source-register.md">104-source register</a>
+      <a href="methodology.md">Methodology</a>
     </div>
   </div>
+</header>
 
-  <main class="main">
+<main class="wrap prose">
 
-    <div class="stat-row">
-      <div class="stat"><div class="num">19</div><div class="lab">slides, client standard</div></div>
-      <div class="stat"><div class="num">104</div><div class="lab">tiered public sources</div></div>
-      <div class="stat"><div class="num">4</div><div class="lab">recommendations, each pilot-designed</div></div>
-      <div class="stat"><div class="num">5</div><div class="lab">of my own ideas killed on evidence</div></div>
+  <div class="keynums">
+    <div class="keynum"><div class="n">19</div><div class="l">slides, client standard</div></div>
+    <div class="keynum"><div class="n">104</div><div class="l">tiered public sources</div></div>
+    <div class="keynum"><div class="n">4</div><div class="l">recommendations, each pilot-designed</div></div>
+    <div class="keynum"><div class="n">5</div><div class="l">of my own ideas killed on evidence</div></div>
+  </div>
+
+  <h2>The argument</h2>
+  <p>Morrisons closed 70 Market Street meat and fish counters in March 2025 because the costs were "significantly out of line with usage, volumes or the value that customers place on them". Sixteen months later it started reopening them, because they are "part of our DNA, a real differentiator".</p>
+  <p>Both decisions were made for the whole estate. Both were about something Morrisons' own chief executive describes as varying sharply from store to store: "whereas at some stores fresh counters are thriving, many are sad-looking and ignored."</p>
+  <p>What made the reversal possible, in Morrisons' own words, was an improvement in "waste yield". No number has ever been published. So the company has effectively said that counter viability comes down to how much you decide to produce, and it has no public measure of how well any counter does it.</p>
+  <div class="callout"><b>Morrisons owns the last staffed fresh-counter estate in mainstream UK grocery, and cannot show which counters work.</b> The question the deck answers is how it can improve the economics of Market Street without losing what makes it different.</div>
+
+  <figure><img src="../images/market-street/executive-summary.jpg" alt="Executive summary slide from the deck"><figcaption>Executive summary. Every slide uses a takeaway title, so the argument reads from the titles alone.</figcaption></figure>
+
+  <h2>Why I looked at it</h2>
+  <p>Three things kept coming up on shift.</p>
+  <p><b>Nobody knows what is in the freezer.</b> Boxes go in, boxes come out, and the only way to find out what is left is to go and look, usually across several freezers, usually when you have already run out. So you order twenty boxes because you are down to one, and half of them sit there for a month.</p>
+  <p><b>Nobody knows what sold.</b> Production is decided by experience and by looking at the counter. Get it wrong upward and it becomes markdown, then waste. Get it wrong downward, which happens more, and the counter is empty at seven o'clock and the sale is just gone.</p>
+  <p><b>Customers keep telling us what they want.</b> People buying ham say, without being asked, that it is for a sandwich. Meanwhile the store sells packaged sandwiches twenty feet away containing none of that meat.</p>
+  <p>Those are observations from one store. The deck treats them as hypotheses and tests them against public evidence. Where the evidence does not settle a question, it says so and names the internal data that would.</p>
+
+  <h2>What I found</h2>
+  <p><b>Morrisons is the only UK grocer that went back.</b> Tesco went from around 790 counter stores to 279 between 2019 and 2022. Sainsbury's closed all 420 in 2020 and banked £60m of operating cost savings. Asda swapped counters for self-service hot stations in 2020. Aldi, Lidl, Co-op and M&amp;S never had them. Only Waitrose held on, and only Morrisons reversed. The differentiation is real and nobody is competing for it, which makes it worth more than Morrisons currently claims.</p>
+  <p><b>Counter waste is not a tonnage story.</b> Retail is 2% of UK food waste, and Tesco's disclosed figure is 0.5% of food handled, so anyone arguing "reduce food waste" gets told, correctly, that it barely registers. The number that matters comes from ECR Retail Loss and the University of Portsmouth: the full cost of handling unsold food is 1.8% of retail sales revenue, against grocery net margins of 1 to 3%. Supermarkets sell over 97% of what they hold. The cost is all in managing the last 3%.</p>
+  <p><b>It fails in both directions, and one side never gets counted.</b> Too much becomes markdown. Too little empties the counter, and Retail Economics and DHL put £2.1bn of UK grocery sales a year at risk from stock gaps. That is bigger than the waste side and it never shows up in a waste metric.</p>
+  <p><b>Two blanks in Morrisons' technology, and they are the two decisions a counter makes daily.</b> Blue Yonder handles retail SKU replenishment across roughly 500 stores. Focal Systems watches shelf gaps. A store execution platform covers tasks and compliance across around 500 stores and 70,000 colleagues. Too Good To Go clears surplus. Nothing published tracks bulk ingredient stock behind the counter, and nothing published records what was produced and sold there.</p>
+  <p><b>Greggs and Asda are the competition, not Subway.</b> A Subway six-inch meal deal runs £9.18 to £10.69 across four named branches against Morrisons' £3.75, so the price headroom is real. But Morrisons already undercuts Subway more than two to one without a counter. Greggs is holding its Lunch Deal at £4.25, and Asda launched a £4 hot counter meal deal on 7 August 2026. The freshness advantage is genuine, but it sits over the £3.00 packaged BLT and over Greggs. Subway is made to order too.</p>
+  <p><b>Morrisons has already learned which made-to-order model works.</b> Market Kitchen ran from 2019 with chefs, dedicated kitchens and eight branded stations across all dayparts. All 18 sites closed in March 2025. Three months later Morrisons launched a nationwide Market Street pizza counter: one category, build your own, digital screens so you order and carry on shopping, £5 to £6. Whatever gets built next should copy that, not Market Kitchen.</p>
+  <p><b>And five things I wanted to recommend turned out to be already solved.</b> Digital food safety checks, ordering and replenishment, shelf availability monitoring, surplus redistribution, and a substitution lookup that fails on materiality anyway. Finding that out is the work, not a gap in it.</p>
+
+  <figure><img src="../images/market-street/made-to-order.jpg" alt="Slide comparing Market Kitchen with the Market Street pizza counter"><figcaption>The critical precedent. Morrisons closed one made-to-order format and launched another three months later.</figcaption></figure>
+
+  <h2>What I recommend</h2>
+  <p><b>1. Close the two data gaps under every counter decision.</b> Scan a box out of the freezer as it is opened, which gives a running count nobody has to walk the freezers for and a weekly consumption rate to order against. Log production and sales digitally so tomorrow's plan comes from yesterday's demand. Once consumption is known, ordering can run automatically off the engine already placing 13m retail orders a day. This ends the guessing.</p>
+  <p><b>2. Build a tiered made-to-order counter from Market Street ingredients.</b> Priced by what goes in it: one meat, two meats, add cheese, add salad. Carved to order from the deli joint on bread baked in store, bundled with hot counter sides instead of crisps. No new kitchen and no new skill, because colleagues already work across those counters. Ordered on a screen so the customer shops while it is made. This fixes utilisation.</p>
+  <p><b>3. Automate reductions and move counter tasks onto phones.</b> A markdown round takes a colleague off the counter for hours, production stops, and the sale goes. That cost lands on the sales line, not the wage bill. This returns selling hours.</p>
+  <p><b>4. Decide counter format store by store, on criteria Morrisons publishes.</b> Which is what would have prevented an expensive closure followed by an expensive reversal.</p>
+  <p>The first three close a loop: know what you have and what sold, sell more of it at full value, then recover the rest without pulling people off the counter. Each one comes with a three-store pilot, matched control stores, and success thresholds written down before launch rather than after.</p>
+
+  <figure><img src="../images/market-street/price-ladder.jpg" alt="Price ladder slide showing UK lunchtime meal deal pricing"><figcaption>The price ladder, built from dated operator and press sources. Subway prices are delivery-platform listings for four named branches, labelled as such on the slide.</figcaption></figure>
+
+  <h2>What I could not answer</h2>
+  <p>Four questions decide whether any of this is right, and none can be answered from outside the company:</p>
+  <ul>
+    <li><b>What does a counter actually yield?</b> No UK retailer publishes counter waste rates.</li>
+    <li><b>What is counter labour productivity?</b> No published research exists anywhere in UK grocery, which is the biggest gap in the pack.</li>
+    <li><b>Why did Market Kitchen really fail?</b> There is no public post-mortem, and it is the closest precedent to Recommendation 2.</li>
+    <li><b>Will customers pay more for made to order?</b> No credible UK data puts a number on it.</li>
+  </ul>
+  <p>The deck names all four rather than estimating around them. There are twelve more in the source register. The first-hand observations come from one store, are not evidence of a company-wide pattern, and are labelled that way throughout.</p>
+
+  <h2>How I built it</h2>
+  <p>Research came first, before anything went on a slide. Every claim carried over from my earlier notes was re-checked against primary sources, which caught four errors, including a counter-reinstatement figure I had backwards and a £940m cost saving I had been describing as an AI number when Morrisons only says AI contributed to it.</p>
+  <p>Sources are tiered: Morrisons corporate publications and results statements first, then The Grocer, Retail Gazette, Retail Week and equivalent, then industry bodies, peer-reviewed retail-loss research, and vendor material labelled as vendor claims.</p>
+  <p>Nothing is invented. No Morrisons costs, margins, waste rates, volumes or financial projections appear anywhere. I built a unit economics model early on and deliberately left it out, because projecting a profit for Morrisons would have meant assuming their input costs, their cannibalisation rate and their demand, which are the three things that actually decide the answer. Every claim in the deck is labelled: public fact, first-hand observation, hypothesis, inference, recommendation, or internal validation required. That last one gets used a lot, on purpose.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank" rel="noopener">LinkedIn</a></span>
     </div>
-
-    <p class="section-label">The argument</p>
-    <div class="panel">
-      <p>Morrisons closed 70 Market Street meat and fish counters in March 2025 because the costs were "significantly out of line with usage, volumes or the value that customers place on them". Sixteen months later it started reopening them, because they are "part of our DNA... a real differentiator".</p>
-      <p>Both decisions were made for the whole estate. Both were about something Morrisons' own chief executive describes as varying sharply from store to store: "whereas at some stores fresh counters are thriving... many are sad-looking and ignored."</p>
-      <p>What made the reversal possible, in Morrisons' own words, was an improvement in "waste yield". No number has ever been published. So the company has effectively said that counter viability comes down to how much you decide to produce, and it has no public measure of how well any counter does it.</p>
-      <p class="pull">Morrisons owns the last staffed fresh-counter estate in mainstream UK grocery and cannot show which counters work.</p>
-      <p>The question the deck answers: how can Morrisons improve the economics of Market Street without losing what makes it different?</p>
-    </div>
-
-    <img class="shot" src="assets/executive-summary.jpg" alt="Executive summary slide from the deck">
-    <p class="caption">Executive summary. Every slide uses a takeaway title, so the argument reads from the titles alone.</p>
-
-    <p class="section-label">Why I looked at it</p>
-    <div class="panel">
-      <p>Three things kept coming up on shift.</p>
-      <p><strong>Nobody knows what is in the freezer.</strong> Boxes go in, boxes come out, and the only way to find out what is left is to go and look, usually across several freezers, usually when you have already run out. So you order twenty boxes because you are down to one, and half of them sit there for a month.</p>
-      <p><strong>Nobody knows what sold.</strong> Production is decided by experience and by looking at the counter. Get it wrong upward and it becomes markdown, then waste. Get it wrong downward, which happens more, and the counter is empty at seven o'clock and the sale is just gone.</p>
-      <p><strong>Customers keep telling us what they want.</strong> People buying ham say, without being asked, that it is for a sandwich. Meanwhile the store sells packaged sandwiches twenty feet away containing none of that meat.</p>
-      <p>Those are observations from one store. The deck treats them as hypotheses and tests them against public evidence. Where the evidence does not settle a question, it says so and names the internal data that would.</p>
-    </div>
-
-    <p class="section-label">What I found</p>
-    <div class="panel">
-      <h3>Morrisons is the only UK grocer that went back</h3>
-      <p>Tesco went from around 790 counter stores to 279 between 2019 and 2022. Sainsbury's closed all 420 in 2020 and banked &pound;60m of operating cost savings. Asda swapped counters for self-service hot stations in 2020. Aldi, Lidl, Co-op and M&amp;S never had them. Only Waitrose held on, and only Morrisons reversed. The differentiation is real and nobody is competing for it, which makes it worth more than Morrisons currently claims.</p>
-
-      <h3>Counter waste is not a tonnage story</h3>
-      <p>Retail accounts for 2% of UK food waste, and Tesco's disclosed figure is 0.5% of food handled, so anyone arguing "reduce food waste" gets told correctly that it barely registers. The number that matters comes from ECR Retail Loss and the University of Portsmouth: the full cost of handling unsold food is 1.8% of retail sales revenue, against grocery net margins of 1 to 3%. Supermarkets sell over 97% of what they hold. The cost is all in managing the last 3%.</p>
-
-      <h3>It fails in both directions, and one side never gets counted</h3>
-      <p>Too much becomes markdown. Too little empties the counter, and Retail Economics and DHL put &pound;2.1bn of UK grocery sales a year at risk from stock gaps. That is bigger than the waste side and it never shows up in a waste metric.</p>
-
-      <h3>Two blanks in Morrisons' technology, and they are the two decisions a counter makes daily</h3>
-      <p>Blue Yonder handles retail SKU replenishment across roughly 500 stores. Focal Systems watches shelf gaps. A store execution platform covers tasks and compliance across ~500 stores and 70,000 colleagues, running partly on colleagues' own phones. Too Good To Go clears surplus. Nothing published tracks bulk ingredient stock behind the counter, and nothing published records what was produced and sold there.</p>
-
-      <h3>Greggs and Asda are the competition, not Subway</h3>
-      <p>A Subway six-inch meal deal runs &pound;9.18 to &pound;10.69 across four named branches against Morrisons' &pound;3.75, so the price headroom is real. But Morrisons already undercuts Subway more than two to one without a counter. Greggs is holding its Lunch Deal at &pound;4.25, and Asda launched a &pound;4 hot counter meal deal on 7 August 2026. The freshness advantage is genuine, but it is over the &pound;3.00 packaged BLT and over Greggs. Subway is made to order too.</p>
-
-      <h3>Morrisons has already learned which made-to-order model works</h3>
-      <p>Market Kitchen ran from 2019 with chefs, dedicated kitchens and eight branded stations across all dayparts. All 18 sites closed in March 2025. Three months later Morrisons launched a nationwide Market Street pizza counter: one category, build your own, digital screens so you order and carry on shopping, &pound;5 to &pound;6. Whatever gets built next should copy that, not Market Kitchen.</p>
-
-      <h3>And five things I wanted to recommend turned out to be already solved</h3>
-      <p>Digital food safety checks, ordering and replenishment, shelf availability monitoring, surplus redistribution, and a substitution lookup that fails on materiality anyway. Finding that out is the work, not a gap in it.</p>
-    </div>
-
-    <img class="shot" src="assets/made-to-order.jpg" alt="Slide comparing Market Kitchen with the Market Street pizza counter">
-    <p class="caption">The critical precedent. Morrisons closed one made-to-order format and launched another three months later.</p>
-
-    <p class="section-label">What I recommend</p>
-    <div class="panel">
-      <div class="rec">
-        <h3><span class="rec-num">1</span>Close the two data gaps under every counter decision<span class="rec-effect">Ends guessing</span></h3>
-        <p>Scan a box out of the freezer as it is opened, which gives a running count nobody has to walk the freezers for and a weekly consumption rate to order against. Log production and sales digitally so tomorrow's plan comes from yesterday's demand. Once consumption is known, ordering can run automatically off the engine already placing 13m retail orders a day.</p>
-      </div>
-      <div class="rec">
-        <h3><span class="rec-num">2</span>Build a tiered made-to-order counter from Market Street ingredients<span class="rec-effect">Fixes utilisation</span></h3>
-        <p>Priced by what goes in it: one meat, two meats, add cheese, add salad. Carved to order from the deli joint on bread baked in store, bundled with hot counter sides instead of crisps. No new kitchen and no new skill, because colleagues already work across all of those counters. Ordered on a screen so the customer shops while it is made.</p>
-      </div>
-      <div class="rec">
-        <h3><span class="rec-num">3</span>Automate reductions and move counter tasks onto phones<span class="rec-effect">Returns selling hours</span></h3>
-        <p>A markdown round takes a colleague off the counter for hours, production stops, and the sale goes. That cost lands on the sales line, not the wage bill.</p>
-      </div>
-      <div class="rec">
-        <h3><span class="rec-num">4</span>Decide counter format store by store, on criteria Morrisons publishes<span class="rec-effect">Prevents the next reversal</span></h3>
-        <p>Which is what would have prevented an expensive closure followed by an expensive reversal.</p>
-      </div>
-      <p style="margin-top:16px">The first three close a loop: know what you have and what sold, sell more of it at full value, then recover the rest without pulling people off the counter. Each one comes with a three-store pilot, matched control stores, and success thresholds written down before launch rather than after.</p>
-    </div>
-
-    <img class="shot" src="assets/price-ladder.jpg" alt="Price ladder slide showing UK lunchtime meal deal pricing">
-    <p class="caption">The price ladder, built from dated operator and press sources. Subway prices are delivery-platform listings for four named branches, labelled as such on the slide.</p>
-
-    <p class="section-label">What I could not answer</p>
-    <div class="gap-note">
-      <h2>Four questions decide whether any of this is right, and none can be answered from outside the company</h2>
-      <ul>
-        <li><strong>What does a counter actually yield?</strong> No UK retailer publishes counter waste rates.</li>
-        <li><strong>What is counter labour productivity?</strong> No published research exists anywhere in UK grocery, which is the biggest gap in the pack.</li>
-        <li><strong>Why did Market Kitchen really fail?</strong> There is no public post-mortem, and it is the closest precedent to Recommendation 2.</li>
-        <li><strong>Will customers pay more for made to order?</strong> No credible UK data puts a number on it.</li>
-      </ul>
-      <p style="margin-top:10px">The deck names all four rather than estimating around them. There are twelve more in the source register. The first-hand observations come from one store, are not evidence of a company-wide pattern, and are labelled that way throughout.</p>
-    </div>
-
-    <p class="section-label">Method</p>
-    <div class="panel">
-      <p>Research came first, before anything went on a slide. Every claim carried over from my earlier notes was re-checked against primary sources, which caught four errors, including a counter-reinstatement figure I had backwards and a &pound;940m cost saving I had been describing as an AI number when Morrisons only says AI contributed to it.</p>
-      <p>Sources are tiered: Morrisons corporate publications and results statements first, then The Grocer, Retail Gazette, Retail Week and equivalent, then industry bodies, peer-reviewed retail-loss research, and vendor material labelled as vendor claims.</p>
-      <p>Nothing is invented. No Morrisons costs, margins, waste rates, volumes or financial projections appear anywhere. I built a unit economics model early on and deliberately left it out, because projecting a profit for Morrisons would have meant assuming their input costs, their cannibalisation rate and their demand, which are the three things that actually decide the answer.</p>
-      <p>Every claim in the deck is labelled: public fact, first-hand observation, hypothesis, inference, recommendation, or internal validation required. That last one gets used a lot, on purpose.</p>
-    </div>
-
-    <p class="section-label">Downloads</p>
-    <div class="dl-grid">
-      <div class="dl">
-        <span class="dl-text">Strategy &amp; operations review, 19 slides<span class="dl-sub">PDF, opens in the browser</span></span>
-        <a class="btn-primary" href="morrisons-market-street-strategy-review.pdf" target="_blank">View PDF</a>
-      </div>
-      <div class="dl">
-        <span class="dl-text">The same deck, editable<span class="dl-sub">PowerPoint (.pptx)</span></span>
-        <a class="btn-primary" href="morrisons-market-street-strategy-review.pptx">Download</a>
-      </div>
-      <div class="dl">
-        <span class="dl-text">Source register<span class="dl-sub">104 sources, tiered, with what each was used for and the twelve questions with no public answer</span></span>
-        <a class="btn-primary" href="source-register.md">View</a>
-      </div>
-      <div class="dl">
-        <span class="dl-text">Methodology note<span class="dl-sub">Evidence typing, sourcing standard, verification pass, confidentiality approach</span></span>
-        <a class="btn-primary" href="methodology.md">View</a>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p>Zak Whatmough &middot; Portfolio &middot; 2026</p>
-      <p>Independent analysis. Not affiliated with or endorsed by Wm Morrison Supermarkets Limited. Based on publicly available information and personal professional observations. No confidential company information is used.</p>
-    </div>
-  </footer>
+    <p class="disclaimer">Independent analysis. Not affiliated with or endorsed by Wm Morrison Supermarkets Limited. Based on publicly available information and personal professional observations. No confidential company information is used.</p>
+  </div>
+</footer>
 
 </body>
 </html>

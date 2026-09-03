@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-Commerce Commercial Intelligence | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
+
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">SQL · Power BI · Data modelling</p>
+    <h1>E-Commerce Commercial Intelligence</h1>
+    <p class="lead">Over a million real UK online-retail transactions, cleaned and modelled in SQL and turned into a four-page Power BI dashboard that a manager could actually decide from. Not a tutorial dataset, and not just charts. The point was findings someone would act on.</p>
+    <div class="links">
+      <a class="primary" href="https://github.com/zwhatmough/ecommerce-commercial-intelligence" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap prose">
+
+  <div class="keynums">
+    <div class="keynum"><div class="n">1M+</div><div class="l">transactions, UCI Online Retail II</div></div>
+    <div class="keynum"><div class="n">£19.4M</div><div class="l">revenue over two trading years</div></div>
+    <div class="keynum"><div class="n">72%</div><div class="l">of customers buy more than once</div></div>
+  </div>
+
+  <h2>Overview</h2>
+  <p>The dataset is the UCI Online Retail II file: every invoice line from an anonymous UK online retailer across 2009 to 2011, just over a million rows. I loaded it into PostgreSQL, wrote the cleaning logic, modelled it into a star schema, and built the analytical views. On top of that sits a four-page Power BI dashboard covering an executive overview, customers, products and sales, and geography and cancellations, with around 15 DAX measures and an RFM customer segmentation.</p>
+  <p>Because the data is transactions and nothing else (no cost, no margin, no marketing spend, no reason codes on cancellations), every finding is a statement about what happened, not why. Where a cause is plausible I flag it as a hypothesis to test rather than a conclusion.</p>
+
+  <figure class="figrow">
+    <img src="../images/ecommerce/executive-overview.png" alt="Executive overview page: revenue, orders, customers, cancellation rate">
+    <img src="../images/ecommerce/customer-intelligence.png" alt="Customer intelligence page">
+  </figure>
+  <figure class="figrow">
+    <img src="../images/ecommerce/product-performance.png" alt="Product and sales performance page">
+    <img src="../images/ecommerce/geography-cancellations.png" alt="Geography and cancellations page">
+  </figure>
+  <figcaption style="margin-top:-14px">The four dashboard pages. Every visual uses a takeaway title, so the story reads from the headings.</figcaption>
+
+  <h2>What the data showed</h2>
+  <p><b>Revenue is flat, but the mix underneath it changed.</b> Comparing like-for-like trading years, net revenue was almost unchanged (down 0.9%) while orders fell 12.8% and average order value rose 13.7%. Revenue held up because baskets got bigger, not because the business did more trade. A headline of "revenue is stable" is true and misleading at the same time.</p>
+  <p><b>Acquisition has stalled; the business lives off its existing book.</b> Repeat customers now drive about 96% of revenue, and the number of new customers won fell from 3,368 in 2010 to 1,529 in 2011. The business is trading on relationships it already has rather than winning new ones.</p>
+  <p><b>Customer concentration is severe; product concentration is not.</b> The top 1% of customers (59 of them) generate 31% of attributable revenue, and the largest single customer is 3.5% on their own. Products are the opposite: no single product exceeds 1.7% of revenue. So the risk sits in who buys, not in what they buy, and losing a top customer hurts far more than losing a top product.</p>
+  <p><b>Repeat business is almost the whole business.</b> 72% of customers who ever ordered came back, and customers with ten or more orders are 16% of the base but 68% of revenue. An RFM segmentation puts 392 high-value customers in an "at risk" group: people who averaged around £3,000 each and haven't ordered in roughly a year.</p>
+  <p><b>International orders are worth about twice UK orders, but the book is thin.</b> International average order value is £813 against £394 domestic, yet 42 countries produce only 533 identified customers, and single markets rest on a handful of accounts (EIRE's revenue comes from five customers). That is concentration risk sitting inside what looks like headroom.</p>
+  <p><b>Cancellations are frequent but small.</b> 15.5% of invoices are cancellations, but only 7.3% of gross value, because cancelled orders are systematically smaller. With no reason codes in the data, the dashboard can show where cancellations happen, not why.</p>
+
+  <h2>Recommendations</h2>
+  <p>Four, in priority order, each written as insight, implication, action. The language is deliberately tentative, because this data supports investigation rather than promises.</p>
+  <ul>
+    <li><b>Treat the order-count decline as the headline, not revenue.</b> Report orders and AOV as headline KPIs alongside revenue every month, and work out whether the AOV rise came from price, mix, or fewer-but-larger wholesale orders.</li>
+    <li><b>Protect the top percentile before chasing new segments.</b> Retention is essentially the whole commercial model here, so put named ownership on the top 1% and treat a gap in their normal order cadence as an escalation.</li>
+    <li><b>Test reactivation on the 392 at-risk high-value customers.</b> Run a structured test on a sample, hold the rest back as a control, and measure the response rather than assuming the roughly £1.2m of dormant revenue is recoverable.</li>
+    <li><b>Check whether the high-AOV international accounts can be grown deliberately.</b> Profile the Netherlands, EIRE and Australia accounts first. If they are repeatable distributor relationships, test acquisition in similar markets; if they are one-offs, stop treating international AOV as an opportunity metric.</li>
+  </ul>
+
+  <h2>How it was built</h2>
+  <p>The raw file goes into PostgreSQL, then a cleaning layer handles returns and cancellations, missing customer IDs, zero and negative prices, and duplicate lines, with every rule documented rather than silently dropping rows. The cleaned data is modelled into a star schema (a fact table plus date, customer, product and country dimensions), and the analysis runs as SQL views using CTEs, joins and window functions for ranking, running totals and period-on-period growth. Power BI sits on top with the DAX measures, the RFM segmentation and the four dashboard pages.</p>
+
+  <h2>What it cannot tell you</h2>
+  <p>Worth stating plainly, because a portfolio piece that oversells is worse than one that doesn't. There is no margin data, so a high-revenue customer may be unprofitable. There is no marketing data, so the acquisition decline could be a spend decision rather than a demand signal. Around 23% of lines have no customer ID, so all customer analysis covers the identified population only, stated wherever it appears. And it is two years of one retailer during the post-financial-crisis recovery, so there is no basis for generalisation.</p>
+
+  <div class="tools" style="margin-top:18px">
+    <span class="tool">PostgreSQL</span><span class="tool">Power BI</span><span class="tool">DAX</span><span class="tool">Power Query</span><span class="tool">Star schema</span><span class="tool">Window functions</span><span class="tool">CTEs</span><span class="tool">RFM segmentation</span>
+  </div>
+  <div class="links" style="margin-top:6px"><a class="primary" href="https://github.com/zwhatmough/ecommerce-commercial-intelligence" target="_blank" rel="noopener">See the SQL and full write-up on GitHub</a></div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://github.com/zwhatmough" target="_blank" rel="noopener">GitHub</a></span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

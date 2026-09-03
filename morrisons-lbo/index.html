@@ -1,443 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morrisons LBO Model | Zak Whatmough Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F4F6F8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        header {
-            background: #0D1B2A;
-            padding: 32px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .header-content {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 24px;
-        }
-
-        .header-text h1 {
-            font-size: 28px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 6px;
-        }
-
-        .header-text p {
-            font-size: 14px;
-            color: rgba(255,255,255,0.7);
-            font-weight: 500;
-        }
-
-        .header-links {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            align-items: center;
-        }
-
-        .header-links a {
-            color: rgba(255,255,255,0.8);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-
-        .header-links a:hover {
-            color: white;
-        }
-
-        .header-links a.back {
-            margin-right: 12px;
-            padding-right: 12px;
-            border-right: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .about-strip {
-            background: #1B4F72;
-            color: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-        }
-
-        .about-strip p {
-            font-size: 15px;
-            line-height: 1.7;
-            margin-bottom: 16px;
-        }
-
-        .about-strip p:last-child {
-            margin-bottom: 0;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-top: 16px;
-        }
-
-        .tag {
-            background: rgba(255,255,255,0.2);
-            color: white;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-
-        h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin: 32px 0 20px 0;
-            color: #0D1B2A;
-        }
-
-        .card {
-            background: white;
-            padding: 28px;
-            border-radius: 8px;
-            margin-bottom: 24px;
-            border: 1px solid #E8EBF0;
-        }
-
-        .metrics-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-bottom: 24px;
-        }
-
-        .metrics-table thead {
-            background: #F9FAFB;
-        }
-
-        .metrics-table th {
-            text-align: left;
-            padding: 12px;
-            font-weight: 600;
-            font-size: 13px;
-            color: #0D1B2A;
-            border-bottom: 2px solid #E8EBF0;
-        }
-
-        .metrics-table td {
-            padding: 12px;
-            font-size: 14px;
-            border-bottom: 1px solid #E8EBF0;
-        }
-
-        .metrics-table tbody tr:nth-child(even) {
-            background: #F9FAFB;
-        }
-
-        .metrics-table td:nth-child(2) {
-            text-align: right;
-            font-weight: 600;
-            color: #1B4F72;
-        }
-
-        ul {
-            margin-left: 20px;
-            margin-bottom: 16px;
-        }
-
-        li {
-            margin-bottom: 8px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-
-        .file-row {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-
-        .file-btn {
-            color: white;
-            background: #1B4F72;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 4px;
-            transition: background 0.2s;
-        }
-
-        .file-btn:hover {
-            background: #154360;
-        }
-
-        .file-note {
-            font-size: 12px;
-            color: #666;
-        }
-
-        .skills-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .skill-tag {
-            background: #E8F4F8;
-            color: #1B4F72;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .references {
-            margin-left: 20px;
-        }
-
-        .references li {
-            margin-bottom: 10px;
-        }
-
-        footer {
-            background: #0D1B2A;
-            color: rgba(255,255,255,0.6);
-            padding: 24px 0;
-            text-align: center;
-            font-size: 13px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 60px;
-        }
-
-        footer p {
-            margin: 4px 0;
-        }
-
-        section {
-            margin-bottom: 40px;
-        }
-
-        .section-intro {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        @media (max-width: 640px) {
-            .header-content {
-                flex-direction: column;
-            }
-
-            .header-links {
-                justify-content: flex-start;
-            }
-
-            .metrics-table {
-                font-size: 13px;
-            }
-
-            .metrics-table th,
-            .metrics-table td {
-                padding: 10px 8px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morrisons LBO: CD&amp;R Take-Private | Zak Whatmough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <div class="header-text">
-                <h1>Zak Whatmough</h1>
-                <p>Portfolio · LBO Model & Transaction Case Study</p>
-            </div>
-            <nav class="header-links">
-                <a href="../" class="back">← All Projects</a>
-                <a href="mailto:z.whatmough@hotmail.co.uk">Email</a>
-                <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank">LinkedIn</a>
-                <a href="../Zak_Whatmough_CV_IB.pdf" target="_blank">CV (IB)</a>
-            </nav>
-        </div>
-    </header>
 
-    <div class="container">
-        <section class="about-strip">
-            <p>A fully formula-driven LBO model and professional transaction case study analysing CD&R's take-private acquisition of Wm Morrison Supermarkets for 287p per share, implying an enterprise value of approximately £9.9 billion. The project covers the full investment thesis, value creation plan, risk assessment, and returns analysis across three scenarios.</p>
-            <div class="tags">
-                <span class="tag">LBO Modelling</span>
-                <span class="tag">Take-Private</span>
-                <span class="tag">UK Grocery</span>
-                <span class="tag">Debt Schedule</span>
-                <span class="tag">Cash Sweep</span>
-                <span class="tag">Sensitivity Analysis</span>
-                <span class="tag">Value Bridge</span>
-            </div>
-        </section>
+<nav class="subnav"><div class="wrap"><a class="backlink" href="../">&larr; Back to portfolio</a></div></nav>
 
-        <section>
-            <h2>Key model outputs</h2>
-            <div class="card">
-                <table class="metrics-table">
-                    <thead>
-                        <tr>
-                            <th>Metric</th>
-                            <th>Value</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Entry EV / EBITDA</td>
-                            <td>9.2x</td>
-                        </tr>
-                        <tr>
-                            <td>Entry leverage</td>
-                            <td>5.8x</td>
-                        </tr>
-                        <tr>
-                            <td>Exit leverage (Year 5)</td>
-                            <td>4.2x</td>
-                        </tr>
-                        <tr>
-                            <td>Base case IRR (5-year hold)</td>
-                            <td>8.9%</td>
-                        </tr>
-                        <tr>
-                            <td>Base case MoM</td>
-                            <td>1.53x</td>
-                        </tr>
-                        <tr>
-                            <td>Exit EV / EBITDA (base)</td>
-                            <td>8.5x</td>
-                        </tr>
-                        <tr>
-                            <td>Downside IRR / MoM (7.5x exit)</td>
-                            <td>3.2% / 1.17x</td>
-                        </tr>
-                        <tr>
-                            <td>Upside IRR / MoM (9.0x exit)</td>
-                            <td>11.3% / 1.71x</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section>
-            <h2>Model structure</h2>
-            <div class="card">
-                <p class="section-intro">7 tabs, 422 formulas, zero errors</p>
-                <ul>
-                    <li><strong>Assumptions:</strong> deal overview, entry valuation, LTM financials, operating and exit assumptions</li>
-                    <li><strong>Sources & Uses:</strong> financing structure with leverage metrics</li>
-                    <li><strong>Operating Model:</strong> 5-year revenue, EBITDA margin ramp (6.1% to 7.2%), EBIT, tax, UFCF</li>
-                    <li><strong>Debt Schedule:</strong> 4 tranches (TLB, Secured Notes, Unsecured Notes, PIK Pref Shares), mandatory amort, cash sweep at 50%, credit metrics (ICR, FCCR, DSCR)</li>
-                    <li><strong>Returns:</strong> downside/base/upside scenarios, MoM, IRR via =IRR(), reconciling value creation bridge</li>
-                    <li><strong>Sensitivity:</strong> two-way tables for IRR and MoM</li>
-                    <li><strong>Summary:</strong> one-page dashboard</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Transaction note</h2>
-            <div class="card">
-                <p class="section-intro">Professional case study covering the full investment thesis and transaction analysis:</p>
-                <ul>
-                    <li><strong>Executive summary</strong> — Overview and key investment highlights</li>
-                    <li><strong>Investment thesis</strong> — Vertical integration, property portfolio, margin recovery opportunity, and comparable transactions</li>
-                    <li><strong>Industry context</strong> — UK grocery market structure, competitive dynamics, and consumer trends</li>
-                    <li><strong>Value creation plan</strong> — Strategic initiatives with supporting bridge table showing source and application of value</li>
-                    <li><strong>Key risks</strong> — Downside scenarios and stress factors to profitability and exit multiples</li>
-                    <li><strong>Returns summary</strong> — Three-scenario analysis with detailed scenario table (downside, base, upside)</li>
-                    <li><strong>Conclusion</strong> — Investment recommendation and forward-looking assessment</li>
-                </ul>
-            </div>
-        </section>
-
-        <section>
-            <h2>Download files</h2>
-            <div class="card">
-                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">LBO Model</p>
-                <div class="file-row" style="margin-bottom:16px;">
-                    <a href="Morrisons_LBO_Model_2021.xlsx" class="file-btn" target="_blank">Excel Model</a>
-                    <span class="file-note">7 tabs, 422 formulas, fully formula-driven</span>
-                </div>
-                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Transaction Note</p>
-                <div class="file-row" style="margin-bottom:16px;">
-                    <a href="Morrisons_Transaction_Note_2021.pdf" class="file-btn" target="_blank">PDF</a>
-                    <a href="Morrisons_Transaction_Note_2021.docx" class="file-btn" target="_blank">Word</a>
-                    <span class="file-note">Full case study with tables and scenario analysis</span>
-                </div>
-                <p style="font-size:14px; font-weight:600; color:#0D1B2A; margin-bottom:12px;">Critical Review</p>
-                <div class="file-row">
-                    <a href="Morrisons_Project_Review.pdf" class="file-btn" target="_blank">PDF</a>
-                    <a href="Morrisons_Project_Review.docx" class="file-btn" target="_blank">Word</a>
-                    <span class="file-note">8-page PE/IB-standard review</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Skills and tools</h2>
-            <div class="card">
-                <div class="skills-tags">
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">openpyxl</span>
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">docx-js</span>
-                    <span class="skill-tag">LibreOffice</span>
-                    <span class="skill-tag">LBO Modelling</span>
-                    <span class="skill-tag">Debt Scheduling</span>
-                    <span class="skill-tag">IRR/MoM Analysis</span>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <h2>Sources and references</h2>
-            <div class="card">
-                <ul class="references">
-                    <li>Morrisons Annual Report FY2021</li>
-                    <li>CD&R transaction announcement (August 2021)</li>
-                    <li>Takeover Panel / Competition and Markets Authority filings</li>
-                    <li>Bloomberg, Reuters deal coverage</li>
-                    <li>Asda/TDR Capital deal comparables (2021)</li>
-                    <li>Tesco-Booker merger (2018) public filings</li>
-                </ul>
-            </div>
-        </section>
+<header class="subhead">
+  <div class="wrap">
+    <p class="proj-kicker">Private equity · LBO modelling</p>
+    <h1>Morrisons LBO: CD&amp;R Take-Private (2021)</h1>
+    <p class="lead">A fully formula-driven LBO model and transaction case study of CD&amp;R's take-private of Wm Morrison Supermarkets at 287p a share, an enterprise value of around £9.9bn. It runs the full thesis, a value creation plan, the risks and the returns across three scenarios.</p>
+    <div class="links">
+      <a class="primary" href="Morrisons_Transaction_Note_2021.pdf" target="_blank">Read the transaction note (PDF)</a>
+      <a href="Morrisons_LBO_Model_2021.xlsx">LBO model (.xlsx)</a>
+      <a href="Morrisons_Project_Review.pdf" target="_blank">Critical review</a>
     </div>
+  </div>
+</header>
 
-    <footer>
-        <p>Zak Whatmough · Portfolio · 2026</p>
-        <p>For educational purposes only. Not investment advice.</p>
-    </footer>
+<main class="wrap prose">
+
+  <div class="keynums">
+    <div class="keynum"><div class="n">8.9%</div><div class="l">base-case IRR, 5-year hold</div></div>
+    <div class="keynum"><div class="n">1.53x</div><div class="l">base-case money multiple</div></div>
+    <div class="keynum"><div class="n">422</div><div class="l">live formulas, zero errors</div></div>
+  </div>
+
+  <h2>Overview</h2>
+  <p>In October 2021 Clayton, Dubilier &amp; Rice took Morrisons private at 287p a share. I rebuilt the deal as a private equity firm would have modelled it at the time, then wrote it up as a transaction case study. The aim was to understand not just what return the deal produces, but where that return actually comes from, and whether the assumptions behind it hold up.</p>
+
+  <figure class="figrow">
+    <img src="../images/lbo/exec-summary.png" alt="Transaction note executive summary and deal snapshot">
+    <img src="../images/lbo/value-bridge.png" alt="Value creation bridge separating EBITDA growth from multiple and leverage">
+  </figure>
+  <figcaption style="margin-top:-14px">The transaction note's executive summary, and the value creation bridge that splits the equity return into its drivers.</figcaption>
+
+  <h2>Key model outputs</h2>
+  <p>The deal enters at 9.2x EV/EBITDA and 5.8x leverage, and delivers a base-case 8.9% IRR and 1.53x money multiple over a five-year hold, deleveraging to 4.2x by exit. The returns are sensitive to the exit multiple:</p>
+  <ul>
+    <li><b>Downside</b> (7.5x exit): 3.2% IRR, 1.17x MoM.</li>
+    <li><b>Base</b> (8.5x exit): 8.9% IRR, 1.53x MoM.</li>
+    <li><b>Upside</b> (9.0x exit): 11.3% IRR, 1.71x MoM.</li>
+  </ul>
+  <p>The value creation bridge is the part I care most about. It separates how much of the equity return comes from EBITDA growth, how much from paying down debt, and how much from any change in the exit multiple, so the story behind the IRR is explicit rather than buried.</p>
+
+  <h2>How the model is built</h2>
+  <p>Seven tabs, 422 formulas, nothing hardcoded downstream of the assumptions:</p>
+  <ul>
+    <li><b>Assumptions:</b> deal overview, entry valuation, last-twelve-months financials, operating and exit assumptions.</li>
+    <li><b>Sources and uses:</b> the financing structure with its leverage metrics.</li>
+    <li><b>Operating model:</b> five-year revenue, an EBITDA margin ramp from 6.1% to 7.2%, EBIT, tax and unlevered free cash flow.</li>
+    <li><b>Debt schedule:</b> four tranches (term loan B, secured notes, unsecured notes, PIK preferred), mandatory amortisation, a 50% cash sweep, and credit metrics (ICR, FCCR, DSCR).</li>
+    <li><b>Returns:</b> downside, base and upside scenarios, money multiple, IRR, and the reconciling value creation bridge.</li>
+    <li><b>Sensitivity:</b> two-way tables for IRR and money multiple.</li>
+    <li><b>Summary:</b> a one-page dashboard.</li>
+  </ul>
+
+  <h2>The transaction note</h2>
+  <p>The written case study reads the deal the way an investment committee paper would. It opens with an executive summary and the investment thesis (vertical integration, the freehold property portfolio, the margin recovery opportunity, and comparable transactions), sets the industry context, lays out the value creation plan with a supporting bridge, and works through the key risks to profitability and the exit multiple. It closes on a three-scenario returns summary and a recommendation.</p>
+
+  <h2>Tools and sources</h2>
+  <p>Built in Excel with Python (openpyxl) and Node for the written note. Sources are the Morrisons FY2021 annual report, CD&amp;R's August 2021 transaction announcement, Takeover Panel and CMA filings, and Bloomberg and Reuters deal coverage.</p>
+
+  <h2>Download the files</h2>
+  <ul>
+    <li><a href="Morrisons_LBO_Model_2021.xlsx">LBO model (.xlsx)</a>, seven tabs, fully formula-driven.</li>
+    <li><a href="Morrisons_Transaction_Note_2021.pdf" target="_blank">Transaction note (PDF)</a> and <a href="Morrisons_Transaction_Note_2021.docx">Word</a>.</li>
+    <li><a href="Morrisons_Project_Review.pdf" target="_blank">Critical review (PDF)</a>, an eight-page self-assessment of the work.</li>
+  </ul>
+
+  <p style="font-size:13px;color:var(--faint);margin-top:8px">Personal project for educational purposes. Not investment advice and not the view of any institution.</p>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <span>© 2026 Zak Whatmough · Manchester &amp; Scotland, UK</span>
+      <span><a href="../">Portfolio</a> &nbsp;·&nbsp; <a href="mailto:z.whatmough@hotmail.co.uk">Email</a> &nbsp;·&nbsp; <a href="https://www.linkedin.com/in/zak-whatmough" target="_blank" rel="noopener">LinkedIn</a></span>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
