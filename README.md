@@ -1,12 +1,17 @@
-# investment-research
+# Zak Whatmough — Portfolio
 
-A portfolio site featuring institutional-style investment memos and selected audit / financial reporting projects.
+Live at **https://zwhatmough.github.io**
 
-## Included work
+A single site collecting my analytical and building projects across data and commercial analysis, investing and valuation, strategy, and software. Each project uses real data or a real company and is finished to a standard I'd be happy to show.
 
-- A series of short investment memos analysing market themes using economic data, valuation frameworks, and structured research methodology.
-- An audit-style financial reporting project on easyJet plc focused on audit risk assessment, IFRS-aware commentary, and supporting Excel / Python workings.
+## Projects
 
-## Featured audit project
+- **Morrisons Market Street** — strategy & operations review (19 slides, 104 sources)
+- **E-Commerce Commercial Intelligence** — SQL + Power BI on 1M+ transactions ([repo](https://github.com/zwhatmough/ecommerce-commercial-intelligence))
+- **AI Investment Memo Assistant** — Python pipeline producing cited investment memos ([repo](https://github.com/zwhatmough/memo-assistant) · [live demo](https://memo-assistant.streamlit.app))
+- **Integrated 3-Statement Models** — Tesco & Diageo (DCF, trading comps)
+- **Morrisons LBO** — CD&R take-private (2021)
+- **Investment Memo Series** — five buy-side-style memos with data workbooks
+- **easyJet FY2025** — audit risk review
 
-- [easyJet Audit Risk Review](./easyjet-audit-risk-review/)
+Two projects (E-Commerce Intelligence and the AI Memo Assistant) live in their own repositories and are linked from the site; everything else is contained here.
